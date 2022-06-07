@@ -56,14 +56,15 @@
             // Console.Clear();
             Console.WriteLine("Užduotis 1.5 - Padarykite konsolės meniu skirtingose eilutėse (1) Pirkti, (2) Parduoti, (3) Likučiai. Išveskite pasirinktą meniu punktą.");
 
-            Console.WriteLine(
-            "Pasirinkite meniu:" + Environment.NewLine +
-            "(1) Pirkti" + Environment.NewLine +
-            "(2) Parduoti" + Environment.NewLine +
-            "(3) Likučiai" + Environment.NewLine);
+            Console.WriteLine("(1)\nPirkti(2)\nParduoti\n(3) Likučiai");
 
             var pasirinktas_meniu = Console.ReadKey().KeyChar;
-            Console.WriteLine("Pasirinktas: {0}", pasirinktas_meniu) ;
+
+            Console.WriteLine("\"Pasirinktas yra:" + pasirinktas_meniu + "\"");
+            Console.WriteLine("\"Pasirinktas yra:{0}\"", pasirinktas_meniu) ;
+            Console.WriteLine($"\"Pasirinktas yra:{pasirinktas_meniu}\"");
+
+
 
         }
     }
