@@ -7,13 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicMokymai", "BasicMokyma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Užduotis nr.1", "Užduotis nr.1\Užduotis nr.1.csproj", "{3A1E274D-205E-44C5-9C53-68ACB58D8080}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Užduotis nr.2", "Užduotis nr.2\Užduotis nr.2.csproj", "{A9D21DEB-E570-43C0-A115-B4B93AA0615E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Užduotis nr.2", "Užduotis nr.2\Užduotis nr.2.csproj", "{A9D21DEB-E570-43C0-A115-B4B93AA0615E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Užduotis nr. 3", "Užduotis nr. 3\Užduotis nr. 3.csproj", "{D3EEBD3C-2069-4990-B1B6-317A50683831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Užduotis nr. 3", "Užduotis nr. 3\Užduotis nr. 3.csproj", "{D3EEBD3C-2069-4990-B1B6-317A50683831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String kintamieji", "String kintamieji\String kintamieji.csproj", "{EC0FFA3E-88B3-4C62-8FAA-EB1AA9B76446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "String kintamieji", "String kintamieji\String kintamieji.csproj", "{EC0FFA3E-88B3-4C62-8FAA-EB1AA9B76446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tower of Hanoi", "Tower of Hanoi\Tower of Hanoi.csproj", "{89D9B593-618B-4B07-8137-D770E6C09927}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tower of Hanoi", "Tower of Hanoi\Tower of Hanoi.csproj", "{89D9B593-618B-4B07-8137-D770E6C09927}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kintamieji", "Kintamieji\Kintamieji.csproj", "{9CF38B1A-595A-4176-A536-DF2D277ED31F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kintamieji užduotis", "Kintamieji užduotis\Kintamieji užduotis.csproj", "{29725ED1-5982-47FF-9B54-4E23D50A9E4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{89D9B593-618B-4B07-8137-D770E6C09927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89D9B593-618B-4B07-8137-D770E6C09927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89D9B593-618B-4B07-8137-D770E6C09927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF38B1A-595A-4176-A536-DF2D277ED31F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF38B1A-595A-4176-A536-DF2D277ED31F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF38B1A-595A-4176-A536-DF2D277ED31F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF38B1A-595A-4176-A536-DF2D277ED31F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
