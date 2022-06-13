@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "String kintamieji", "String
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tower of Hanoi", "Tower of Hanoi\Tower of Hanoi.csproj", "{89D9B593-618B-4B07-8137-D770E6C09927}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kintamieji", "Kintamieji\Kintamieji.csproj", "{9CF38B1A-595A-4176-A536-DF2D277ED31F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kintamieji", "Kintamieji\Kintamieji.csproj", "{9CF38B1A-595A-4176-A536-DF2D277ED31F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kintamieji užduotis", "Kintamieji užduotis\Kintamieji užduotis.csproj", "{29725ED1-5982-47FF-9B54-4E23D50A9E4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kintamieji užduotis", "Kintamieji užduotis\Kintamieji užduotis.csproj", "{29725ED1-5982-47FF-9B54-4E23D50A9E4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tipu mokymai", "Tipu mokymai\Tipu mokymai.csproj", "{6E7EB618-1A1B-4637-9453-EBB156588B93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29725ED1-5982-47FF-9B54-4E23D50A9E4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E7EB618-1A1B-4637-9453-EBB156588B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E7EB618-1A1B-4637-9453-EBB156588B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E7EB618-1A1B-4637-9453-EBB156588B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E7EB618-1A1B-4637-9453-EBB156588B93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
