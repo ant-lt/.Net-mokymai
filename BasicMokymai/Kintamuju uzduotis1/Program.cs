@@ -49,9 +49,14 @@
             long kintLong = long.MaxValue;
             short kintShort = short.MaxValue;
 
-            Console.WriteLine("Rezultatas 1 {0}",  kintLong / kintShort);
-            Console.WriteLine("Rezultatas 2 {0}", (kintLong / kintShort)-long.MaxValue );
-            Console.WriteLine("Rezultatas 3 {0}", ((kintLong / kintShort) - long.MaxValue) + int.MaxValue);
+            double rezultas3 = (double)kintLong / kintShort;
+
+            Console.WriteLine("padalinkite didesnį skaičių iš mažesnio {0}", rezultas3 );
+            
+            double rezultatas31 = rezultas3 - long.MaxValue; 
+            Console.WriteLine("iš rezultato atimkite maksimalų long skaičių {0}", rezultatas31 );
+
+            Console.WriteLine("ir pridėkite maksimalų int skaičių {0}", rezultatas31 + int.MaxValue);
 
 
         }

@@ -19,11 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kintamieji", "Kintamieji\Ki
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kintamieji užduotis", "Kintamieji užduotis\Kintamieji užduotis.csproj", "{29725ED1-5982-47FF-9B54-4E23D50A9E4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tipu mokymai", "Tipu mokymai\Tipu mokymai.csproj", "{6E7EB618-1A1B-4637-9453-EBB156588B93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tipu mokymai", "Tipu mokymai\Tipu mokymai.csproj", "{6E7EB618-1A1B-4637-9453-EBB156588B93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matematikos operatoriai", "Matematikos operatoriai\Matematikos operatoriai.csproj", "{62A633DB-32FB-48DC-B375-9F33B8F052B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matematikos operatoriai", "Matematikos operatoriai\Matematikos operatoriai.csproj", "{62A633DB-32FB-48DC-B375-9F33B8F052B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kintamuju uzduotis1", "Kintamuju uzduotis1\Kintamuju uzduotis1.csproj", "{861C525D-CB69-46F9-A0F9-E417EC468474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kintamuju uzduotis1", "Kintamuju uzduotis1\Kintamuju uzduotis1.csproj", "{861C525D-CB69-46F9-A0F9-E417EC468474}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operatoriai", "Operatoriai\Operatoriai.csproj", "{759C51E8-3921-4273-976F-174ABF7F7BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operatoriai_uzduotis", "Operatoriai_uzduotis\Operatoriai_uzduotis.csproj", "{46776AAB-19AB-4D0A-A307-44F504981980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Savarankiska uzduotis 1", "Savarankiska uzduotis 1\Savarankiska uzduotis 1.csproj", "{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +81,18 @@ Global
 		{861C525D-CB69-46F9-A0F9-E417EC468474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861C525D-CB69-46F9-A0F9-E417EC468474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861C525D-CB69-46F9-A0F9-E417EC468474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759C51E8-3921-4273-976F-174ABF7F7BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759C51E8-3921-4273-976F-174ABF7F7BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759C51E8-3921-4273-976F-174ABF7F7BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759C51E8-3921-4273-976F-174ABF7F7BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46776AAB-19AB-4D0A-A307-44F504981980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46776AAB-19AB-4D0A-A307-44F504981980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46776AAB-19AB-4D0A-A307-44F504981980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46776AAB-19AB-4D0A-A307-44F504981980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
