@@ -25,11 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matematikos operatoriai", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kintamuju uzduotis1", "Kintamuju uzduotis1\Kintamuju uzduotis1.csproj", "{861C525D-CB69-46F9-A0F9-E417EC468474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operatoriai", "Operatoriai\Operatoriai.csproj", "{759C51E8-3921-4273-976F-174ABF7F7BEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operatoriai", "Operatoriai\Operatoriai.csproj", "{759C51E8-3921-4273-976F-174ABF7F7BEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operatoriai_uzduotis", "Operatoriai_uzduotis\Operatoriai_uzduotis.csproj", "{46776AAB-19AB-4D0A-A307-44F504981980}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operatoriai_uzduotis", "Operatoriai_uzduotis\Operatoriai_uzduotis.csproj", "{46776AAB-19AB-4D0A-A307-44F504981980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Savarankiska uzduotis 1", "Savarankiska uzduotis 1\Savarankiska uzduotis 1.csproj", "{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Savarankiska uzduotis 1", "Savarankiska uzduotis 1\Savarankiska uzduotis 1.csproj", "{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loginiai operatoriai", "Loginiai operatoriai\Loginiai operatoriai.csproj", "{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
