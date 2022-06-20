@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operatoriai_uzduotis", "Ope
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Savarankiska uzduotis 1", "Savarankiska uzduotis 1\Savarankiska uzduotis 1.csproj", "{3C7105F1-755F-4EC4-8C54-EAB0D1CAF551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loginiai operatoriai", "Loginiai operatoriai\Loginiai operatoriai.csproj", "{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loginiai operatoriai", "Loginiai operatoriai\Loginiai operatoriai.csproj", "{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IF salygos", "IF salygos\IF salygos.csproj", "{E53CEC55-5803-4614-B245-57394411B249}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE58B34B-1C73-45F4-8DAE-8F1CFA4E2D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E53CEC55-5803-4614-B245-57394411B249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E53CEC55-5803-4614-B245-57394411B249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E53CEC55-5803-4614-B245-57394411B249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E53CEC55-5803-4614-B245-57394411B249}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
