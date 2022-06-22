@@ -184,6 +184,55 @@
             else
                 Console.WriteLine("Klaida");
 
+
+            Console.WriteLine("Hello, Switch!");
+            Console.WriteLine("Iveskite meniu");
+            int meniuChoise = Convert.ToInt32(Console.ReadLine());
+
+            switch (meniuChoise)
+            {
+                case 1:
+                    Console.WriteLine("Vartotojas pasirinko 1");
+                    break;
+                case 2:
+                    Console.WriteLine("Vartotojas pasirinko 2");
+                    break;
+                case 3:
+                    Console.WriteLine("Vartotojas pasirinko 3");
+                    break;
+                case 4:
+                    Console.WriteLine("Vartotojas pasirinko 4");
+                    break;
+                default:
+                    Console.WriteLine("");
+                    break;
+            }
+
+            // ------------------------------------
+
+            Console.WriteLine("-----------------------------");
+            var isvedamasRezultatas = meniuChoise switch
+            {
+                1 => "Vartotojas pasirinko 1",
+                2 => "Vartotojas pasirinko 2",
+                3 => "Vartotojas pasirinko 3",
+                _ => "Vartotojas nieko nepasirinko",
+            };
+            Console.WriteLine(isvedamasRezultatas);
+
+            // ------------------------------------
+
+            Console.WriteLine("-----------------------------");
+
+            switch (meniuChoise)
+            {
+                case 1:
+                case 2:
+                    Console.WriteLine("Vartotojas pasirinko 1 arba 2");
+                    break;
+
+            }
+
         }
     }
 }
