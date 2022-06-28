@@ -47,6 +47,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metodai_praktika", "Metodai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praktika_Metodai", "Praktika_Metodai\Praktika_Metodai.csproj", "{725D0CF9-3831-4DAA-B62A-446BFDAE5F48}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3FF10820-AFED-4934-85AA-07AAD0897C05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metodu_testavimas", "Metodu_testavimas\Metodu_testavimas.csproj", "{421FB3FB-FE94-4663-B78B-2D152013C510}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,9 +145,16 @@ Global
 		{725D0CF9-3831-4DAA-B62A-446BFDAE5F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{725D0CF9-3831-4DAA-B62A-446BFDAE5F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{725D0CF9-3831-4DAA-B62A-446BFDAE5F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{421FB3FB-FE94-4663-B78B-2D152013C510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{421FB3FB-FE94-4663-B78B-2D152013C510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{421FB3FB-FE94-4663-B78B-2D152013C510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{421FB3FB-FE94-4663-B78B-2D152013C510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{421FB3FB-FE94-4663-B78B-2D152013C510} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58E85068-77F7-4096-95F2-2C2C141251B5}

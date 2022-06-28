@@ -1,6 +1,6 @@
 ﻿namespace Praktika_Metodai
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -28,11 +28,14 @@
             //  Console.WriteLine($"Tarpu kiekis pradzioje = {kiekTarpuPradzioje(tekstas)}");
 
             // 9 užduotis
+            /*
             int pradzioje;
             int pabaigoje;
             Tarpai(tekstas, out pradzioje, out pabaigoje);
 
             Console.WriteLine($"Pradžioje yra tarpų = {pradzioje} , Gale yra tarpų = {pabaigoje}");
+            */
+            Console.WriteLine($"a raidziu kiekis = {Araides(tekstas)}");
         }
 
         public static int kiekTarpuGale(string tekstas)
@@ -55,7 +58,7 @@
 
 
         public static int ZodziuKiekis(string tekstas)
-        {
+        { // 6  užduotis
             int zodziai = 0;
             tekstas = tekstas.Trim();
             string[] split = tekstas.Split(' ');
@@ -71,6 +74,18 @@
             int pradinisIlgis = tekstas.Length;
             kiekisPradzioje = pradinisIlgis - tekstas.TrimStart().Length;
             kiekisPabaigoje = pradinisIlgis - tekstas.TrimEnd().Length;
+        }
+
+        public static int Araides(string tekstas)
+        {
+            //10 užduotis
+            // Įvestas teikstas kaip argumentas perduodamas metodui. Metodas grąžina 'a' raidžių kiekį tekste.
+            int pradinisIlgis = tekstas.Length;
+
+            tekstas = tekstas.Replace("a", "");
+            return pradinisIlgis - tekstas.TrimStart().Length;
+
+
         }
     }
 }
