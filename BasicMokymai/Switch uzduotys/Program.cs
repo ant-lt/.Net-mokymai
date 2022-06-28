@@ -424,7 +424,7 @@ Pavyzdzio atsakymas: "Jums priklauso nemokami kalėdų sausainiai"
             if (data1.Month == 12 && data1.Day == 24)
                 Console.WriteLine("Jums priklauso nemokami kalėdiniai sausainiai");
             else if (data2.Month == 12 && data2.Day == 24)
-                Console.WriteLine("Jums priklauso nemokami kalėdiniai sausainiai"
+                Console.WriteLine("Jums priklauso nemokami kalėdiniai sausainiai");
             if (data3.Month == 12 && data3.Day == 24)
                 Console.WriteLine("Jums priklauso nemokami kalėdiniai sausainiai");
             else if (data4.Month == 12 && data4.Day == 24)
