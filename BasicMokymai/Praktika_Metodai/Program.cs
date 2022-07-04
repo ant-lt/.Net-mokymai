@@ -35,11 +35,27 @@
 
             Console.WriteLine($"Pradžioje yra tarpų = {pradzioje} , Gale yra tarpų = {pabaigoje}");
             */
-            Console.WriteLine($"a raidziu kiekis = {Araides(tekstas)}");
+            // Console.WriteLine($"a raidziu kiekis = {Araides(tekstas)}");
+            Console.WriteLine($"ar mokausi = {ArMokausi(tekstas)}");
+
+            Console.WriteLine($"pirmos a vieta = {PirmosAvieta(tekstas)}");
+
+        }
+
+
+        public static int TekstoIlgisBeTarpu(string tekstas)
+        {
+            // 5 uzduotis
+            //  - Metodas grąžina tarpų kiekį teksto gale
+            int pradinisIlgis = tekstas.Length;
+            tekstas = tekstas.TrimEnd();
+
+            return tekstas.Trim().Length;
         }
 
         public static int kiekTarpuGale(string tekstas)
         {
+            // 6 uzduotis
             //  - Metodas grąžina tarpų kiekį teksto gale
             int pradinisIlgis = tekstas.Length;
             tekstas = tekstas.TrimEnd();
@@ -49,6 +65,7 @@
 
         public static int kiekTarpuPradzioje(string tekstas)
         {
+            // 8 uzduotis
             //  - Metodas grąžina tarpų kiekį teksto gale
             int pradinisIlgis = tekstas.Length;
             tekstas = tekstas.TrimStart();
@@ -70,6 +87,7 @@
 
         public static void Tarpai (string tekstas, out int kiekisPradzioje, out int kiekisPabaigoje)
         {
+            // 9 uzduotis
             //Metodas grąžina dvi reikšmes pirmoji - tarpų kiekį teksto pradžioje, antroji - tarpų kiekį teksto gale
             int pradinisIlgis = tekstas.Length;
             kiekisPradzioje = pradinisIlgis - tekstas.TrimStart().Length;
@@ -80,12 +98,50 @@
         {
             //10 užduotis
             // Įvestas teikstas kaip argumentas perduodamas metodui. Metodas grąžina 'a' raidžių kiekį tekste.
-            int pradinisIlgis = tekstas.Length;
-
-            tekstas = tekstas.Replace("a", "");
-            return pradinisIlgis - tekstas.TrimStart().Length;
-
-
+            
+            return tekstas.Length - tekstas.Replace("a", "").Length;
         }
-    }
+
+        public static string ArMokausi(string tekstas)
+        {
+            //- Metodas grąžina žodžius Taip arba Ne ar tekste rado žodį 'mokausi'. N.B.grąžinama string, o ne bool.
+            //-  Išvesti rezultatą Main metode.
+            return  tekstas.Contains("mokausi")? "Taip" : "Ne";
+        }
+
+        public static int PirmosAvieta(string tekstas)
+        {
+            //- Įvestas teikstas kaip argumentas perduodamas metodui. Metodas grąžina pirmos 'a' raidės vietą tekste.
+            //-  Išvesti rezultatą Main metode.
+            return tekstas.IndexOf('a');
+        }
+
+        public static string ArMokausi2(string tekstas)
+        {
+            // 11 uzduotis
+            //- Metodas grąžina žodžius Taip arba Ne ar tekste rado žodį 'mokausi'. N.B.grąžinama string, o ne bool.
+            //-  Išvesti rezultatą Main metode.
+/*    - Metodas grąžina žodžius Taip arba Ne ar tekste rado žodį 'mokausi'. 
+Bet tik tuo atveju jei žodis 'mokausi' nesulipęs su kitu žodžiu.
+N.B. grąžinama string, o ne bool.
+-  Išvesti rezultatą Main metode.
+Pvz: 
+> Iveskite teksta:
+_ ' as labai mokausi programuoti     '
+> Ar yra mokausi: Taip
+
+Pvz: 
+> Iveskite teksta:
+_ ' as_labai_mokausi_programuoti     '
+> Ar yra mokausi: Ne
+            */
+//return tekstas.ToLower.Contains("mokausi") ? "Taip" : "Ne";
+
+return tekstas.Contains("mokausi", StringComparison.OrdinalIgnoreCase) ? "Taip" : "Ne";
+}
+
+
+
+
+}
 }

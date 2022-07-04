@@ -4,6 +4,20 @@ namespace Metodu_testavimas
     public class Metodu_test
     {
         [TestMethod]
+        public void TekstoIlgisBeTarpu_Test()
+        {
+            var fake = "as mokausi    ";
+            var expected = 10;
+
+            var actual = Praktika_Metodai.Program.TekstoIlgisBeTarpu(fake);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+
+
+        [TestMethod]
         public void KiekYraZodziu_Test()
         {
             var fake = "as mokausi programuoti";
@@ -155,9 +169,42 @@ namespace Metodu_testavimas
 
             Assert.AreEqual(expected, actual);
 
+        }
 
+        [TestMethod]
+        public void Armokausi_test1()
+        {
+            var fake = "as mokausi programimo";
+            var expected = "Taip";
+
+            var actual = Praktika_Metodai.Program.ArMokausi(fake);
+
+            Assert.AreEqual(expected, actual);
 
         }
 
+        [TestMethod]
+        public void Armokausi2_test1()
+        {
+            var fake = "as mokausi programimo";
+            var expected = "Taip";
+
+            var actual = Praktika_Metodai.Program.ArMokausi2(fake);
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void Armokausi2_test2()
+        {
+            var fake = "as_mokausi_programimo";
+            var expected = "Ne";
+
+            var actual = Praktika_Metodai.Program.ArMokausi2(fake);
+
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
