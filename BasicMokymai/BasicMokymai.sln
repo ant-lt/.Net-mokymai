@@ -51,13 +51,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3FF10820
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metodu_testavimas", "Metodu_testavimas\Metodu_testavimas.csproj", "{421FB3FB-FE94-4663-B78B-2D152013C510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P014 Debug", "P014 Debug\P014 Debug.csproj", "{F32C4F33-83E0-4D4C-B63D-DB7C76DDBF30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P014 Debug", "P014 Debug\P014 Debug.csproj", "{F32C4F33-83E0-4D4C-B63D-DB7C76DDBF30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P014_Debug_tests", "P014_Debug_tests\P014_Debug_tests.csproj", "{A5DAC4F5-FA74-4908-8168-427A15113C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P014_Debug_tests", "P014_Debug_tests\P014_Debug_tests.csproj", "{A5DAC4F5-FA74-4908-8168-427A15113C9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Užduotis Skaičiuotuvas", "Užduotis Skaičiuotuvas\Užduotis Skaičiuotuvas.csproj", "{2A3B68BA-FCCE-4BB3-A498-84B4B8D2967F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Užduotis Skaičiuotuvas", "Užduotis Skaičiuotuvas\Užduotis Skaičiuotuvas.csproj", "{2A3B68BA-FCCE-4BB3-A498-84B4B8D2967F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skaičiatuvo_test", "Skaičiatuvo_test\Skaičiatuvo_test.csproj", "{4C835619-7703-438F-BBAB-264D4372CCA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skaičiatuvo_test", "Skaičiatuvo_test\Skaičiatuvo_test.csproj", "{4C835619-7703-438F-BBAB-264D4372CCA3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uzduotis_daugiakampis", "Uzduotis_daugiakampis\Uzduotis_daugiakampis.csproj", "{8D44613A-BAB5-47E1-A3F8-E35065473979}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Daugiakampio_ploto_testavimas", "Daugiakampio_ploto_testavimas\Daugiakampio_ploto_testavimas.csproj", "{C4590723-10A3-4A18-B531-D5801F5DEC6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uzduotis_DNR", "Uzduotis_DNR\Uzduotis_DNR.csproj", "{D5380882-2EC9-453D-BB35-EE3EAD5BFE6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ciklai", "Ciklai\Ciklai.csproj", "{04BBF8B4-5BBF-4A37-88A8-7848C7E1608F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +181,22 @@ Global
 		{4C835619-7703-438F-BBAB-264D4372CCA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C835619-7703-438F-BBAB-264D4372CCA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C835619-7703-438F-BBAB-264D4372CCA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D44613A-BAB5-47E1-A3F8-E35065473979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D44613A-BAB5-47E1-A3F8-E35065473979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D44613A-BAB5-47E1-A3F8-E35065473979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D44613A-BAB5-47E1-A3F8-E35065473979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4590723-10A3-4A18-B531-D5801F5DEC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4590723-10A3-4A18-B531-D5801F5DEC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4590723-10A3-4A18-B531-D5801F5DEC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4590723-10A3-4A18-B531-D5801F5DEC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5380882-2EC9-453D-BB35-EE3EAD5BFE6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5380882-2EC9-453D-BB35-EE3EAD5BFE6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5380882-2EC9-453D-BB35-EE3EAD5BFE6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5380882-2EC9-453D-BB35-EE3EAD5BFE6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BBF8B4-5BBF-4A37-88A8-7848C7E1608F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BBF8B4-5BBF-4A37-88A8-7848C7E1608F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BBF8B4-5BBF-4A37-88A8-7848C7E1608F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BBF8B4-5BBF-4A37-88A8-7848C7E1608F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -181,6 +205,7 @@ Global
 		{421FB3FB-FE94-4663-B78B-2D152013C510} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 		{A5DAC4F5-FA74-4908-8168-427A15113C9A} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 		{4C835619-7703-438F-BBAB-264D4372CCA3} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
+		{C4590723-10A3-4A18-B531-D5801F5DEC6F} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58E85068-77F7-4096-95F2-2C2C141251B5}
