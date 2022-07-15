@@ -7,9 +7,12 @@ namespace For_Uzduotys
         static void Main(string[] args)
         {
             // Console.WriteLine("Ivestas skaicius {0}", PakeltiLaipsniu(2, 3));
-            //SkaiciuTrikampis();
-            Console.WriteLine(SkaiciuPiramide());
-            
+            // Console.WriteLine(SkaiciuTrikampis() );
+            //  Console.WriteLine(SkaiciuPiramide());
+            //Console.WriteLine(DidejanciuSkaiciuStatusTrikampis());
+            //Console.WriteLine(DidejanciuSkaiciuPiramide());
+            //SkaiciuEile("1",5);
+            DaugybosLentele();
         }
 
         /*
@@ -102,7 +105,7 @@ namespace For_Uzduotys
         5555
         55555
          */
-        public static string SkaiciuTrikampis ()
+        public static string SkaiciuTrikampis()
         {
             int skaicius = ReadIntNumber();
             StringBuilder sb = new StringBuilder();
@@ -128,7 +131,7 @@ namespace For_Uzduotys
             }
             return sb.ToString();
         }
-
+        
         /*
          * 
          * 
@@ -199,19 +202,149 @@ namespace For_Uzduotys
        4444
        55555
         */
+        public static string DidejanciuSkaiciuStatusTrikampis()
+        {
+            int skaicius = ReadIntNumber();
+            StringBuilder sb = new StringBuilder();
 
-/*
- * Sukurti metodą DidejanciuSkaiciuPiramide, kuri paprašo vartotojo įvesti skaičių nuo 1 iki 9
-(jeigu įveda netinkamą skaičių prašo įvesti vėl, kol įves tinkamą )).
-Metodas turi grąžinti atitinkamą lygiašonį trikampį (ivestas skaičius 4).
-1
-22
-333
-4444
-333
-22
-1
-*/
+            bool skaiciusGeras = false;
 
-}
+            while (!skaiciusGeras)
+            {
+                if (skaicius >= 1 && skaicius <= 9)
+                {
+
+                    for (int i = 0; i <= skaicius; i++)
+                    {
+                        for (int j = 0; j < i; j++)
+                        {
+                            sb.Append(i);
+                        }
+                        sb.AppendLine();
+                    }
+
+                    skaiciusGeras = true;
+
+                }
+                else Console.WriteLine("Klaida");
+            }
+            return sb.ToString();
+        }
+
+
+
+        /*
+         * Sukurti metodą DidejanciuSkaiciuPiramide, kuri paprašo vartotojo įvesti skaičių nuo 1 iki 9
+        (jeigu įveda netinkamą skaičių prašo įvesti vėl, kol įves tinkamą )).
+        Metodas turi grąžinti atitinkamą lygiašonį trikampį (ivestas skaičius 4).
+        1
+        22
+        333
+        4444
+        333
+        22
+        1
+        */
+
+        public static string DidejanciuSkaiciuPiramide()
+        {
+            int skaicius = ReadIntNumber();
+            StringBuilder sb = new StringBuilder();
+
+            bool skaiciusGeras = false;
+
+            while (!skaiciusGeras)
+            {
+                if (skaicius >= 1 && skaicius <= 9)
+                {
+
+                    for (int i = 0; i <= skaicius; i++)
+                    {
+                        for (int j = 0; j < i; j++)
+                        {
+                            sb.Append(i);
+                        }
+                        sb.AppendLine();
+                    }
+
+
+                    for (int i = 1; i <= skaicius+1; i++)
+                    {
+                        for (int j = i; j < skaicius; j++)
+                        {
+                            sb.Append(skaicius-i);
+                        }
+                        sb.AppendLine();
+                    }
+
+                    skaiciusGeras = true;
+
+                }
+                else Console.WriteLine("Klaida");
+            }
+            return sb.ToString();
+        }
+
+        private static int SkaiciausTikrinimas(string? txt) => int.TryParse(txt, out int num) == false ? 0 : num;
+
+
+        /*
+        * 1. Uzduotis:
+        * Parašykite metodą SkaiciuEile kuri išvestu vienoje eilutėje skaičių grupes tokiu principu: -> 1 -> 11 -> 111 -> 1111 -> 11111 -> .......
+           programa turi paprašyti nurodyti skaičių ir grupių kiekį naudokite for ir StringBuilder
+        */
+
+        private static void SkaiciuEile(string input, int kiek)
+        {
+            var sb = new StringBuilder();
+            for (int i = 0; i < kiek; i++)
+            {
+                Console.Write("->");
+                sb.Append(input);
+                Console.Write(sb);
+            }
+        }
+
+        /*
+ * 2. Sukurkite programa, kuri paprasytu naudotojo ivesti skaiciu. Ivedus skaiciu turetu atspausdinti to skaiciaus daugybos lentele. Pvz
+    15 X 1 = 15                                                                                                   
+    15 X 2 = 30                                                                                                   
+    15 X 3 = 45                                                                                                   
+    15 X 4 = 60                                                                                                   
+    15 X 5 = 75                                                                                                   
+    15 X 6 = 90                                                                                                   
+    15 X 7 = 105                                                                                                  
+    15 X 8 = 120                                                                                                  
+    15 X 9 = 135                                                                                                  
+    15 X 10 = 150
+ */
+        public static void DaugybosLentele()
+        {
+            int skaicius = ReadIntNumber();
+            var sb = new StringBuilder();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                sb.Append(skaicius).Append(" X ").Append(i).Append(" = ").Append(skaicius * i);
+                Console.WriteLine(sb);
+                sb.Clear();
+            }
+        }
+
+       
+        /*
+         * 4. Sukurkite programa, kuri atspausdintu sia forma:
+                *
+               *** 
+              *****
+             *******
+            ********* 
+             *******
+              *****
+               ***
+                * 
+        */
+
+
+    }
 }

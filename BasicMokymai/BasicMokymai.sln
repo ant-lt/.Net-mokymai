@@ -73,11 +73,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "For Ciklai", "For Ciklai\Fo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "For_Ciklai_testai", "For_Ciklai_testai\For_Ciklai_testai.csproj", "{19B9734A-1123-44DB-BB4F-B9300F7B94C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "For_Uzduotys", "For_Uzduotys\For_Uzduotys.csproj", "{B40DB419-A662-42E9-9363-DBD31A7F201C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "For_Uzduotys", "For_Uzduotys\For_Uzduotys.csproj", "{B40DB419-A662-42E9-9363-DBD31A7F201C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForUzduotysTest", "ForUzduotysTest\ForUzduotysTest.csproj", "{CD862EC1-674B-4A3C-A412-F5015E51238F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForUzduotysTest", "ForUzduotysTest\ForUzduotysTest.csproj", "{CD862EC1-674B-4A3C-A412-F5015E51238F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String _Builder", "String _Builder\String _Builder.csproj", "{61AC579B-90F5-4623-9BB2-23B39B94EEC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "String _Builder", "String _Builder\String _Builder.csproj", "{61AC579B-90F5-4623-9BB2-23B39B94EEC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skaiciuotuvas2", "Skaiciuotuvas2\Skaiciuotuvas2.csproj", "{C97618B4-606F-4338-A6FC-4D2508A79236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masyvai", "Masyvai\Masyvai.csproj", "{F54D2C1C-FA2E-45AC-A399-0125D768ED28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -233,6 +237,14 @@ Global
 		{61AC579B-90F5-4623-9BB2-23B39B94EEC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61AC579B-90F5-4623-9BB2-23B39B94EEC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61AC579B-90F5-4623-9BB2-23B39B94EEC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97618B4-606F-4338-A6FC-4D2508A79236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97618B4-606F-4338-A6FC-4D2508A79236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97618B4-606F-4338-A6FC-4D2508A79236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97618B4-606F-4338-A6FC-4D2508A79236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F54D2C1C-FA2E-45AC-A399-0125D768ED28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54D2C1C-FA2E-45AC-A399-0125D768ED28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54D2C1C-FA2E-45AC-A399-0125D768ED28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54D2C1C-FA2E-45AC-A399-0125D768ED28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
