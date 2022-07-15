@@ -18,7 +18,7 @@
        */
 namespace Skaiciuotuvas2
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -27,51 +27,71 @@ namespace Skaiciuotuvas2
 
         public static void PagrindinisMeniu()
         {
-            Console.WriteLine($"MENIU:\n" +
-                "1. Nauja operacija.\n" +
-                "2. Testi su rezultatu\n" +
-                "3. Išeiti iš programos\n\n" +
-                "Pasirinkite meniu punktą:");
+            bool testi = true;
+            double? rezultatas = null;
+            string skaicius1_text = string.Empty;
+            string skaicius2_text = string.Empty;
 
-            int veiksmas = Convert.ToInt32(Console.ReadLine());
+            while (testi)
+            { 
+                Console.WriteLine($"\n" + "1. Nauja operacija. " + "2. Testi su rezultatu. " + "3. Išeiti iš programos\n" +"Pasirinkite meniu punktą:");
+            
+                int veiksmas = Convert.ToInt32(Console.ReadLine());
 
-            switch (veiksmas)
-            {
+                switch (veiksmas)
+                {
                 case 1:
-                    NaujaOperacija();
-                    break;
+                        veiksmas = Operacija();
+                        if (veiksmas == 6)
+                        {
+                            //jeigu kvadratines saknies traukimas tai tik vienas skaicius reikalingas
+                            Console.WriteLine("Įveskite 1 skaičiu:");
+                            skaicius1_text = Console.ReadLine();
+                            rezultatas = Skaiciuotuvas(DoubleSkaiciausTikrinimas(skaicius1_text), 0, veiksmas);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Įveskite du skaičius:");
+                            skaicius1_text = Console.ReadLine();
+                            skaicius2_text = Console.ReadLine();
+                            rezultatas = Skaiciuotuvas(DoubleSkaiciausTikrinimas(skaicius1_text), DoubleSkaiciausTikrinimas(skaicius2_text), veiksmas);
+                        }                        
+                        break;                        
                 case 2:
-                    PagrindinisMeniu();
-                    break;
+                        veiksmas = Operacija();
+                      
+                        if (veiksmas != 6)
+                        {
+                            //jeigu kvadratines saknies traukimas tai panaudojame esama rezultata.
+                            Console.WriteLine("Įveskite skaičiu:");
+                            skaicius2_text = Console.ReadLine();
+                        }
+                        rezultatas = Skaiciuotuvas((double)rezultatas, DoubleSkaiciausTikrinimas(skaicius2_text), veiksmas);
+                        break;
                 case 3:
-                    break;
-                case 4:
+                        testi = false;
+                        rezultatas = null;
                     break;
                 default:
+                        Console.Clear();
                     break;
             };
-            
+                if (rezultatas != null) Console.WriteLine("Rezultatas: {0}", rezultatas);          
+            }
         }
 
-        public static void NaujaOperacija()
+        public static int Operacija()
         {
-
             Console.WriteLine($"1. Sudetis\n" +
                 "2. Atimtis\n" +
                 "3. Daugyba\n" +
                 "4. Dalyba\n" +
+                "5. Laipsnio pakelimas\n"+
+                "6. Kvadratines šaknies traukimas\n"+
                 "Pasirinkite operaciją:");
 
-            int veiksmas = Convert.ToInt32(Console.ReadLine());
-
-            string skaicius1_text = Console.ReadLine();
-            string skaicius2_text = Console.ReadLine();
-
-            Console.WriteLine("Rezultatas: {0}", Skaiciuotuvas(Convert.ToDouble(skaicius1_text), Convert.ToDouble(skaicius2_text), veiksmas)); 
-
+            return Convert.ToInt32(Console.ReadLine());
         }
-
-
         public static double Sudetis(double skaicius1, double skaicius2) => skaicius1 + skaicius2;
         public static double Atimtis(double skaicius1, double skaicius2) => skaicius1 - skaicius2;
         public static double Daugyba(double skaicius1, double skaicius2) => skaicius1 * skaicius2;
@@ -94,13 +114,16 @@ namespace Skaiciuotuvas2
                 case 4:
                     rezultatas = Dalyba(skaicius1, skaicius2);
                     break;
-
+                case 5:
+                    rezultatas = Math.Pow(skaicius1, skaicius2);
+                    break;
+                case 6:
+                    rezultatas = Math.Sqrt(skaicius1);
+                    break;
             }
-
             return rezultatas;
         }
 
-        private static int SkaiciausTikrinimas(string? tekstas) => int.TryParse(tekstas, out int skaicius) ? skaicius : 0;
-
+      private static double DoubleSkaiciausTikrinimas(string? tekstas) => double.TryParse(tekstas, out double skaicius) ? skaicius : 0;
     }
 }
