@@ -9,12 +9,13 @@ namespace Masyvai_uzduotis
 
             // Uzduotis_1();
             // Uzduotis_2();
-            // Uzduotis_3();
+            IvedimasIsKlaviaturos();
+             //Uzduotis_3();
             // Uzduotis_4();
             // Uzduotis_5();
             // Uzduotis_6();
             // Uzduotis_7();
-            Uzduotis_8();
+           // Uzduotis_8();
         }
 
         /*
@@ -87,10 +88,11 @@ Edvinas
          */
 
 
-        static public void Uzduotis_3()
+        static public void IvedimasIsKlaviaturos()
         {
             bool validu = false;
             int zmoniuSkaicius = 0;
+            
 
             while (!validu)
             {
@@ -111,16 +113,26 @@ Edvinas
                 vardai[i] = vardas;
             }
 
+            Uzduotis_3(vardai);
+
+        }
+        static public string[] Uzduotis_3(string[] vardai)
+        {
+            string[] tarpinis = new string[vardai.Length];
             //atspausdinti visu vardus atvirkstine seka.
             Console.WriteLine("----------------");
 
-            for (int i = zmoniuSkaicius - 1; i >= 0; i--)
+            
+            for (int i = vardai.Length - 1; i >= 0; i--)
             {
                 Console.WriteLine(vardai[i]);
+                tarpinis[vardai.Length - i - 1 ] = vardai[i];
             }
-
+            return tarpinis;
 
         }
+
+
         /*
          * 4. Parasykite programa, kuri leistu ivesti kiek zmoniu siandiena atejo i pamoka. Ivedus skaiciu programa prasytu ivesti visu atejusiu zmoniu vardus. Kada visi vardai buna ivesti programa turetu atspausdinti ilgiausia varda ekrane. Jei vardai yra vienodo ilgio turetu atspausdinti abu vardus.
             Pvz: 
