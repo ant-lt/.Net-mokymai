@@ -83,7 +83,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skaiciuotuvas2", "Skaiciuot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masyvai", "Masyvai\Masyvai.csproj", "{F54D2C1C-FA2E-45AC-A399-0125D768ED28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skaiciatuvo2_Test", "Skaiciatuvo2_Test\Skaiciatuvo2_Test.csproj", "{EF150EC3-619E-455E-8281-E199BDD2444B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skaiciatuvo2_Test", "Skaiciatuvo2_Test\Skaiciatuvo2_Test.csproj", "{EF150EC3-619E-455E-8281-E199BDD2444B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masyvai_uzduotis", "Masyvai_uzduotis\Masyvai_uzduotis.csproj", "{BE634657-F0B1-44AB-9E29-26C336806CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -251,6 +253,10 @@ Global
 		{EF150EC3-619E-455E-8281-E199BDD2444B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF150EC3-619E-455E-8281-E199BDD2444B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF150EC3-619E-455E-8281-E199BDD2444B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE634657-F0B1-44AB-9E29-26C336806CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE634657-F0B1-44AB-9E29-26C336806CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE634657-F0B1-44AB-9E29-26C336806CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE634657-F0B1-44AB-9E29-26C336806CE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
