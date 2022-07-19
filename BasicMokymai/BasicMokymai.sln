@@ -87,9 +87,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skaiciatuvo2_Test", "Skaici
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masyvai_uzduotis", "Masyvai_uzduotis\Masyvai_uzduotis.csproj", "{BE634657-F0B1-44AB-9E29-26C336806CE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masyvu_kartojimas", "Masyvu_kartojimas\Masyvu_kartojimas.csproj", "{78AA7D2F-A1B3-4E91-B10E-AB612FDDA167}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masyvu_kartojimas", "Masyvu_kartojimas\Masyvu_kartojimas.csproj", "{78AA7D2F-A1B3-4E91-B10E-AB612FDDA167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masyvu_kartojimas_test", "Masyvu_kartojimas_test\Masyvu_kartojimas_test.csproj", "{65B0B2B1-464C-4C2D-963A-F202A02B30C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Masyvu_kartojimas_test", "Masyvu_kartojimas_test\Masyvu_kartojimas_test.csproj", "{65B0B2B1-464C-4C2D-963A-F202A02B30C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List", "List\List.csproj", "{218204F3-02B2-4BC6-8AFF-7F6130D3FC45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List_uzduotys", "List_uzduotys\List_uzduotys.csproj", "{2BE0D107-E0EF-4F5F-8519-BC33F61E0C8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List_testai", "List_testai\List_testai.csproj", "{50A7DE28-227D-432C-9BED-4CA98D60E998}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -269,6 +275,18 @@ Global
 		{65B0B2B1-464C-4C2D-963A-F202A02B30C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65B0B2B1-464C-4C2D-963A-F202A02B30C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65B0B2B1-464C-4C2D-963A-F202A02B30C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218204F3-02B2-4BC6-8AFF-7F6130D3FC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218204F3-02B2-4BC6-8AFF-7F6130D3FC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218204F3-02B2-4BC6-8AFF-7F6130D3FC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218204F3-02B2-4BC6-8AFF-7F6130D3FC45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BE0D107-E0EF-4F5F-8519-BC33F61E0C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BE0D107-E0EF-4F5F-8519-BC33F61E0C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BE0D107-E0EF-4F5F-8519-BC33F61E0C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BE0D107-E0EF-4F5F-8519-BC33F61E0C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A7DE28-227D-432C-9BED-4CA98D60E998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A7DE28-227D-432C-9BED-4CA98D60E998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A7DE28-227D-432C-9BED-4CA98D60E998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A7DE28-227D-432C-9BED-4CA98D60E998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -283,6 +301,7 @@ Global
 		{CD862EC1-674B-4A3C-A412-F5015E51238F} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 		{EF150EC3-619E-455E-8281-E199BDD2444B} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 		{65B0B2B1-464C-4C2D-963A-F202A02B30C0} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
+		{50A7DE28-227D-432C-9BED-4CA98D60E998} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58E85068-77F7-4096-95F2-2C2C141251B5}

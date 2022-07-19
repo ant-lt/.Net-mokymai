@@ -68,5 +68,36 @@ namespace Masyvu_kartojimas_test
         }
 
 
+        [TestMethod]
+        public void TestRikiouti4Raides1()
+        {
+            string[] fake = new string[] { "C", "A", "B","S" };
+            string expected = "A-B-C-S";
+
+            var actual = Masyvu_kartojimas.Program.RikiuotiKeturiasRaides(fake);
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        public void TestRikiouti4Raides2()
+        {
+            string[] fake = new string[] { "C", "A", "A", "E" };
+            string expected = "A-A-C-E";
+
+            var actual = Masyvu_kartojimas.Program.RikiuotiKeturiasRaides(fake);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void TestRikiouti4Raides3()
+        {
+            string[] fake = new string[] { "c", "a", "b", "e" };
+            string expected = "a-b-c-e";
+
+            var actual = Masyvu_kartojimas.Program.RikiuotiKeturiasRaides(fake);
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

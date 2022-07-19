@@ -1,11 +1,12 @@
-﻿namespace Masyvu_kartojimas
+﻿
+namespace Masyvu_kartojimas
 {
     public class Program
     {
         static void Main(string[] args)
         {
 
-            Uzduotis_4();
+            Uzduotis_5();
         }
 
         /*
@@ -47,6 +48,18 @@
             Console.WriteLine("rezultatas: " +DidziausiasSkaiciusMasyve(masyvas));
         }
 
+        static public int DidziausiasSkaiciusMasyve(int[] masyvas)
+        {
+            int didziausiasSkaicius = masyvas[0];
+            for (int i = 1; i < masyvas.Length; i++)
+            {
+                if (didziausiasSkaicius < masyvas[i]) didziausiasSkaicius = masyvas[i];
+            }
+
+            return didziausiasSkaicius;
+        }
+
+
         /*
          * 3. ## RIKIUOTI SKAICIUS DIDĖJIMO TVARKA ##
        Duotas vienmatis sveikų skaičių masyvas. 
@@ -70,8 +83,27 @@
 
         }
 
+        public static int[] RikiuotiDidejimoTvarka(int[] masyvas)
+        {
+
+            for (int i = 0; i < masyvas.Length; i++)
+            {
+                for (int j = i + 1; j < masyvas.Length; j++)
+                {
+                    if (masyvas[i] > masyvas[j])
+                    {
+                        int temp = masyvas[i];
+                        masyvas[i] = masyvas[j];
+                        masyvas[j] = temp;
+                    }
+                }
+            }
+            Console.WriteLine(string.Join(", ", masyvas));
+            return masyvas;
+        }
+
         /*
-         * ## RIKIUOTI TRIS RAIDES ##
+         * ## 4. RIKIUOTI TRIS RAIDES ##
 Parašykite programą kurioje vienas metodas.
   - Naudotojo paprašome įvesti 3 raides (atskirai).
     Būtina validacija kad įvesta tik vienas simbolis.
@@ -93,12 +125,10 @@ Parašykite programą kurioje vienas metodas.
 
             for (int  i = 0;  i < raides.Length ;  i++)
             {
-                Console.WriteLine($"Iveskite { i + 1 } raide.");
-                string eilute= Console.ReadLine();
-                raides[i] = eilute[0];
+                raides[i] = RaidesIvedimas($"Iveskite {i + 1} raide.");
             }
 
-            Console.WriteLine(RikiuotiTrisRaides(raides));
+            Console.WriteLine(string.Join(", ", RikiuotiTrisRaides(raides)));
             
         }
 
@@ -121,47 +151,78 @@ Parašykite programą kurioje vienas metodas.
         }
 
         /*
-         * 
+         *     ## 5. RIKIUOTI KETURIAS RAIDES ## 
+            - Naudotojo paprašome įvesti 4 raides (atskirai). 
+              Būtina validacija kad įvesta tik vienas simbolis. 
+            - Metodas priima masyvą iš string (su prielaidai kad kiekvienas string yra tik 1 raide) 
+              ir grąžina string (NB! ne masyvą) - surikiuotas raides pagal abecelę atskirtas -. 
+            Pvz: 
+            > Iveskite pirma raide:
+            _ C
+            > Iveskite antra raide:
+            _ A
+            > Iveskite trecia raide:
+            _ B
+            > Iveskite ketvirtą raide:
+            _ E
+            > A-B-C-E
+            
          * 
          * 
          */
         static public void Uzduotis_5()
         {
-   
+            string[] raides = new string[4];
 
-        }
-
-
-
-        static public int DidziausiasSkaiciusMasyve(int[] masyvas)
-        {
-            int didziausiasSkaicius = masyvas[0];
-            for (int i = 1; i < masyvas.Length; i++)
+            for (int i = 0; i < raides.Length; i++)
             {
-                if (didziausiasSkaicius < masyvas[i]) didziausiasSkaicius = masyvas[i];
+                raides[i] = RaidesIvedimas($"Iveskite {i + 1} raide.").ToString();
             }
 
-            return didziausiasSkaicius;
+            Console.WriteLine(RikiuotiKeturiasRaides(raides));
+
         }
-        public static int[] RikiuotiDidejimoTvarka(int[] masyvas)
+
+
+        static public string RikiuotiKeturiasRaides(string[] raides)
         {
-          
-            for (int i = 0; i < masyvas.Length; i++)
+            char [] charMas = new char[raides.Length];
+
+            for (int i = 0; i < raides.Length; i++)
             {
-                for (int j = i + 1; j < masyvas.Length; j++)
+                charMas[i] = raides[i][0];
+            }
+
+            RikiuotiTrisRaides(charMas);
+
+            return String.Join("-", charMas);
+        }
+
+        static public char RaidesIvedimas(string tekstas)
+        {
+            char raide=' ';
+            string eilute;
+            bool ivestaRaide=false;
+
+            while (!ivestaRaide) 
+            {
+                Console.WriteLine(tekstas);
+                eilute = Console.ReadLine();
+
+                if (char.IsLetter(eilute[0]) && eilute.Length == 1)
                 {
-                    if (masyvas[i] > masyvas[j])
-                    {
-                        int temp = masyvas[i];
-                        masyvas[i] = masyvas[j];
-                        masyvas[j] = temp;
-                    }
+                    raide = eilute[0];
+                    ivestaRaide = true;
+                }
+                else
+                {
+                    Console.WriteLine("Klaida. Pakartokite ivedima.");
+                    ivestaRaide=false;
                 }
             }
-            Console.WriteLine( string.Join(", ", masyvas ));
-            return masyvas;
+           
+            return raide;
         }
-
 
     }
 }
