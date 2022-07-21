@@ -8,7 +8,16 @@ namespace ForEach
         {
             Console.WriteLine("Hello, ForEach!");
 
-            TreciasKlasesUzdavinys();
+            //TreciasKlasesUzdavinys();
+            string sakinis1 = "Labas as esu Kodelskis ir labai megstu programuoti";
+            List<string> sarasas1 = IsmetytiZodzius(sakinis1);
+
+            foreach (var zodis in sarasas1)
+            {
+                Console.Write(zodis + " ");
+            }
+            //Console.WriteLine(IsmetytiZodzius());
+
 
         }
 
@@ -211,6 +220,30 @@ namespace ForEach
          * 
          * 
          */
+
+
+        public static List<string> IsmetytiZodzius(string sakinys)
+        {
+            List<string> zodziu5sarasas = new List<string>();
+            string[] split = sakinys.Split(' ');
+
+            foreach (string s in split)
+            {
+                if (s.Length >= 5) zodziu5sarasas.Add(s.Trim());
+            }
+            zodziu5sarasas.Sort();
+            return zodziu5sarasas;
+        }
+
+        public static List<string> Sujungti2zodziuSarasus(List<string> sarasas1, List<string> sarasas2)
+        {
+            List<string> rezultatas = new List<string>();
+
+            rezultatas.AddRange(sarasas1);
+            rezultatas.AddRange(sarasas2);
+            
+            return rezultatas;
+        }
 
 
     }
