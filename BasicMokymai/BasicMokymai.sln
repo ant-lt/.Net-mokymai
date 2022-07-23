@@ -105,6 +105,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSkaiciuotuvas", "Super
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSkaiciuotuvas_Tests", "SuperSkaiciuotuvas_Tests\SuperSkaiciuotuvas_Tests.csproj", "{9BD836D7-556B-4298-A503-CA8005A8EA39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -311,6 +313,10 @@ Global
 		{9BD836D7-556B-4298-A503-CA8005A8EA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD836D7-556B-4298-A503-CA8005A8EA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD836D7-556B-4298-A503-CA8005A8EA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

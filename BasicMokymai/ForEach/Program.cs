@@ -222,29 +222,132 @@ namespace ForEach
          */
 
 
+        public static string[] IstrauktiZodzius(string sakinys) => sakinys.Split(' ');
         public static List<string> IsmetytiZodzius(string sakinys)
         {
-            List<string> zodziu5sarasas = new List<string>();
-            string[] split = sakinys.Split(' ');
+            var zodziai = IstrauktiZodzius(sakinys);
+            var ilgiZodziai = SurikiuotiZodzius(IsgautiIlgusZodzius(zodziai));
+            var trumpiZodziai = IsvalytiIlgusZodzius(zodziai);
+            var galutinisSakinys = SujungtiSarasusZodziu(trumpiZodziai, ilgiZodziai);
 
-            foreach (string s in split)
-            {
-                if (s.Length >= 5) zodziu5sarasas.Add(s.Trim());
-            }
-            zodziu5sarasas.Sort();
-            return zodziu5sarasas;
+            return galutinisSakinys;
         }
 
-        public static List<string> Sujungti2zodziuSarasus(List<string> sarasas1, List<string> sarasas2)
+        public static List<string> IsgautiIlgusZodzius(string[] zodziai, int ilgis = 5)
         {
-            List<string> rezultatas = new List<string>();
+            var ilgiZodziai = new List<string>();
 
-            rezultatas.AddRange(sarasas1);
-            rezultatas.AddRange(sarasas2);
-            
-            return rezultatas;
+            foreach (string zodis in zodziai)
+            {
+                if (zodis.Length >= ilgis)
+                    ilgiZodziai.Add(zodis);
+            }
+
+            return ilgiZodziai;
         }
 
+        public static List<string> SurikiuotiZodzius(List<string> zodziai)
+        {
+            zodziai.Sort();
+
+            return zodziai;
+        }
+
+        public static List<string> IsvalytiIlgusZodzius(string[] zodziai, int ilgis = 5)
+        {
+            var trumpiZodziai = new List<string>();
+
+            foreach (var zodis in zodziai)
+            {
+                if (zodis.Length < ilgis)
+                    trumpiZodziai.Add(zodis);
+            }
+
+            return trumpiZodziai;
+        }
+
+        public static List<string> SujungtiSarasusZodziu(List<string> trumpiZodziai, List<string> ilgiZodziai)
+        {
+            var sakinioKonstruktorius = new StringBuilder();
+            var zodziai = new List<string>();
+            zodziai.AddRange(trumpiZodziai);
+            zodziai.AddRange(ilgiZodziai);
+
+            foreach (var zodis in zodziai)
+            {
+                sakinioKonstruktorius.Append(zodis + " ");
+            }
+
+            Console.WriteLine(sakinioKonstruktorius);
+
+            return zodziai;
+        }
+
+        /*
+         * Parašyti metodą SukonstruotiKalade(rusis, kortos). Sis metodas turi sukonstruoti kalade is duotu 2 string sarasu.
+        ///  Po to parasyti metoda, kuris surikiuoja jusu kalade pagal abeceles tvarka.
+        ///  Ir galiausiai parasyti, kad jusu visas kortas atspausdintu ekrane.
+        ///  PRIMINIMAS: 
+          Kortu rusys
+        
+          "Sirdziu",
+                "Bugnu",
+                "Vynu",
+                "Kryziu",
+          
+          Kortos
+          
+          "Tuzas",
+                "Dviake",
+                "Triake",
+                "Keturake",
+                "Penkake",
+                "Sesake",
+                "Septynake",
+                "Astuonake",
+                "Devynakės",
+                "Desimtake",
+                "Valetas",
+                "Dama",
+                "Karalius",
+
+        PVZ: Isvedimas - Bugnu Tuzas, Bugnu Dviake...Bugnu Dama, Bugnu Karalius... Kryziu Karalius
+         * 
+         *
+         */
+
+        public static void KaladesKonstruktorius()
+        {
+            var rusys = new List<string>()
+            {
+
+            };
+
+            var kortos = new List<string>()
+            {
+
+            };
+        }
+
+        public static List<string> SurikiuotiKalade(List<string> kalage)
+        {
+            kalage.Sort();
+            return kalage;
+        }
+        static public List<string> SukonstruotiKalade(List<string> rusys, List<string> kortos)
+        {
+            List<string> kalade = new List<string>();
+
+            foreach (string rusis in rusys)
+            {
+                foreach (string korta in kortos)
+                {
+                    kalade.Add($"{rusis} {korta}");
+                }
+            }
+
+            return kalade;
+        }
 
     }
 }

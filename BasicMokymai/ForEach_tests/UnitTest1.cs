@@ -49,16 +49,32 @@ namespace ForEach_tests
             CollectionAssert.AreEqual(expected, actual);
         }
 
-        [TestMethod]
-        public void Sujungti2zodziuSarasus_Test()
-        {
-            var fake1 = new List<string> { "Kodelskis", "labai", "Labas", "megstu", "programuoti" };
-            var fake2= new List<string> { "Kodelskis", "labai", "Labas", "megstu", "programuoti" };
 
-            var expected = new List<string> { "Kodelskis", "labai", "Labas", "megstu", "programuoti", "Kodelskis", "labai", "Labas", "megstu", "programuoti" };
-            var actual = ForEach.Program.Sujungti2zodziuSarasus(fake1, fake2);
-            CollectionAssert.AreEqual(expected, actual);
+        /*************/
+        [TestMethod()] 
+        public void IstrauktiZodzius_Test() 
+        { 
+            var fake = "Labas as esu Kodelskis"; 
+            var expected = new string[] { "Labas", "as", "esu", "Kodelskis" }; 
+            var actual = ForEach.Program.IstrauktiZodzius(fake); 
+            CollectionAssert.AreEqual(expected, actual); 
         }
+        [TestMethod()] public void IsgautiIlgusZodzius_Test() 
+        { 
+            var fake = new string[] { "Labas", "as", "esu", "Kodelskis" }; 
+            var expected = new List<string> { "Labas", "Kodelskis" }; 
+            var actual = ForEach.Program.IsgautiIlgusZodzius(fake); 
+            CollectionAssert.AreEqual(expected, actual); 
+        }
+        [TestMethod()] public void SujungtiSarasusZodziu_Test() 
+        { 
+            var fake1 = new List<string> { "Labas", "as" }; 
+            var fake2 = new List<string> { "esu", "Kodelskis" }; 
+            var expected = new List<string> { "Labas", "as", "esu", "Kodelskis" }; 
+            var actual = ForEach.Program.SujungtiSarasusZodziu(fake1, fake2); CollectionAssert.AreEqual(expected, actual); 
+        }
+
+
 
 
     }
