@@ -101,11 +101,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEach", "ForEach\ForEach.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForEach_tests", "ForEach_tests\ForEach_tests.csproj", "{6FEFF6E8-9E09-4950-9FF2-9F3AD40D960D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSkaiciuotuvas", "SuperSkaiciuotuvas\SuperSkaiciuotuvas.csproj", "{F8CE44E9-B7EB-4090-B02A-D28D5F022DCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSkaiciuotuvas", "SuperSkaiciuotuvas\SuperSkaiciuotuvas.csproj", "{F8CE44E9-B7EB-4090-B02A-D28D5F022DCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSkaiciuotuvas_Tests", "SuperSkaiciuotuvas_Tests\SuperSkaiciuotuvas_Tests.csproj", "{9BD836D7-556B-4298-A503-CA8005A8EA39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSkaiciuotuvas_Tests", "SuperSkaiciuotuvas_Tests\SuperSkaiciuotuvas_Tests.csproj", "{9BD836D7-556B-4298-A503-CA8005A8EA39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_Random", "Paskaita_Random\Paskaita_Random.csproj", "{8185CE6E-723A-4CB2-96A0-809317241010}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -317,6 +319,10 @@ Global
 		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8185CE6E-723A-4CB2-96A0-809317241010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8185CE6E-723A-4CB2-96A0-809317241010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8185CE6E-723A-4CB2-96A0-809317241010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8185CE6E-723A-4CB2-96A0-809317241010}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
