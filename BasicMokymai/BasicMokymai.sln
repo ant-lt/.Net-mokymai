@@ -107,7 +107,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSkaiciuotuvas_Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{827A6FF2-224D-42C3-BBFE-B594B8B5BE5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paskaita_Random", "Paskaita_Random\Paskaita_Random.csproj", "{8185CE6E-723A-4CB2-96A0-809317241010}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_Random", "Paskaita_Random\Paskaita_Random.csproj", "{8185CE6E-723A-4CB2-96A0-809317241010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicKartojimas", "BasicKartojimas\BasicKartojimas.csproj", "{19A7AB99-40B8-44EC-B4EB-ECA4D8A7E323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -323,6 +325,10 @@ Global
 		{8185CE6E-723A-4CB2-96A0-809317241010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8185CE6E-723A-4CB2-96A0-809317241010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8185CE6E-723A-4CB2-96A0-809317241010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A7AB99-40B8-44EC-B4EB-ECA4D8A7E323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A7AB99-40B8-44EC-B4EB-ECA4D8A7E323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A7AB99-40B8-44EC-B4EB-ECA4D8A7E323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A7AB99-40B8-44EC-B4EB-ECA4D8A7E323}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
