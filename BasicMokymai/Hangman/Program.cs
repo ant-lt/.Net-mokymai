@@ -18,12 +18,17 @@ Apribojimai:
 namespace Hangman
 {
 
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-            
-            char[,,] zmogelis = new char[7, 4, 3]{
+        static Dictionary<int, string[]> zodziai = new Dictionary<int, string[]>();
+
+        static char[,,] zmogelis = new char[8, 4, 3]{
+                {
+                {' ',' ',' ' },
+                {' ',' ',' ' },
+                { ' ',' ',' ' },
+                { ' ',' ',' ' }
+                },
                 {
                 {' ','O',' ' },
                 {' ',' ',' ' },
@@ -68,45 +73,61 @@ namespace Hangman
                 }
             };
 
+        static void Main(string[] args)
+        {
+            bool testi = true;
+            string pasirinkta_tema = "";
 
-            //var klausimai = new Dictionary<int, string>;
-            var zodziai = new Dictionary<int, string[]>()
-             {
-                { 1, new string[2] { "VARDAI", "Vitas"} },
-                { 2, new string[2] { "VARDAI", "Petras"} }
-            };
+            Reset();
 
-            foreach (var zodis in zodziai)
+            while (testi)
             {
-                Console.WriteLine(zodis.Key + " "+ zodis.Value[0] + " "+ zodis.Value[1]);
+                Console.Clear();
+                switch (Temos_pasirinkimas())
+                {
+                    case 1:
+                        pasirinkta_tema = "VARDAI"; ;
+                        break;
+                    case 2:
+                        pasirinkta_tema = "MIESTAI";
+                        break;
+                    case 3:
+                        pasirinkta_tema = "VALSTYBES";
+                        break;
+                    case 4:
+                        pasirinkta_tema = "KITA";
+                        break;
+                }
+
+                if (ArYraNepanaudotuZodziuTemoje(pasirinkta_tema))
+                {
+
+                    zaidimas_kartuves(ParinktiAtsitiktiniZodiTemoje(pasirinkta_tema));
+                    testi = true;
+                }
+                else
+                {
+                    Console.WriteLine($"Temoje {pasirinkta_tema} neliko žodžių. Pasirinkite kitą temą.");
+                    Console.ReadKey();
+                }
+
+
+
+                Console.WriteLine(zodziai.Count());
+                if (zodziai.Count() == 0)
+                {
+                    testi = false;
+                    Console.WriteLine("Visuose temose neliko žodžių. Žaidimas užbaigtas.");
+                    Console.ReadKey();
+                }
             }
-
-            // zodziai.ContainsValue();
-
-            //Console.WriteLine(zodziai[1].GetValue(0));
-
-            String spejamas_zodis = "Testavimas";
-            bool[] atvaizduojamos_raides = new bool[spejamas_zodis.Length];
-
-           
-
-            nupiesti_kartuves(zmogelis,0);
-
-            atvaizduok_zodi(spejamas_zodis, atvaizduojamos_raides);
-
-            atidenk_raide(spejamas_zodis, atvaizduojamos_raides, 'a');
-
-            atvaizduok_zodi(spejamas_zodis, atvaizduojamos_raides);
-
-            Console.WriteLine(atidenktos_visos_raides(atvaizduojamos_raides)); 
-            // Console.WriteLine(temos_pasirinkimas()); 
         }
 
-        public static int temos_pasirinkimas()
+        public static int Temos_pasirinkimas()
         {
             bool testi = true;
             int tema = 0;
-            
+
 
             while (testi)
             {
@@ -129,8 +150,8 @@ namespace Hangman
             return tema;
         }
 
-        public static void nupiesti_zmogeli(char[,,] zmogelis, int karimo_stadija)
-         {
+        public static void Nupiesti_zmogeli(char[,,] zmogelis, int karimo_stadija)
+        {
             for (int i = 0; i < 4; i++)
             {
                 Console.Write("|           ");
@@ -142,22 +163,17 @@ namespace Hangman
             }
         }
 
-        public static void nupiesti_kartuves(char[,,] zmogelis, int karimo_stadija)
+        public static void Nupiesti_kartuves(char[,,] zmogelis, int karimo_stadija)
         {
             Console.WriteLine(" - - - - - - |");
-            nupiesti_zmogeli(zmogelis, 0);
-            nupiesti_zmogeli(zmogelis, 1);
-            nupiesti_zmogeli(zmogelis, 2);
-            nupiesti_zmogeli(zmogelis, 3);
-            nupiesti_zmogeli(zmogelis, 4);
-            nupiesti_zmogeli(zmogelis, 5);
-            nupiesti_zmogeli(zmogelis, 6);
+            Nupiesti_zmogeli(zmogelis, karimo_stadija);
             Console.WriteLine("|");
             Console.WriteLine("- - - -");
         }
 
-        static void atvaizduok_zodi(string zodis, bool[] mask)
+        static void Atvaizduok_zodi(string zodis, bool[] mask)
         {
+            Console.Write("Žodis: ");
             for (int i = 0; i < zodis.Length; i++)
             {
                 if (mask[i])
@@ -175,7 +191,7 @@ namespace Hangman
         }
 
 
-        static bool atidenk_raide(string zodis, bool[] mask, char raide)
+        static bool Atidenk_raide(string zodis, bool[] mask, char raide)
         {
             bool yra_raide = false;
             for (int i = 0; i < zodis.Length; i++)
@@ -190,7 +206,7 @@ namespace Hangman
             return yra_raide;
         }
 
-        static bool atidenktos_visos_raides(bool[] mask)
+        static public bool Atidenktos_visos_raides(bool[] mask)
         {
             bool visos_raides = true;
             for (int i = 0; i < mask.Length; i++)
@@ -201,9 +217,173 @@ namespace Hangman
                 }
 
             }
-            // Console.WriteLine(visos_raides);
             return visos_raides;
         }
 
+        static public void Reset()
+        {
+
+            zodziai.Clear();
+            zodziai = new Dictionary<int, string[]>()
+             {
+                { 1, new string[2] { "VARDAI", "Vitas"} },
+                { 2, new string[2] { "VARDAI", "Petras"} },
+                { 3, new string[2] { "VARDAI", "Jonas"} },
+                { 4, new string[2] { "VARDAI", "Rasa"} },
+                { 5, new string[2] { "VARDAI", "Alfredas" } },
+                { 6, new string[2] { "VARDAI", "Egidijus" } },
+                { 7, new string[2] { "VARDAI", "Anastasija"} },
+                { 8, new string[2] { "VARDAI", "Viktorija" } },
+                { 9, new string[2] { "VARDAI", "Aldona" } },
+                { 10, new string[2] { "VARDAI", "Monika" } },
+                { 11, new string[2] { "MIESTAI", "Vilnius" } },
+                { 12, new string[2] { "MIESTAI", "Kaunas" } },
+                { 13, new string[2] { "MIESTAI", "Jonava" } },
+                { 14, new string[2] { "MIESTAI", "Alytus" } },
+                { 15, new string[2] { "MIESTAI", "Ariogala"} },
+                { 16, new string[2] { "MIESTAI", "Druskininkai"} },
+                { 17, new string[2] { "MIESTAI", "Dusetos"} },
+                { 18, new string[2] { "MIESTAI", "Garliava" } },
+                { 19, new string[2] { "MIESTAI", "Ignalina" } },
+                { 20, new string[2] { "MIESTAI", "Jurbarkas" } },
+                { 21, new string[2] { "VALSTYBES", "Lietuva" } },
+                { 22, new string[2] { "VALSTYBES", "Latvija" } },
+                { 23, new string[2] { "VALSTYBES", "Estija" } },
+                { 24, new string[2] { "VALSTYBES", "Lenkija" } },
+                { 25, new string[2] { "VALSTYBES", "Ukraina" } },
+                { 26, new string[2] { "VALSTYBES", "Airija" } },
+                { 27, new string[2] { "VALSTYBES", "Japonija" } },
+                { 28, new string[2] { "VALSTYBES", "Panama" } },
+                { 29, new string[2] { "VALSTYBES", "Belgija" } },
+                { 30, new string[2] { "VALSTYBES", "Rumunija" } },
+                { 31, new string[2] { "KITA", "Laris" } },
+                { 32, new string[2] { "KITA", "Euras" } },
+                { 33, new string[2] { "KITA", "Microsoft" } },
+                { 34, new string[2] { "KITA", "Kodas" } },
+                { 35, new string[2] { "KITA", "Mokymai" } },
+                { 36, new string[2] { "KITA", "Programa"} },
+                { 37, new string[2] { "KITA", "Projektas" } },
+                { 38, new string[2] { "KITA", "Programuotojas" } },
+                { 39, new string[2] { "KITA", "Praktika", } },
+                { 40, new string[2] { "KITA", "Forumas" } }
+            };
+
+        }
+
+        static public bool ArYraNepanaudotuZodziuTemoje(string tema)
+        {
+            bool rezultatas = false;
+            foreach (var zodis in zodziai)
+            {
+                if (zodis.Value[0] == tema)
+                {
+                    rezultatas = true;
+                    break;
+                }
+            }
+
+            return rezultatas;
+        }
+
+        static public void zaidimas_kartuves(string zodis)
+        {
+
+            int gyvybiu_likutis = 7;
+            bool zodis_atspetas = false;
+
+            String pasirinktas_zodis = zodis;
+            bool[] atvaizduojamos_raides = new bool[pasirinktas_zodis.Length];
+
+            List<char> spetos_raides = new List<char>();
+
+            spetos_raides.Clear();
+
+
+            while (gyvybiu_likutis > 0 && !zodis_atspetas)
+            {
+
+                Console.Clear();
+                Nupiesti_kartuves(zmogelis, 7 - gyvybiu_likutis);
+
+                if (spetos_raides.Count() > 0) Console.WriteLine("Spėtos raidės:" + string.Join(",", spetos_raides.ToArray()));
+
+                Atvaizduok_zodi(pasirinktas_zodis, atvaizduojamos_raides);
+
+
+                String vartotojoIvestis = IvedimasIsKlaviaturos("Spėkite raidę ar žodį:");
+
+
+                if (vartotojoIvestis.Length == 1)
+                {
+                    if (!Atidenk_raide(pasirinktas_zodis, atvaizduojamos_raides, vartotojoIvestis[0]))
+                    {
+                        gyvybiu_likutis--;
+                        spetos_raides.Add(vartotojoIvestis[0]);
+                    }
+                }
+                else if (vartotojoIvestis.Equals(pasirinktas_zodis))
+                {
+                    zodis_atspetas = true;
+                }
+                else gyvybiu_likutis--;
+
+
+
+                if (Atidenktos_visos_raides(atvaizduojamos_raides))
+                {
+                    zodis_atspetas = true;
+
+                }
+                else Console.WriteLine("Bandymu likutis: " + gyvybiu_likutis);
+                if (zodis_atspetas)
+                {
+                    Console.WriteLine(pasirinktas_zodis);
+                    Console.WriteLine("Žodis atspetas.");
+                }
+            }
+
+        }
+
+
+        static int AtsitiktinisSkaicius(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
+
+        static string ParinktiAtsitiktiniZodiTemoje(string tema)
+        {
+            string rezultatas = "";
+
+            bool ieskoti = true;
+            int zodzio_nr = 0;
+            while (ieskoti)
+            {
+                zodzio_nr = AtsitiktinisSkaicius(1, 40 + 1);
+
+                //patikrinti ar tokiu numeriu yra zodis sarase, jeigu nera tada generuojamas kitas numeris 
+                if (zodziai.ContainsKey(zodzio_nr))
+                {
+                    if (zodziai[zodzio_nr].GetValue(0) == tema)
+                    {
+                        rezultatas = zodziai[zodzio_nr].GetValue(1).ToString();
+                        ieskoti = false;
+                        // surasta zodis is karto salinamas is zodziu saraso
+                        zodziai.Remove(zodzio_nr);
+                    }
+                }
+            }
+
+            return rezultatas;
+        }
+
+        public static string IvedimasIsKlaviaturos(string aprasymas)
+        // Įvedimas iš klaviaturos su pilnu aprašymu atvaizdavimu.
+        // Grąžinamas string kuris yra įvestas.
+        {
+            Console.WriteLine(aprasymas);
+            string ivestasTekstas = Console.ReadLine();
+            return ivestasTekstas;
+        }
     }
-}
+ }

@@ -111,7 +111,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paskaita_Random", "Paskaita
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicKartojimas", "BasicKartojimas\BasicKartojimas.csproj", "{19A7AB99-40B8-44EC-B4EB-ECA4D8A7E323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "Hangman\Hangman.csproj", "{CDA22A62-81B1-465D-9594-31D4B46A6013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangman", "Hangman\Hangman.csproj", "{CDA22A62-81B1-465D-9594-31D4B46A6013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman_testai", "Hangman_testai\Hangman_testai.csproj", "{84838377-2AA8-41C9-9837-3E40D15E7345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -335,6 +337,10 @@ Global
 		{CDA22A62-81B1-465D-9594-31D4B46A6013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDA22A62-81B1-465D-9594-31D4B46A6013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDA22A62-81B1-465D-9594-31D4B46A6013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84838377-2AA8-41C9-9837-3E40D15E7345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84838377-2AA8-41C9-9837-3E40D15E7345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84838377-2AA8-41C9-9837-3E40D15E7345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84838377-2AA8-41C9-9837-3E40D15E7345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -352,6 +358,7 @@ Global
 		{50A7DE28-227D-432C-9BED-4CA98D60E998} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 		{6FEFF6E8-9E09-4950-9FF2-9F3AD40D960D} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 		{9BD836D7-556B-4298-A503-CA8005A8EA39} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
+		{84838377-2AA8-41C9-9837-3E40D15E7345} = {3FF10820-AFED-4934-85AA-07AAD0897C05}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58E85068-77F7-4096-95F2-2C2C141251B5}
