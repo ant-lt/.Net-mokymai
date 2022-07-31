@@ -71,7 +71,8 @@ namespace ForEach_tests
             var fake1 = new List<string> { "Labas", "as" }; 
             var fake2 = new List<string> { "esu", "Kodelskis" }; 
             var expected = new List<string> { "Labas", "as", "esu", "Kodelskis" }; 
-            var actual = ForEach.Program.SujungtiSarasusZodziu(fake1, fake2); CollectionAssert.AreEqual(expected, actual); 
+            var actual = ForEach.Program.SujungtiSarasusZodziu(fake1, fake2); 
+            CollectionAssert.AreEqual(expected, actual); 
         }
 
 
