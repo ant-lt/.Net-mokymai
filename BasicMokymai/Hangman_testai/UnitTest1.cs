@@ -97,6 +97,15 @@ namespace Hangman_testai
         [TestMethod]
         public void Nupiesti_zmogeli_karimo_stadija_0()
         // kai zmogelis neatvaizduojamas - yra visos gyvybes
+        // Turi buti suformuotas toks vaizdas
+        /*
+         
+        |              
+        |              
+        |              
+        |   
+
+         */
         {
             string expected = "|              \r\n|              \r\n|              \r\n|              \r\n";
             int karimo_stadija = 0;
@@ -107,8 +116,134 @@ namespace Hangman_testai
         }
 
         [TestMethod]
+        public void Nupiesti_zmogeli_karimo_stadija_1()
+        // kai zmogelis nera 1  gyvybes
+        // Turi buti suformuotas toks vaizdas
+        /*
+         
+        |            O 
+        |              
+        |              
+        |              
+
+         */
+        {
+            string expected = "|            O \r\n|              \r\n|              \r\n|              \r\n";
+            int karimo_stadija = 1;
+
+            var actual = Hangman.Program.Nupiesti_zmogeli(karimo_stadija);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Nupiesti_zmogeli_karimo_stadija_2()
+        // kai zmogelis nera 2 gyvybes
+        // Turi buti suformuotas toks vaizdas
+        /*
+         
+        |            O 
+        |            | 
+        |              
+        |              
+
+         */
+        {
+            string expected = "|            O \r\n|            | \r\n|              \r\n|              \r\n";
+            int karimo_stadija = 2;
+
+            var actual = Hangman.Program.Nupiesti_zmogeli(karimo_stadija);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Nupiesti_zmogeli_karimo_stadija_3()
+        // kai zmogelis nera 3 gyvybes
+        // Turi buti suformuotas toks vaizdas
+        /*
+         
+        |            O 
+        |           \| 
+        |              
+        |                         
+
+         */
+        {
+            string expected = "|            O \r\n|           \\| \r\n|              \r\n|              \r\n";
+            int karimo_stadija = 3;
+
+            var actual = Hangman.Program.Nupiesti_zmogeli(karimo_stadija);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Nupiesti_zmogeli_karimo_stadija_4()
+        // kai zmogelis nera 4 gyvybes
+        // Turi buti suformuotas toks vaizdas
+        /*
+        
+        |            O 
+        |           \|/
+        |              
+        |              
+                        
+         */
+        {
+            string expected = "|            O \r\n|           \\|/\r\n|              \r\n|              \r\n";
+            int karimo_stadija = 4;
+
+            var actual = Hangman.Program.Nupiesti_zmogeli(karimo_stadija);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Nupiesti_zmogeli_karimo_stadija_5()
+        // kai zmogelis nera 5 gyvybes
+        // Turi buti suformuotas toks vaizdas
+        /*
+        
+        |            O 
+        |           \|/
+        |            O 
+        |           
+        
+         */
+        {
+            string expected = "|            O \r\n|           \\|/\r\n|            O \r\n|              \r\n";
+            int karimo_stadija = 5;
+
+            var actual = Hangman.Program.Nupiesti_zmogeli(karimo_stadija);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Nupiesti_zmogeli_karimo_stadija_6()
+        // kai zmogelis nera 6 gyvybiu
+        // Turi buti suformuotas toks vaizdas
+        /*
+        |            O 
+        |           \|/
+        |            O 
+        |           /  
+             
+         */
+        {
+            string expected = "|            O \r\n|           \\|/\r\n|            O \r\n|           /  \r\n";
+            int karimo_stadija = 6;
+
+            var actual = Hangman.Program.Nupiesti_zmogeli(karimo_stadija);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void Nupiesti_zmogeli_karimo_stadija_7()
             // kai atvaizduojamas visas zmogelis - nera like gyvybiu
+
         {
             string expected = "|            O \r\n|           \\|/\r\n|            O \r\n|           / \\\r\n";            
             int karimo_stadija = 7;
