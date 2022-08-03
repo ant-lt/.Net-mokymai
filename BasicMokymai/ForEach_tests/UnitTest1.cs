@@ -43,8 +43,14 @@ namespace ForEach_tests
         [TestMethod]
         public void IsmetytiZodzius_Test()
         {
-            var fake = "Labas as esu Kodelskis ir labai megstu programuoti";
-            var expected = new List<string> { "Kodelskis", "labai", "Labas", "megstu", "programuoti" };
+            var fake = "Labas as esu Kodelskis";
+            var expected = new string[]
+            {
+                "as",
+                "esu",
+                "Kodelskis",
+                "Labas"
+            };
             var actual = ForEach.Program.IsmetytiZodzius(fake);
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -75,7 +81,25 @@ namespace ForEach_tests
             CollectionAssert.AreEqual(expected, actual); 
         }
 
+        [TestMethod()]
+        public void SurikiuotiSkaiciusIsTeksto_Test()
+        {
+            var fake = "518421";
+            var expected = new List<int>() { 1, 1, 2, 4, 5, 8 };
+            var actual = ForEach.Program.SurikiuotiSkaiciusIsTeksto(fake);
 
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void IstrauktiSkaiciusIrSurikiuotiSkaiciusIsTeksto_Test()
+        {
+            var fake = ForEach.Program.IstrauktiSkaicius("sdfg51sd84as21");
+            var expected = new List<int>() { 1, 1, 2, 4, 5, 8 };
+            var actual = ForEach.Program.SurikiuotiSkaiciusIsTeksto(fake);
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
 
 
     }

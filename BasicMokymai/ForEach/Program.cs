@@ -9,6 +9,7 @@ namespace ForEach
             Console.WriteLine("Hello, ForEach!");
 
             //TreciasKlasesUzdavinys();
+            /*
             string sakinis1 = "Labas as esu Kodelskis ir labai megstu programuoti";
             List<string> sarasas1 = IsmetytiZodzius(sakinis1);
 
@@ -16,7 +17,10 @@ namespace ForEach
             {
                 Console.Write(zodis + " ");
             }
+            */
             //Console.WriteLine(IsmetytiZodzius());
+
+            KaladesKonstruktorius();
 
 
         }
@@ -57,6 +61,11 @@ namespace ForEach
                 Console.WriteLine($"Vardas: {vardas}");
             }
 
+            foreach (var amzius in amziai)
+            {
+                Console.WriteLine($"Amzius: {amzius + 5}");
+            }
+
             foreach (var vardas in vardai)
             {
                 foreach (var amzius in amziai)
@@ -72,7 +81,7 @@ namespace ForEach
                 Console.WriteLine($"Vardas: {vardas}");
             }
 
-            string sakinys = "Buvo karta erdve";
+            string sakinys = "Buvo karta erdve ir ji kazkur paklydo";
 
             foreach (var raide in sakinys)
             {
@@ -151,6 +160,19 @@ namespace ForEach
             return skaiciuTeigiamumas;
         }
 
+        #region KLASES DARBAS 3. ## Parasykite metoda, kuris apskaiciuos kiek jums reikes sumoketi GPM nuo duoto imoku saraso. Sio uzdavinio GPM: 15%
+        public static void TreciasKlasesUzdavinys()
+        {
+            int gpm = 15;
+            List<double> imokos = new List<double>()
+            {
+                110,140,148.800,150.74,45.88
+            };
+
+            var rezultatas = ApskaiciuotiGPM(imokos, gpm);
+
+            Console.WriteLine($"GPM: {rezultatas.ToString("#.##")}$");
+        }
         public static double ApskaiciuotiGPM(List<double> imokos, int gpm)
         {
             var galutinisMokestis = 0d;
@@ -160,7 +182,7 @@ namespace ForEach
             }
             return galutinisMokestis * (gpm/100d);
         }
-
+        #endregion
         /*
          *  Parašyti metodą IstrauktiSkaicius, kuris priima teksta, bet grazina tik skaicius egzistuojancius paciame tekste.
           Isgavus teksta programa turetu naudoti naujai sukurta SurikiuotiSkaiciusIsTeksto metoda, kuris priima "string skaiciaiTekste" ir surikiuoja skaicius
@@ -168,7 +190,7 @@ namespace ForEach
           PVZ: Ivedame: 1sd512sd5. Programa be rusiavimo grazina mums: 15125. Programa su rusiavimu grazina mums: 11255
          * 
          */
-        public static void TreciasKlasesUzdavinys()
+        public static void Uzduotis1()
         {
      
             Console.WriteLine(IstrauktiSkaicius("1sd512sd5"));
@@ -193,8 +215,7 @@ namespace ForEach
 
             foreach (var skaicius in skaiciaiTekste)
             {
-                skaiciai.Add(skaicius);
-                // skaiciai.Add(SkaiciausTikrinimas(skaicius.ToString()));
+                skaiciai.Add(SkaiciausTikrinimas(skaicius.ToString()));
             }
 
             skaiciai.Sort();
@@ -320,13 +341,31 @@ namespace ForEach
         {
             var rusys = new List<string>()
             {
-
+                "Sirdziu",
+                "Bugnu",
+                "Vynu",
+                "Kryziu",
             };
-
             var kortos = new List<string>()
             {
-
+                "Tuzas",
+                "Dviake",
+                "Triake",
+                "Keturake",
+                "Penkake",
+                "Sesake",
+                "Septynake",
+                "Astuonake",
+                "Devynakės",
+                "Desimtake",
+                "Valetas",
+                "Dama",
+                "Karalius",
             };
+
+            var kalade = SurikiuotiKalade(SukonstruotiKalade(rusys, kortos));
+
+            AtspausdintiKalade(kalade);
         }
 
         public static List<string> SurikiuotiKalade(List<string> kalage)
@@ -347,6 +386,13 @@ namespace ForEach
             }
 
             return kalade;
+        }
+        public static void AtspausdintiKalade(List<string> kalade)
+        {
+            foreach (string korta in kalade)
+            {
+                Console.WriteLine(korta);
+            }
         }
 
     }
