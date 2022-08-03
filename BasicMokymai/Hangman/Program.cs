@@ -23,7 +23,9 @@ namespace Hangman
     public class Program
     {
         public static Dictionary<int, string[]> zodziai = new Dictionary<int, string[]>();
-        static string pasirinkta_tema="";
+        static string pasirinktaTema="";
+        static int gyvybes = 7;
+        static int pradinisKlausimuSkaicius = 0;
 
         static char[,,] zmogelis = new char[8, 4, 3]{
                 {
@@ -89,25 +91,25 @@ namespace Hangman
             while (testi)
             {
                 Console.Clear();
-                switch (Temos_pasirinkimas())
+                switch (TemosPasirinkimas())
                 {
                     case 1:
-                        pasirinkta_tema = "VARDAI"; ;
+                        pasirinktaTema = "VARDAI"; ;
                         break;
                     case 2:
-                        pasirinkta_tema = "MIESTAI";
+                        pasirinktaTema = "MIESTAI";
                         break;
                     case 3:
-                        pasirinkta_tema = "VALSTYBES";
+                        pasirinktaTema = "VALSTYBES";
                         break;
                     case 4:
-                        pasirinkta_tema = "KITA";
+                        pasirinktaTema = "KITA";
                         break;
                 }
                 
-                if (ArYraNepanaudotuZodziuTemoje( pasirinkta_tema ))
+                if (ArYraNepanaudotuZodziuTemoje( pasirinktaTema ))
                 {
-                   zaidimas_kartuves( ParinktiAtsitiktiniZodiTemoje( pasirinkta_tema ) );                   
+                   ZaidimasKartuves( ParinktiAtsitiktiniZodiTemoje( pasirinktaTema ) );                   
                    if (IvedimasTaipNe("Pakartoti žaidimą T / N ?"))
                     testi = true;
                    else
@@ -115,7 +117,7 @@ namespace Hangman
                 }
                 else
                 {
-                    Console.WriteLine($"Temoje {pasirinkta_tema} neliko žodžių. Pasirinkite kitą temą.");
+                    Console.WriteLine($"Temoje {pasirinktaTema} neliko žodžių. Pasirinkite kitą temą.");
                     Console.ReadKey();
                 }
 
@@ -128,7 +130,7 @@ namespace Hangman
             }
         }
 
-        public static int Temos_pasirinkimas()
+        public static int TemosPasirinkimas()
         {
             bool testi = true;
             int tema = 0;
@@ -155,7 +157,7 @@ namespace Hangman
             return tema;
         }
 
-        public static string Nupiesti_zmogeli(int karimo_stadija)
+        public static string NupiestiZmogeli(int karimoStadija)
         //suformuojamas žmogelio vaizdas priklausomai nuo karimo stadijos
         {
             var zmogelioVaizdoKonstruktorius = new StringBuilder();
@@ -164,22 +166,22 @@ namespace Hangman
                 zmogelioVaizdoKonstruktorius.Append("|           ");
                 for (int ii = 0; ii < zmogelis.GetLength(2); ii++)
                 {
-                    zmogelioVaizdoKonstruktorius.Append(zmogelis[karimo_stadija, i, ii]);
+                    zmogelioVaizdoKonstruktorius.Append(zmogelis[karimoStadija, i, ii]);
                 }
                 zmogelioVaizdoKonstruktorius.AppendLine();
             }
             return zmogelioVaizdoKonstruktorius.ToString();
         }
 
-        public static void Nupiesti_kartuves( int karimo_stadija)
+        public static void NupiestiKartuves( int karimoStadija)
         {
             Console.WriteLine(" - - - - - - |");
-            Console.Write(Nupiesti_zmogeli(karimo_stadija));
+            Console.Write(NupiestiZmogeli(karimoStadija));
             Console.WriteLine("|");
             Console.WriteLine("- - - -");
         }
 
-        static public string Atvaizduok_zodi(string zodis, bool[] mask)
+        static public string AtvaizduokZodi(string zodis, bool[] mask)
         // suformuojamas žodis ir atidengiamos tuos raidės kurios atitinka mask'es
         {
             var zodzioKonstruktorius = new StringBuilder();
@@ -199,35 +201,34 @@ namespace Hangman
         }
 
 
-        static public bool Atidenk_raide(string zodis, bool[] mask, char raide)
+        static public bool AtidenkRaide(string zodis, bool[] mask, char raide)
             // maskes masyve yra pazymemos True tuos raides kurios sutapo ir grąžina true jeigu buvo atidengta bent viena raidę
         {
-            bool yra_raide = false;
+            bool yraRaide = false;
             for (int i = 0; i < zodis.Length; i++)
             {
                 if (Char.ToUpper(zodis[i]) == Char.ToUpper(raide))
                 {
                     mask[i] = true;
-                    yra_raide = true;
+                    yraRaide = true;
                 }
 
             }
-            return yra_raide;
+            return yraRaide;
         }
 
-        static public bool Atidenktos_visos_raides(bool[] mask)
+        static public bool AtidenktosVisosRaides(bool[] mask)
         // Patikrinama ar atspetos visos raidės žodyje
         {
-            bool visos_raides = true;
+            bool visosRaides = true;
             for (int i = 0; i < mask.Length; i++)
             {
                 if (mask[i] == false)
                 {
-                    visos_raides = false;
+                    visosRaides = false;
                 }
-
             }
-            return visos_raides;
+            return visosRaides;
         }
 
         static public void Reset()
@@ -278,7 +279,8 @@ namespace Hangman
                 { 39, new string[2] { "KITA", "Praktika", } },
                 { 40, new string[2] { "KITA", "Forumas" } }
             };
-            pasirinkta_tema = "";
+            pasirinktaTema = "";
+            pradinisKlausimuSkaicius = zodziai.Count();
         }
 
         static public bool ArYraNepanaudotuZodziuTemoje(string tema)
@@ -296,77 +298,77 @@ namespace Hangman
             return rezultatas;
         }
 
-        static public void zaidimas_kartuves(string zodis)
+        static public void ZaidimasKartuves(string zodis)
         {
 
             bool testi = true;
-            int gyvybiu_likutis = 7;
-            bool zodis_atspetas = false;
+            int gyvybiuLikutis = gyvybes;
+            bool zodisAtspetas = false;
 
-            String pasirinktas_zodis = zodis;
-            bool[] atvaizduojamos_raides = new bool[pasirinktas_zodis.Length];
+            String pasirinktasZodis = zodis;
+            bool[] atvaizduojamosRaides = new bool[pasirinktasZodis.Length];
 
-            List<char> spetos_raides = new List<char>();
+            List<char> spetosRaides = new List<char>();
 
-            spetos_raides.Clear();
+            spetosRaides.Clear();
 
 
             while (testi)
             {
                 Console.Clear();
-                Console.WriteLine($"\n   Tema: {pasirinkta_tema}");
+                Console.WriteLine($"\n   Tema: {pasirinktaTema}");
 
-                Nupiesti_kartuves(7 - gyvybiu_likutis);
+                NupiestiKartuves(7 - gyvybiuLikutis);
 
-                if (spetos_raides.Count() > 0) Console.WriteLine("Spėtos raidės:" + string.Join(",", spetos_raides.ToArray()));
+                if (spetosRaides.Count() > 0) Console.WriteLine("Spėtos raidės:" + string.Join(",", spetosRaides.ToArray()));
 
-                Console.WriteLine("Žodis: "+ Atvaizduok_zodi(pasirinktas_zodis, atvaizduojamos_raides));
+                Console.WriteLine("Žodis: "+ AtvaizduokZodi(pasirinktasZodis, atvaizduojamosRaides));
                 
 
                 String vartotojoIvestis = "";
-                if (gyvybiu_likutis > 0 && !zodis_atspetas)
+                if (gyvybiuLikutis > 0 && !zodisAtspetas)
                     vartotojoIvestis = IvedimasIsKlaviaturos("Spėkite raidę ar žodį:");
                 else
                 {
-                    zodis_atspetas = false;
+                    zodisAtspetas = false;
                     Console.WriteLine($":( PRALAIMĖJOTE :(\nŽodis buvo: {zodis}");
                     testi = false;
                 }
                 
 
                 // tikrinam ar įvesta yra viena raide ar žodis
-                if (vartotojoIvestis.Length == 1 && char.IsLetter(vartotojoIvestis[0]) && gyvybiu_likutis >0 && !zodis_atspetas)
+                if (vartotojoIvestis.Length == 1 && char.IsLetter(vartotojoIvestis[0]) && gyvybiuLikutis >0 && !zodisAtspetas)
                 {
-                    if (!Atidenk_raide(pasirinktas_zodis, atvaizduojamos_raides, vartotojoIvestis[0]))
+                    if (!AtidenkRaide(pasirinktasZodis, atvaizduojamosRaides, vartotojoIvestis[0]))
                     {
-                        if (!spetos_raides.Contains(vartotojoIvestis[0])) // patikrinam ar raide buvo jau spėta
+                        if (!spetosRaides.Contains(vartotojoIvestis[0])) // patikrinam ar raide buvo jau spėta
                         {
-                            gyvybiu_likutis--;// - Ėjimas skaitomas tik jei spėjama dar nespėta raidė
-                            spetos_raides.Add(vartotojoIvestis[0]);
+                            gyvybiuLikutis--;// - Ėjimas skaitomas tik jei spėjama dar nespėta raidė
+                            spetosRaides.Add(vartotojoIvestis[0]);
                         }
                     }
                 }
                 // kai lyginama ar žodis atspetas, naudojamos didžiosioses raidės.
-                else if (vartotojoIvestis.Length > 1 && vartotojoIvestis.ToUpper().Equals(pasirinktas_zodis.ToUpper()))
+                else if (vartotojoIvestis.Length > 1 && vartotojoIvestis.ToUpper().Equals(pasirinktasZodis.ToUpper()))
                 {
-                    zodis_atspetas = true;
+                    zodisAtspetas = true;
                 }
-                else if (vartotojoIvestis.Length > 1 && !vartotojoIvestis.ToUpper().Equals(pasirinktas_zodis.ToUpper()))
+                else if (vartotojoIvestis.Length > 1 && !vartotojoIvestis.ToUpper().Equals(pasirinktasZodis.ToUpper()))
                 {
-                    zodis_atspetas = false;
-                    gyvybiu_likutis = 0;
+                    zodisAtspetas = false;
+                    gyvybiuLikutis = 0;
                     Console.WriteLine($":( PRALAIMĖJOTE :(\nŽodis buvo: {zodis}");
                     testi = false;
                 }
                 else if (vartotojoIvestis.Length == 0) { }
-                else gyvybiu_likutis--;
+                else gyvybiuLikutis--;
 
-                if (Atidenktos_visos_raides(atvaizduojamos_raides))
+                if (AtidenktosVisosRaides(atvaizduojamosRaides))
                 {
-                    zodis_atspetas = true;
+                    zodisAtspetas = true;
                     testi = false;
                 }
-                if (zodis_atspetas)
+                if (zodisAtspetas)
                 {
                     testi = false;
                     Console.WriteLine($"!!!SVEIKINIMAI!!!\n:) ŽODIS {zodis} TEISINGAS :)");
@@ -374,7 +376,6 @@ namespace Hangman
             }
 
         }
-
 
         public static int AtsitiktinisSkaicius(int min, int max)
         {
@@ -388,22 +389,22 @@ namespace Hangman
             string rezultatas = "";
 
             bool ieskoti = true;
-            int zodzio_nr = 0;
+            int zodzioNr = 0;
             while (ieskoti)
             {
-                zodzio_nr = AtsitiktinisSkaicius(1, 40 + 1);
+                zodzioNr = AtsitiktinisSkaicius(1, pradinisKlausimuSkaicius + 1);
 
                 //patikrinti ar tokiu numerių yra žodis saraše, jeigu nėra tada generuojamas kitas numeris 
-                if (zodziai.ContainsKey(zodzio_nr))
+                if (zodziai.ContainsKey(zodzioNr))
                 {
-                    if (tema.Equals(zodziai[zodzio_nr].GetValue(0))) // patikrinama kad surasto žodžio tema sutampa su užduota
+                    if (tema.Equals(zodziai[zodzioNr].GetValue(0))) // patikrinama kad surasto žodžio tema sutampa su užduota
                     {
-                        rezultatas = zodziai[zodzio_nr].GetValue(1)
+                        rezultatas = zodziai[zodzioNr].GetValue(1)
                                                        .ToString();
                         ieskoti = false;
                         // Surastas žodis iš karto šalinamas iš žodžių sąrašo.
                         // Taip užtikrinama, kad nebūtu duodamas tas pat žodis daugiau kaip 1 kartą per žaidimą
-                        zodziai.Remove(zodzio_nr);
+                        zodziai.Remove(zodzioNr);
                     }
                 }
                 else if (zodziai.Count() == 0) // jeigu baigesi visi žodžiai tada nutraukiam paieška
