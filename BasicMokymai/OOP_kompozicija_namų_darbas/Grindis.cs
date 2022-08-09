@@ -10,7 +10,7 @@ namespace OOP_kompozicija_namų_darbas
     {
         public String Medziaga { get; set; }
         public String Dizainas { get; set; }
-        public Double Aukstis { get; set; }
+        public Double Ilgis { get; set; }
         public Double Plotis { get; set; }
         public Double Storis { get; set; }
     }

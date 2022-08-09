@@ -10,7 +10,6 @@ namespace OOP_kompozicija_namų_darbas
     {
         public String Pavadinimas { get; set; }
         public String Medziaga { get; set; }
-        public String NaudojimoSalygos { get; set; }
         public Double Aukstis { get; set; }
         public Double Plotis { get; set; }
         public Double Storis { get; set; }
