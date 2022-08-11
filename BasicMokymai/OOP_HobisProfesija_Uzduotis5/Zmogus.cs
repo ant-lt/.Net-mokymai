@@ -9,24 +9,26 @@ namespace OOP_HobisProfesija_Uzduotis5
 
     internal class Zmogus
     {
-        public Zmogus() 
+        public Zmogus() { }
+        public Zmogus(Bendrabutis gyvenamojiVieta)
         {
-            Vardas = "Nenustatytas";
-            Pavarde = "Nenustatytas";
+            gyvenamojiVieta.Gyventojai.Add(this); // Registruojame, kad musu dabartinis sukurtas <Zmogus> tampa gyventoju perduotame bendrabutyje
+            GyvenamojiVieta = gyvenamojiVieta;
         }
 
-        public Zmogus(string pavarde)
+        public Zmogus(string vardas)
         {
-            Pavarde = pavarde;
+            Vardas = vardas;
         }
 
-        public Zmogus(string vardas, string pavarde) : this(pavarde)
+        // Sis konstruktorius kviecia/chainina kita konstruktoriu <public Zmogus(Bendrabutis gyvenamojiVieta)> ir priskiria gyventoja bendrabuciui
+        public Zmogus(string vardas, Bendrabutis bendrabutis) : this(bendrabutis)
         {
             Vardas = vardas;
         }
 
         public string Vardas { get;  set; }
         public string Pavarde { get;  set; }
-        public Bendrabutis Bendrabutis { get; set; }
+        public Bendrabutis GyvenamojiVieta { get; set; }
     }
 }

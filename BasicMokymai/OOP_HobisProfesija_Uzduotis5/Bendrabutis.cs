@@ -8,32 +8,27 @@ namespace OOP_HobisProfesija_Uzduotis5
 {
     internal class Bendrabutis
     {
-        public Bendrabutis()
-        {
-            BendrabucioId = 0;
-            KambariuSkaicius = 0;
-            Kaina = 0;
-        }
-
-        public Bendrabutis(int bendrabucioId, int kambariuSkaicius, double kaina, List<Zmogus> zmones)
+        public Bendrabutis() { }
+        public Bendrabutis(int bendrabucioId)
         {
             BendrabucioId = bendrabucioId;
-            KambariuSkaicius = kambariuSkaicius;
-            Kaina = kaina;
-            Zmones = zmones;
         }
-
-        public Bendrabutis(Bendrabutis bendrabutis)
+        // Konstruktorius, kuris priima zmoniu sarasa (List<Zmogus> gyventojai)
+        public Bendrabutis(List<Zmogus> gyventojai)
         {
-            BendrabucioId = (int)bendrabutis.BendrabucioId;
-            KambariuSkaicius= (int)bendrabutis.KambariuSkaicius;
-            Kaina= (int)bendrabutis.Kaina;
-            Zmones = (List<Zmogus>)bendrabutis.Zmones;
+            Gyventojai = gyventojai;
+            // Kiekvienam perduotam gyventojui suteikiam gyvenamaja vieta
+            foreach (Zmogus gyventojas in Gyventojai)
+            {
+                // <this> yra Bendrabucio objekto adresas
+                gyventojas.GyvenamojiVieta = this; // Sitoje vietoje mes priskiriam "gyventojui" gyvenamaja vieta perduodami save (Bendrabucio objekta )
+            }
         }
 
         public int BendrabucioId { get; set; }
         public int KambariuSkaicius { get; set; }
         public double Kaina { get; set; }
-        public List<Zmogus> Zmones { get; set; } = new List<Zmogus>();
+        // Saraso inicializavimas isvengiant "null exception"
+        public List<Zmogus> Gyventojai { get; set; } = new List<Zmogus>();
     }
 }

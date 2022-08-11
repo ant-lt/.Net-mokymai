@@ -127,15 +127,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP_Konstruktorius", "OOP_K
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PavyzdineKlaseBiblioteka", "PavyzdineKlaseBiblioteka\PavyzdineKlaseBiblioteka.csproj", "{DBA77F51-BEB7-4B3F-9B30-09C366758AE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_KompozicijosKartojimas", "OOP_Metodai\OOP_KompozicijosKartojimas.csproj", "{EC8BFE9F-406B-4B4B-8517-879C98C0E4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP_KompozicijosKartojimas", "OOP_Metodai\OOP_KompozicijosKartojimas.csproj", "{EC8BFE9F-406B-4B4B-8517-879C98C0E4A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPMetodai.Domain", "OOPMetodai.Domain\OOPMetodai.Domain.csproj", "{2A2F51FE-0771-4FA7-956A-2D8DBE4690CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPMetodai.Domain", "OOPMetodai.Domain\OOPMetodai.Domain.csproj", "{2A2F51FE-0771-4FA7-956A-2D8DBE4690CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_ClassLibrarySavarankiskai", "OOP_ClassLibrarySavarankiskai\OOP_ClassLibrarySavarankiskai.csproj", "{726BE3A2-3942-4AC2-82AA-E4B666FEF702}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP_ClassLibrarySavarankiskai", "OOP_ClassLibrarySavarankiskai\OOP_ClassLibrarySavarankiskai.csproj", "{726BE3A2-3942-4AC2-82AA-E4B666FEF702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_HobisProfesija_Uzduotis5", "OOP_HobisProfesija_Uzduotis5\OOP_HobisProfesija_Uzduotis5.csproj", "{77B51374-D021-4858-9248-9696BF2FFDB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP_HobisProfesija_Uzduotis5", "OOP_HobisProfesija_Uzduotis5\OOP_HobisProfesija_Uzduotis5.csproj", "{77B51374-D021-4858-9248-9696BF2FFDB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_KlasesSavarankiskaUzduotis6", "OOP_KlasesSavarankiskaUzduotis6\OOP_KlasesSavarankiskaUzduotis6.csproj", "{8F9B244F-FFA4-4A7E-B702-D68EBA9DF323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP_KlasesSavarankiskaUzduotis7", "OOP_KlasesSavarankiskaUzduotis6\OOP_KlasesSavarankiskaUzduotis7.csproj", "{8F9B244F-FFA4-4A7E-B702-D68EBA9DF323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP_Metodai2", "OOP_Metodai2\OOP_Metodai2.csproj", "{6C5F6115-4901-409C-8CE5-8E6DEF2E07F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -403,6 +405,10 @@ Global
 		{8F9B244F-FFA4-4A7E-B702-D68EBA9DF323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F9B244F-FFA4-4A7E-B702-D68EBA9DF323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F9B244F-FFA4-4A7E-B702-D68EBA9DF323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C5F6115-4901-409C-8CE5-8E6DEF2E07F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C5F6115-4901-409C-8CE5-8E6DEF2E07F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C5F6115-4901-409C-8CE5-8E6DEF2E07F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C5F6115-4901-409C-8CE5-8E6DEF2E07F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -431,6 +437,7 @@ Global
 		{726BE3A2-3942-4AC2-82AA-E4B666FEF702} = {67C930B4-1EB7-4B61-98C9-EE6D2FEA4A3F}
 		{77B51374-D021-4858-9248-9696BF2FFDB2} = {67C930B4-1EB7-4B61-98C9-EE6D2FEA4A3F}
 		{8F9B244F-FFA4-4A7E-B702-D68EBA9DF323} = {67C930B4-1EB7-4B61-98C9-EE6D2FEA4A3F}
+		{6C5F6115-4901-409C-8CE5-8E6DEF2E07F6} = {67C930B4-1EB7-4B61-98C9-EE6D2FEA4A3F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58E85068-77F7-4096-95F2-2C2C141251B5}
