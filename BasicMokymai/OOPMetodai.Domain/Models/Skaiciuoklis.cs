@@ -11,9 +11,11 @@ namespace OOPMetodai.Domain.Models
         public Skaiciuoklis(int skaicius)
         {
             Skaicius = skaicius;
+            PradinisSkaicius = skaicius;
         }
 
         private int Skaicius { get; set; }
+        private int PradinisSkaicius { get; set; }
 
         public void Didinti()
         {
@@ -22,13 +24,21 @@ namespace OOPMetodai.Domain.Models
         }
         public void Mazinti()
         {
-            Skaicius--;
+            Console.WriteLine("Mažinimas -1");
+            if (Skaicius > 0) Skaicius--;
         }
 
         public void Atspausdinti()
         {
             Console.WriteLine($"Skaicius: {Skaicius}");
         }
+
+        public void Reset()
+        {
+            Console.WriteLine("Reset()");
+            Skaicius = PradinisSkaicius;
+        }
+
 
     }
 }

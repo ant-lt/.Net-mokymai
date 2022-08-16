@@ -7,7 +7,7 @@ namespace OOP_Metodai2
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, OOP Metodai!");
-
+            /*
             var staciakampis1 = new Staciakampis(5, 5);
 
             Console.WriteLine($"Staciakampio 1 plotas yra: {staciakampis1.ApskaiciuotiPlota()}");
@@ -23,10 +23,27 @@ namespace OOP_Metodai2
             katesKalbejimas.Kalbeti();
             paukstelioKalbejimas.Kalbeti();
 
+            */
 
+            
+            Console.WriteLine("a. Padarykite, kad Mazinti() metodas negaletu sumazinti < Skaicius > maziau 0)");
             var skaiciuoklis = new Skaiciuoklis(5);
+            
             skaiciuoklis.Atspausdinti();
             skaiciuoklis.Mazinti();
+            skaiciuoklis.Mazinti();
+            skaiciuoklis.Atspausdinti();
+            skaiciuoklis.Mazinti();
+            skaiciuoklis.Mazinti();
+            skaiciuoklis.Atspausdinti();
+            skaiciuoklis.Mazinti();
+            skaiciuoklis.Mazinti();
+            skaiciuoklis.Atspausdinti();
+            Console.WriteLine(" b.	Sukurkite metoda Perkrauti() <Reset>, kuris turetu grazinti <Skaicius> i pradine busena (Perkrauti metodas turetu nepriimti jokiu parametru)");
+            skaiciuoklis.Reset();
+            skaiciuoklis.Atspausdinti();
+            
+
 
         }
 
