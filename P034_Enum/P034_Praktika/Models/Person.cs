@@ -89,5 +89,19 @@ namespace P034_Praktika.Klases
             Gender = gender;
         }
 
+        /* reikalingas override kad praeitu testai */
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+
+            Person person = obj as Person;
+
+            return (FirstName.Equals(person.FirstName))
+                && (LastName.Equals(person.LastName))
+                && (Gender.Equals(person.Gender));
+        }
     }
 }

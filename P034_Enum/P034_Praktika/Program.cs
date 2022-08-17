@@ -1,4 +1,7 @@
-﻿namespace P034_Praktika
+﻿using P034_Praktika.Klases;
+using P034_Praktika.Models;
+
+namespace P034_Praktika
 {
     internal class Program
     {
@@ -6,7 +9,13 @@
         {
             Console.WriteLine("Hello, Enum praktika!");
 
+            Society society = new Society();
+
+            society.FillPeople();
+            List<Person> people = society.OldPeople;
+            society.SortByAge();
             
+
         }
 
     }
