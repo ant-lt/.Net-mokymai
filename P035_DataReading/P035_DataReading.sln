@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P035_DataReading", "P035_DataReading\P035_DataReading.csproj", "{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P035_Praktika_tests", "P035_Praktika_tests\P035_Praktika_tests.csproj", "{9253147D-2EF9-4DC8-805F-4CF9910308B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7E0D044-F83D-4ED2-9A12-97256F6DDF9A}
+	EndGlobalSection
+EndGlobal
