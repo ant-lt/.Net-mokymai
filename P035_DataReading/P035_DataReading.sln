@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P035_DataReading", "P035_DataReading\P035_DataReading.csproj", "{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P035_DataReading", "P035_DataReading\P035_DataReading.csproj", "{B3AED389-6AD4-4BA7-A92F-F4D10FE20739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P035_Praktika_tests", "P035_Praktika_tests\P035_Praktika_tests.csproj", "{9253147D-2EF9-4DC8-805F-4CF9910308B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P035_Praktika_tests", "P035_Praktika_tests\P035_Praktika_tests.csproj", "{9253147D-2EF9-4DC8-805F-4CF9910308B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6A646A10-E883-4076-8DD8-602B7598BE47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P035_DataReading.Domain", "P035_DataReading.Domain\P035_DataReading.Domain.csproj", "{84E08BBF-4230-4CED-BF44-A82AF2752731}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +25,16 @@ Global
 		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9253147D-2EF9-4DC8-805F-4CF9910308B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9253147D-2EF9-4DC8-805F-4CF9910308B7} = {6A646A10-E883-4076-8DD8-602B7598BE47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7E0D044-F83D-4ED2-9A12-97256F6DDF9A}

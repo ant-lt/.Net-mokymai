@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Tests\" />
+    <ProjectReference Include="..\P035_DataReading.Domain\P035_DataReading.Domain.csproj" />
+    <ProjectReference Include="..\P035_Praktika_tests\P035_Praktika_tests.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\P035_Praktika_tests\P035_Praktika_tests.csproj" />
+    <None Update="InitialData\AnimalData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

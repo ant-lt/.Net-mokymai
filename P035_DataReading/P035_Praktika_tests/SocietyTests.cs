@@ -1,7 +1,7 @@
 namespace P035_Praktika_tests
 {
     [TestClass]
-    public class UnitTest1
+    public class SocietyTests
     {
         [TestMethod]
         public void TestMethod1()
