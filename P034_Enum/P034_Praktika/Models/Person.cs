@@ -89,19 +89,27 @@ namespace P034_Praktika.Klases
             Gender = gender;
         }
 
-        /* reikalingas override kad praeitu testai */
+        /*  Perrasom egzistuojanti Object metoda, kad galetume sulyginti duomenis testuose */
         public override bool Equals(object obj)
         {
+            // Ar paduotas objektas yra null
+            // Ar paduoto objekto klase yra ta pati klase su kuria lyginame(this)
             if (obj == null || !this.GetType().Equals(obj.GetType()))
             {
                 return false;
             }
 
+            // Castinam paduota objekta i mums reikalinga klase
             Person person = obj as Person;
 
             return (FirstName.Equals(person.FirstName))
                 && (LastName.Equals(person.LastName))
                 && (Gender.Equals(person.Gender));
+        }
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
         }
     }
 }
