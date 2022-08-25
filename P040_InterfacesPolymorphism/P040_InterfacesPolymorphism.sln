@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P040_InterfacesPolymorphism", "P040_InterfacesPolymorphism\P040_InterfacesPolymorphism.csproj", "{620F7561-C372-4580-8259-53E8BFEC530E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P040_InterfacesPolymorphism", "P040_InterfacesPolymorphism\P040_InterfacesPolymorphism.csproj", "{620F7561-C372-4580-8259-53E8BFEC530E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism_tests", "Polymorphism_tests\Polymorphism_tests.csproj", "{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{620F7561-C372-4580-8259-53E8BFEC530E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{620F7561-C372-4580-8259-53E8BFEC530E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{620F7561-C372-4580-8259-53E8BFEC530E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
