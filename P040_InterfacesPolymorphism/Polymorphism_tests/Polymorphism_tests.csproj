@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\P040_InterfacesPolymorphism.Domain\P040_InterfacesPolymorphism.Domain.csproj" />
     <ProjectReference Include="..\P040_InterfacesPolymorphism\P040_InterfacesPolymorphism.csproj" />
   </ItemGroup>
 

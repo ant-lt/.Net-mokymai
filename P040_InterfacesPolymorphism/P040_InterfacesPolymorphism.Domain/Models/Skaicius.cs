@@ -1,12 +1,13 @@
-﻿using System;
+﻿using P040_InterfacesPolymorphism.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P040_InterfacesPolymorphism
+namespace P040_InterfacesPolymorphism.Domain.Models
 {
-    public class Skaicius: IMatematika
+    public class Skaicius : IMatematika
     {
         public Skaicius()
         {
@@ -27,7 +28,7 @@ namespace P040_InterfacesPolymorphism
 
         public int Padalinti(int skaicius)
         {
-            return Reiksme/skaicius;
+            return Reiksme / skaicius;
         }
 
         public int Padauginti(int skaicius)
@@ -37,7 +38,7 @@ namespace P040_InterfacesPolymorphism
 
         public int PakeltiKubu()
         {
-            return Reiksme*Reiksme*Reiksme;
+            return Reiksme * Reiksme * Reiksme;
         }
 
         public int PakeltiKvadratu()

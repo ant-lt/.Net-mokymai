@@ -1,4 +1,6 @@
 using P040_InterfacesPolymorphism;
+using P040_InterfacesPolymorphism.Domain.Interfaces;
+using P040_InterfacesPolymorphism.Domain.Models;
 
 namespace Polymorphism_tests
 {
@@ -24,7 +26,7 @@ namespace Polymorphism_tests
         [TestMethod]
         public void Atimti_test()
         {
-            var actual = new Skaicius(5);
+            IMatematika actual = new Skaicius(5);
 
             int expected = 3;
             Assert.AreEqual(expected, actual.Atimti(2) );
@@ -33,7 +35,7 @@ namespace Polymorphism_tests
         [TestMethod]
         public void Padalinti_test()
         {
-            var actual = new Skaicius(10);
+            IMatematika actual = new Skaicius(10);
 
             int expected = 5;
             // 10 / 2 = 5
@@ -43,7 +45,7 @@ namespace Polymorphism_tests
         [TestMethod]
         public void Padauginti_test()
         {
-            var actual = new Skaicius(10);
+            IMatematika actual = new Skaicius(10);
 
             int expected = 20;
             // 10 * 2 = 20
@@ -53,7 +55,7 @@ namespace Polymorphism_tests
         [TestMethod]
         public void PakeltiKubu_test()
         {
-            var actual = new Skaicius(2);
+            IMatematika actual = new Skaicius(2);
 
             int expected = 8;
             // 2 ^3 = 8
@@ -63,7 +65,7 @@ namespace Polymorphism_tests
         [TestMethod]
         public void PakeltiKvadratu_test()
         {
-            var actual = new Skaicius(5);
+            IMatematika actual = new Skaicius(5);
 
             int expected = 25;
             // 5 ^2 = 25
@@ -73,7 +75,7 @@ namespace Polymorphism_tests
         [TestMethod]
         public void Prideti_test()
         {
-            var actual = new Skaicius(10);
+            IMatematika actual = new Skaicius(10);
 
             int expected = 15;
             // 10 + 5 = 15

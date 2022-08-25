@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P040_InterfacesPolymorphism
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism_tests", "Polymorphism_tests\Polymorphism_tests.csproj", "{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P040_InterfacesPolymorphism.Domain", "P040_InterfacesPolymorphism.Domain\P040_InterfacesPolymorphism.Domain.csproj", "{2A6B1507-BC54-4D1F-A47C-EF3AC4499D9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F5AFD5-C94F-4E78-AD18-9DDBAFA8E887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6B1507-BC54-4D1F-A47C-EF3AC4499D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6B1507-BC54-4D1F-A47C-EF3AC4499D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6B1507-BC54-4D1F-A47C-EF3AC4499D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6B1507-BC54-4D1F-A47C-EF3AC4499D9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
