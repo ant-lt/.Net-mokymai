@@ -50,10 +50,7 @@ namespace P034_Praktika.Models
         // 2 uzdavinio sprendimas
         public void FillPeople()
         {
-            People = new List<Person>();
-
             People = PersonInitialData.DataSeed.ToList();
-
         }
 
         public void FillPeople(List<Person> people)
