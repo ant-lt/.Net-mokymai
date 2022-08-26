@@ -13,7 +13,7 @@ namespace OOP_kompozicija
         public string Pavadinimas
         {
             get { return _pavadinimas; }
-            set { _pavadinimas = value; }
+            private set { _pavadinimas = value; }
         }
 
         private string _leidykla;
@@ -21,7 +21,7 @@ namespace OOP_kompozicija
         public string Leidykla
         {
             get { return _leidykla; }
-            set { _leidykla = value; }
+            private set { _leidykla = value; }
         }
 
         private string _autorius;
@@ -29,7 +29,7 @@ namespace OOP_kompozicija
         public string Autorius
         {
             get { return _autorius; }
-            set { _autorius = value; }
+            private set { _autorius = value; }
         }
 
         private int _puslapiai;
@@ -37,7 +37,7 @@ namespace OOP_kompozicija
         public int Puslapiai
         {
             get { return _puslapiai; }
-            set { _puslapiai = value; }
+            private set { _puslapiai = value; }
         }
 
 

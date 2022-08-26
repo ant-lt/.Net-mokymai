@@ -8,15 +8,15 @@ namespace OOP_kompozicija
 {
     internal class Namas
     {
-        public string adresas;
+        public string Adresas { get; private set; }
 
-        public int gyventoju;
+        public int Gyventoju { get; private set; }
 
-        public int aukstingumas;
+        public int Aukstingumas { get; private set; }
 
-        public double plotas;
+        public double Plotas { get; private set; }
 
-        public Zmogus Savininkas { get; set; }
-        public Salis Salis { get; set; }
+        public Zmogus Savininkas { get; private set; }
+        public Salis Salis { get; private set; }
     }
 }

@@ -9,12 +9,12 @@ namespace OOP_kompozicija
     internal class Salis
     {
 
-        public string Pavadinimas { get; set; }
+        public string Pavadinimas { get; private set; }
 
-        public int Gyventojai { get; set; }
+        public int Gyventojai { get; private set; }
 
-        public double Plotas{ get; set; }
+        public double Plotas{ get; private set; }
 
-        public string Sostine { get; set; }
+        public string Sostine { get; private set; }
     }
 }
