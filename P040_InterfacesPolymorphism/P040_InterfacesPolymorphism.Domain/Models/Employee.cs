@@ -9,21 +9,29 @@ namespace P040_InterfacesPolymorphism.Domain.Models
 {
     public class Employee : Person, IPayable
     {
-        public int Salary { get; set; }
-
-        public string GetAdress()
+        public Employee(double salary, string mailingAddress)
         {
-            throw new NotImplementedException();
+            Salary = salary;
+            MailingAddress = mailingAddress;
+        }
+
+        private double Salary { get; set; }
+        public string MailingAddress { get; private set; }
+
+        public string GetAddress()
+        {
+            return MailingAddress;
         }
 
         public double GetSalary()
         {
-            throw new NotImplementedException();
+            return Salary;
         }
 
         public void IncreaseSalary(double salary)
         {
-            throw new NotImplementedException();
+
+            Salary += salary;
         }
     }
 }

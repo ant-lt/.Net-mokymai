@@ -10,6 +10,6 @@ namespace P040_InterfacesPolymorphism.Domain.Interfaces
     {
         double GetSalary();
         void IncreaseSalary(double salary);
-        string GetAdress();
+        string GetAddress();
     }
 }
