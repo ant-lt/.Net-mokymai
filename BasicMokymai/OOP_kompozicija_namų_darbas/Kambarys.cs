@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Kambarys
+    public class Kambarys
     {
-        public String Pavadinimas { get; set; }
-        public Double Plotas { get; set; }
+        public Kambarys(string pavadinimas, double ilgis, double plotis)
+        {
+            Pavadinimas = pavadinimas;
+            Ilgis = ilgis;
+            Plotis = plotis;
+        }
+
+        public String Pavadinimas { get; private set; }
+        public Double Plotas() => Ilgis * Plotis;
+        public Double Ilgis { get; private set; }
+        public Double Plotis { get; private set; }
         public List<Duris> Durys { get; set; } = new List<Duris>();
         public Grindis Grindis { get; set; } = new Grindis();
         public List<Langas> Langai { get; set; } = new List<Langas>();

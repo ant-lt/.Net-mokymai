@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Spinta
+    public class Spinta
     {
         public Double Aukstis { get; set; }
         public Double Plotis { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Kilimas
+    public class Kilimas
     {
         public String Forma { get; set; }
         public String Medziaga { get; set; }

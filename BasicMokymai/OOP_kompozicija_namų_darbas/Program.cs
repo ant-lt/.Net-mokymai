@@ -14,10 +14,10 @@ namespace OOP_kompozicija_namų_darbas
         }
         public static void DarbasSuUzduotimi()
         {
-            Kambarys manoKambarys = new Kambarys();
+            Kambarys manoKambarys = new Kambarys("Didelis kamabaris Nr. 1", 10d, 9d);
 
-            manoKambarys.Pavadinimas = "Didelis kamabaris Nr. 1";
-            manoKambarys.Plotas = 15.5;
+           
+            //manoKambarys.Plotas = 15.5;
             manoKambarys.Grindis.Medziaga = "Medis";
             manoKambarys.Grindis.Dizainas = "Klasikinis";
             manoKambarys.Grindis.Ilgis = 2.0d;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Jungiklis
+    public class Jungiklis
     {
         public String Gamintojas { get; set; }
         public String Medziaga { get; set; }

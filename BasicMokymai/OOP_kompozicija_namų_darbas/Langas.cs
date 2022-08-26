@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Langas
+    public class Langas
     {
         public String Pavadinimas { get; set; }
         public String Medziaga { get; set; }

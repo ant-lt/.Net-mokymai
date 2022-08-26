@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Kede
+    public class Kede
     {
         public String Medziaga { get; set; }
         public String Spalva { get; set; }

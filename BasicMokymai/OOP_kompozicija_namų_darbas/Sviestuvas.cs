@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_kompozicija_namų_darbas
 {
-    internal class Sviestuvas
+    public class Sviestuvas
     {
         public String Modelis { get; set; }
         public String Gamintojas { get; set; }
