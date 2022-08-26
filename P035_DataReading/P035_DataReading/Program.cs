@@ -1,4 +1,5 @@
 ﻿using P035_DataReading.Domain.Models;
+using P035_DataReading.Domain.Services;
 using P035_DataReading.InicialData;
 
 namespace P035_DataReading
@@ -10,7 +11,25 @@ namespace P035_DataReading
             Console.WriteLine("Hello, Data Reading!");
             //string path = Environment.CurrentDirectory;
             //SakninioFolderioSuradimas(path);
-            SkaitymasIsTxtFailoEilutemisAtskirai();
+            // SkaitymasIsTxtFailoEilutemisAtskirai();
+            //SkaitymasIsTxtxFailoEilutemisAtskiraiSuUsing();
+            FileService animalFileService = new FileService(Environment.CurrentDirectory + "\\InitialData\\AnimalData.txt");
+
+            List<Animal> animals = animalFileService.FetchAnimalTxtRecords();
+            animalFileService.ReadSymbolsFromFile();
+
+            FileService basicUserFileService = new FileService(Environment.CurrentDirectory + "\\InitialData\\UserFirstNameBaseData1.csv");
+            Console.WriteLine(basicUserFileService.ExctractBasicUserCsvHeader()); 
+            PrintAllBasicUsers(basicUserFileService.FetchBasicUserCsvRecords());
+
+        }
+
+        public static void PrintAllBasicUsers(List<User> basicUsers)
+        {
+            foreach (User user in basicUsers)
+            {
+                Console.WriteLine($"{user.Id}. {user.Name}");
+            }
         }
 
         static void SakninioFolderioSuradimas(string path)
@@ -148,20 +167,61 @@ namespace P035_DataReading
             // IDisposable resursai butu elementai kaip: Streamai, Listeneriai, duombazes komunikacijos repositorijos, webiniai iskvietimai ir t.t.
             StreamReader sr = new StreamReader(filePath);
 
-            string line = sr.ReadLine();
-            Console.WriteLine(line);
+            string animalLine;
             
-            string line2 = sr.ReadLine();
-            Console.WriteLine(line2);
+           
+
+            while ((animalLine = sr.ReadLine()) != null)
+            {
+                string[] animalData = animalLine.Split(',');
+
+                if (animalData.Length != animalColumnCount)
+                {
+                    break;
+                }
+                Animal newAnimal = new Animal(animalData);
+                animals.Add(newAnimal);
+            }
 
             // Su .Close() mes pasakome GarbageCollector, kad reikia isvalyti duomenis priklausancius siam objektui
             sr.Close();
 
-            //foreach (Animal animal in animals)
-            //{
-            //    Console.WriteLine(animal.Name);
-            //}
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Name);
+            }
         }
+
+        public static void SkaitymasIsTxtxFailoEilutemisAtskiraiSuUsing()
+        {
+            int animalColumnCount = 2;
+            List<Animal> animals = new List<Animal>();
+            string filePath = Environment.CurrentDirectory + "\\InitialData\\AnimalData.txt";
+            
+
+            using StreamReader sr = new StreamReader(filePath);
+
+            string animalLine;
+
+            while ((animalLine = sr.ReadLine()) != null)
+            {
+                string[] animalData = animalLine.Split(',');
+
+                if (animalData.Length != animalColumnCount)
+                {
+                    break;
+                }
+                Animal newAnimal = new Animal(animalData);
+                animals.Add(newAnimal);
+            }
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Name);
+            }
+        }
+
+
 
     }
 }

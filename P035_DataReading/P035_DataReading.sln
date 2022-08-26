@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P035_Praktika_tests", "P035
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6A646A10-E883-4076-8DD8-602B7598BE47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P035_DataReading.Domain", "P035_DataReading.Domain\P035_DataReading.Domain.csproj", "{84E08BBF-4230-4CED-BF44-A82AF2752731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P035_DataReading.Domain", "P035_DataReading.Domain\P035_DataReading.Domain.csproj", "{84E08BBF-4230-4CED-BF44-A82AF2752731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PraktinesUzduotys", "PraktinesUzduotys\PraktinesUzduotys.csproj", "{D391368F-EA7B-489D-B4B8-FC88D4CEEBC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84E08BBF-4230-4CED-BF44-A82AF2752731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D391368F-EA7B-489D-B4B8-FC88D4CEEBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D391368F-EA7B-489D-B4B8-FC88D4CEEBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D391368F-EA7B-489D-B4B8-FC88D4CEEBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D391368F-EA7B-489D-B4B8-FC88D4CEEBC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
