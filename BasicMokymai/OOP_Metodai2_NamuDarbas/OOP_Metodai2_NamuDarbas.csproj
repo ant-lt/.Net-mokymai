@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OOPMetodai.Domain\OOPMetodai.Domain.csproj" />
+    <ProjectReference Include="..\OOP_kompozicija_namų_darbas\OOP_kompozicija_namų_darbas.csproj" />
   </ItemGroup>
 
 </Project>
