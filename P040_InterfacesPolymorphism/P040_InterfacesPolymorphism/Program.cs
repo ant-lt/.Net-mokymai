@@ -18,6 +18,10 @@ namespace P040_InterfacesPolymorphism
             saladUnhealthy.GetVitamins();
             saladHealthy.GetVitamins();
 
+            Salad salad = new Salad();
+
+            salad.GetVitamins();
+
         }
 
 
@@ -197,6 +201,7 @@ namespace P040_InterfacesPolymorphism
                 Quality = quality;
                 Size = size;
                 Price = price;
+                Console.WriteLine("Constructor from Apple was called");
             }
 
             public string Color { get; }

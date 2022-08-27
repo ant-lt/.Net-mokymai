@@ -9,8 +9,22 @@ namespace P040_InterfacesPolymorphism.Domain.Models
 {
     public class Employee : Person, IPayable
     {
-        public Employee(double salary, string mailingAddress)
+        /// <summary>
+        /// Employee klasės konstruktorius
+        /// </summary>
+        /// <param name="id">Asmens ID</param>
+        /// <param name="name">Vardas</param>
+        /// <param name="lastName">Pavardė</param>
+        /// <param name="salary">Nustatytas atlyginimas</param>
+        /// <param name="mailingAddress">Pašto adresas</param>
+        public Employee(int id = 1, string name = "Vardenis", string lastName = "Pavardenis", double salary = 0, string mailingAddress = "" )
         {
+            //person klases duomenys / property
+            Id = id;
+            Name = name;
+            LastName = lastName;
+
+            // Employee klasės property priskyrimas
             Salary = salary;
             MailingAddress = mailingAddress;
         }
