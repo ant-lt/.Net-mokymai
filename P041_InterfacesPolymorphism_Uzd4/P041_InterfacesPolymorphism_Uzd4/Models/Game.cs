@@ -9,28 +9,44 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
 {
     public class Game: IHobby
     {
+        /// <summary>
+        /// private fieldai butini interfeisui IHobby
+        /// </summary>
+        private string _name;
+        private string _publisher;
+        private string _genre;
+        private int _rating;
+
         public int Id { get; set; }
         public string Platform { get; set; }
         public bool IsMultiplayer { get; set; }
 
-        public Game(int id, string platform, bool isMultiplayer)
+        public Game(int id, string platform, bool isMultiplayer, string gameName, string gamePublisher, string gameGenre, int gameRating)
         {
             Id = id;
             Platform = platform;
             IsMultiplayer = isMultiplayer;
+
+            /*
+            * Duomenys IHobby implementacijai
+            */
+            _name = gameName;
+            _publisher = gamePublisher;
+            _genre = gameGenre;
+            _rating = gameRating;
         }
 
-        public string Name => Name;
+        public string Name => _name;
 
-        public string Publisher => Publisher;
+        public string Publisher => _publisher;
 
-        public string Genre => Genre;
+        public string Genre => _genre;
 
-        public int Rating => Rating;
+        public int Rating => _rating;
 
         public string GetHobbyInformation()
         {
-            return string.Format($"tai žaidimas {Name} zanras:{Genre}, ivertinimas yra {Rating}");
+            return string.Format($"Žaidimas \"{Name}\" Žanras: {Genre} Įvertinimas: {Rating}");
         }
 
         public string GetHobbyName()

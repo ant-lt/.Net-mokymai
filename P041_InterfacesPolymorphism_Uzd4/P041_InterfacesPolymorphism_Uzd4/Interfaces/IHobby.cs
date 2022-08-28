@@ -14,14 +14,14 @@ namespace P041_InterfacesPolymorphism_Uzd4.Interfaces
         int Rating { get; }
 
         /// <summary>
-        /// Turetu grazinti atgal ar tai filmas, daina ar zaidimas
+        /// Gražinti atgal ar tai filmas, daina ar žaidimas
         /// </summary>
         /// <returns></returns>
         string GetHobbyName();
 
 
         /// <summary>
-        /// Turetu grazinti atgal informacija apie pati hobi pvz, kad tai filmas kazkokio zanro, kurio ivertinimas yra X/Y
+        /// Grąžina atgal informaciją apie pati hobį pvz, kad tai filmas kažkokio žanro, kurio įvertinimas yra X/Y
         /// </summary>
         /// <returns></returns>
         string GetHobbyInformation();

@@ -9,26 +9,45 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
 {
     public class Music:IHobby
     {
+        /// <summary>
+        /// private fieldai butini interfeisui IHobby
+        /// </summary>
+        private string _name;
+        private string _publisher;
+        private string _genre;
+        private int _rating;
+
         public int Id { get; set; }
         public int Length { get; set; }
         public string ArtistName { get; set; }
 
-        public string Name => throw new NotImplementedException();
+        public Music(string name, string publisher, string genre, int rating, int id, int length, string artistName)
+        {
+            _name = name;
+            _publisher = publisher;
+            _genre = genre;
+            _rating = rating;
+            Id = id;
+            Length = length;
+            ArtistName = artistName;
+        }
 
-        public string Publisher => throw new NotImplementedException();
+        public string Name => _name;
 
-        public string Genre => throw new NotImplementedException();
+        public string Publisher => _publisher;
 
-        public int Rating => throw new NotImplementedException();
+        public string Genre => _genre;
+
+        public int Rating => _rating;
 
         public string GetHobbyInformation()
         {
-            throw new NotImplementedException();
+            return string.Format($"Muzika \"{Name}\" Artistas: {ArtistName} Žanras: {Genre} Įvertinimas: {Rating}");
         }
 
         public string GetHobbyName()
         {
-            throw new NotImplementedException();
+            return "Listening music";
         }
     }
 }
