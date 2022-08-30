@@ -9,5 +9,10 @@ namespace P042_Praktika.Models.Concrete
 {
     public class EBook: Book
     {
+        public override void SetDataTo(BookHtml bookHtml)
+        {
+            base.SetDataTo(bookHtml);
+            bookHtml.EBookPrice = Price.ToString();
+        }
     }
 }

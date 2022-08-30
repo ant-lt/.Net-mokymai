@@ -130,9 +130,24 @@ namespace P042_Praktika.Service
             return bs;
         }
 
-        public string Encode(Dictionary<BookType, List<Book>> books)
+        public string Encode(List<Book> books)
         {
-            throw new NotImplementedException();
+            List <BookHtml> res = new List<BookHtml>();
+
+           books.Sort((x,y) => x.Title.CompareTo(y.Title));
+
+            string lastTitle = "";
+
+            foreach (var book in books)
+            {
+                if (lastTitle != book.Title)
+                {
+                    res.Add(new BookHtml());
+                }
+                book.SetDataTo(res[res.Count - 1]);
+                lastTitle = book.Title;
+            }
+            return res.ToHtml();
         }
     }
 }

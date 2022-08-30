@@ -1,5 +1,4 @@
 ﻿using P042_Praktika.Models.Abstract;
-using P042_Praktika.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace P042_Praktika.Interface
 {
-    public interface IBookHtmlService
+    public interface IUniversityBookStoreAccounting
     {
-        Dictionary<BookType, List<Book>> Decode(String dataSeed);
-        string Encode(List<Book> books);
+        int Stock();
+        List<string> Genres();
+        Dictionary<BookStorePerson, List<Book>> Sales();
     }
 }

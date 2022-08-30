@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace P042_Praktika.Models.Concrete
 {
-    public class PaperbackBook: Book
+    public class BookStoreLegalPerson:BookStorePerson
     {
-        public override void SetDataTo(BookHtml bookHtml)
-        {
-            base.SetDataTo(bookHtml);
-            bookHtml.PaperbackPrice = Price.ToString();
-        }
+        public string Title { get; set; }
     }
 }

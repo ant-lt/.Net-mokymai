@@ -1,4 +1,5 @@
-﻿using System;
+﻿using P042_Praktika.Models.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,13 @@ namespace P042_Praktika.Models.Abstract
         public int? Qtty { get; set; }
         public double? Price { get; set; }
 
+        public virtual void SetDataTo(BookHtml bookHtml)
+        {
+            bookHtml.Genre = Genre;
+            bookHtml.Title = Title;
+            bookHtml.Author = Author;
+            bookHtml.BooksSold = BooksSold.ToString();
+            bookHtml.Qtty = Qtty.ToString();
+        }
     }
 }
