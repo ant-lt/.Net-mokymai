@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace P045_Generic.Domain.Models
 {
-    public class Fork : ITool
+    public class Fork : Tool, ITool, IFork
     {
+        public Fork() { }
+
+        public Fork(string name) { }
+
         public int Id { get; set; }
         public string Name { get; set; }
 
@@ -19,7 +23,7 @@ namespace P045_Generic.Domain.Models
 
         public override string ToString()
         {
-            return "I am a fork.";
+            return "I am a fork. Here is some text that I wanted to say.";
         }
     }
 }
