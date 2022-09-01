@@ -1,0 +1,249 @@
+﻿id,country,capital,isMarked
+1,Abkhazia,Sukhumi,0
+2,Afghanistan,Kabul,0
+3,Akrotiri and Dhekelia,Episkopi Cantonment,0
+4,Albania,Tirana,0
+5,Algeria,Algiers,0
+6,American Samoa,Pago Pago,0
+7,Andorra,Andorra la Vella,0
+8,Angola,Luanda,0
+9,Anguilla,The Valley,0
+10,Antigua and Barbuda,St. John's,0
+11,Argentina,Buenos Aires,0
+12,Armenia,Yerevan,0
+13,Aruba,Oranjestad,0
+14,Ascension Island,Georgetown,0
+15,Australia,Canberra,0
+16,Austria,Vienna,0
+17,Azerbaijan,Baku,0
+18,Bahamas,Nassau,0
+19,Bahrain,Manama,0
+20,Bangladesh,Dhaka,0
+21,Barbados,Bridgetown,0
+22,Belarus,Minsk,0
+23,Belgium,Brussels,0
+24,Belize,Belmopan,0
+25,Benin,Porto-Novo,0
+26,Bermuda,Hamilton,0
+27,Bhutan,Thimphu,0
+28,Bolivia,Sucre,0
+29,Bolivia,La Paz,0
+30,Bosnia and Herzegovina,Sarajevo,0
+31,Botswana,Gaborone,0
+32,Brazil,Brasília,0
+33,British Virgin Islands,Road Town,0
+34,Brunei,Bandar Seri Begawan,0
+35,Bulgaria,Sofia,0
+36,Burkina Faso,Ouagadougou,0
+37,Burundi,Bujumbura,0
+38,Cambodia,Phnom Penh,0
+39,Cameroon,Yaoundé,0
+40,Canada,Ottawa,0
+41,Cape Verde,Praia,0
+42,Cayman Islands,George Town,0
+43,Central African Republic,Bangui,0
+44,Chad,N'Djamena,0
+45,Chile,Santiago,0
+46,China,Beijing,0
+47,Christmas Island,Flying Fish Cove,0
+48,Cocos (Keeling) Islands,West Island,0
+49,Colombia,Bogotá,0
+50,Comoros,Moroni,0
+51,Cook Islands,Avarua,0
+52,Costa Rica,San José,0
+53,Côte d'Ivoire,Yamoussoukro,0
+54,Croatia,Zagreb,0
+55,Cuba,Havana,0
+56,Curaçao,Willemstad,0
+57,Cyprus,Nicosia,0
+58,Czech Republic,Prague,0
+59,Democratic Republic of the Congo,Kinshasa,0
+60,Denmark,Copenhagen,0
+61,Djibouti,Djibouti,0
+62,Dominica,Roseau,0
+63,Dominican Republic,Santo Domingo,0
+64,East Timor (Timor-Leste),Dili,0
+65,Easter Island,Hanga Roa,0
+66,Ecuador,Quito,0
+67,Egypt,Cairo,0
+68,El Salvador,San Salvador,0
+69,Equatorial Guinea,Malabo,0
+70,Eritrea,Asmara,0
+71,Estonia,Tallinn,0
+72,Ethiopia,Addis Ababa,0
+73,Falkland Islands,Stanley,0
+74,Faroe Islands,Tórshavn,0
+75,Federated States of Micronesia,Palikir,0
+76,Fiji,Suva,0
+77,Finland,Helsinki,0
+78,France,Paris,0
+79,French Guiana,Cayenne,0
+80,French Polynesia,Papeete,0
+81,Gabon,Libreville,0
+82,Gambia,Banjul,0
+83,Georgia,Tbilisi,0
+84,Germany,Berlin,0
+85,Ghana,Accra,0
+86,Gibraltar,Gibraltar,0
+87,Greece,Athens,0
+88,Greenland,Nuuk,0
+89,Grenada,St. George's,0
+90,Guam,Hagåtña,0
+91,Guatemala,Guatemala City,0
+92,Guernsey,St. Peter Port,0
+93,Guinea,Conakry,0
+94,Guinea-Bissau,Bissau,0
+95,Guyana,Georgetown,0
+96,Haiti,Port-au-Prince,0
+97,Honduras,Tegucigalpa,0
+98,Hungary,Budapest,0
+99,Iceland,Reykjavík,0
+100,India,New Delhi,0
+101,Indonesia,Jakarta,0
+102,Iran,Tehran,0
+103,Iraq,Baghdad,0
+104,Ireland,Dublin,0
+105,Isle of Man,Douglas,0
+106,Israel,Jerusalem,0
+107,Italy,Rome,0
+108,Jamaica,Kingston,0
+109,Japan,Tokyo,0
+110,Jersey,St. Helier,0
+111,Jordan,Amman,0
+112,Kazakhstan,Astana,0
+113,Kenya,Nairobi,0
+114,Kiribati,Tarawa,0
+115,Kosovo,Pristina,0
+116,Kuwait,Kuwait City,0
+117,Kyrgyzstan,Bishkek,0
+118,Laos,Vientiane,0
+119,Latvia,Riga,0
+120,Lebanon,Beirut,0
+121,Lesotho,Maseru,0
+122,Liberia,Monrovia,0
+123,Libya,Tripoli,0
+124,Liechtenstein,Vaduz,0
+125,Lithuania,Vilnius,0
+126,Luxembourg,Luxembourg,0
+127,Macedonia,Skopje,0
+128,Madagascar,Antananarivo,0
+129,Malawi,Lilongwe,0
+130,Malaysia,Kuala Lumpur,0
+131,Maldives,Malé,0
+132,Mali,Bamako,0
+133,Malta,Valletta,0
+134,Marshall Islands,Majuro,0
+135,Mauritania,Nouakchott,0
+136,Mauritius,Port Louis,0
+137,Mexico,Mexico City,0
+138,Moldova,Chisinau,0
+139,Monaco,Monaco,0
+140,Mongolia,Ulaanbaatar,0
+141,Montenegro,Podgorica,0
+142,Montserrat,Plymouth,0
+143,Morocco,Rabat,0
+144,Mozambique,Maputo,0
+145,Myanmar,Naypyidaw,0
+146,Nagorno-Karabakh Republic,Stepanakert,0
+147,Namibia,Windhoek,0
+148,Nauru,Yaren,0
+149,Nepal,Kathmandu,0
+150,Netherlands,Amsterdam,0
+151,New Caledonia,Nouméa,0
+152,New Zealand,Wellington,0
+153,Nicaragua,Managua,0
+154,Niger,Niamey,0
+155,Nigeria,Abuja,0
+156,Niue,Alofi,0
+157,Norfolk Island,Kingston,0
+158,North Korea,Pyongyang,0
+159,Northern Cyprus,Nicosia,0
+160,Northern Mariana Islands,Saipan,0
+161,Norway,Oslo,0
+162,Oman,Muscat,0
+163,Pakistan,Islamabad,0
+164,Palau,Ngerulmud,0
+165,Palestine,Jerusalem,0
+166,Panama,Panama City,0
+167,Papua New Guinea,Port Moresby,0
+168,Paraguay,Asunción,0
+169,Peru,Lima,0
+170,Philippines,Manila,0
+171,Pitcairn Islands,Adamstown,0
+172,Poland,Warsaw,0
+173,Portugal,Lisbon,0
+174,Puerto Rico,San Juan,0
+175,Qatar,Doha,0
+176,Republic of China (Taiwan),Taipei,0
+177,Republic of the Congo,Brazzaville,0
+178,Romania,Bucharest,0
+179,Russia,Moscow,0
+180,Rwanda,Kigali,0
+181,Saint Barthélemy,Gustavia,0
+182,Saint Helena,Jamestown,0
+183,Saint Kitts and Nevis,Basseterre,0
+184,Saint Lucia,Castries,0
+185,Saint Martin,Marigot,0
+186,Saint Pierre and Miquelon,St. Pierre,0
+187,Saint Vincent and the Grenadines,Kingstown,0
+188,Samoa,Apia,0
+189,San Marino,San Marino,0
+190,São Tomé and Príncipe,São Tomé,0
+191,Saudi Arabia,Riyadh,0
+192,Scotland,Edinburgh,0
+193,Senegal,Dakar,0
+194,Serbia,Belgrade,0
+195,Seychelles,Victoria,0
+196,Sierra Leone,Freetown,0
+197,Singapore,Singapore,0
+198,Sint Maarten,Philipsburg,0
+199,Slovakia,Bratislava,0
+200,Slovenia,Ljubljana,0
+201,Solomon Islands,Honiara,0
+202,Somalia,Mogadishu,0
+203,Somaliland,Hargeisa,0
+204,South Africa,Pretoria,0
+205,South Georgia and the South Sandwich Islands,Grytviken,0
+206,South Korea,Seoul,0
+207,South Ossetia,Tskhinvali,0
+208,South Sudan,Juba,0
+209,Spain,Madrid,0
+210,Sri Lanka,Sri Jayawardenapura Kotte,0
+211,Sudan,Khartoum,0
+212,Suriname,Paramaribo,0
+213,Swaziland,Mbabane,0
+214,Sweden,Stockholm,0
+215,Switzerland,Bern,0
+216,Syria,Damascus,0
+217,Tajikistan,Dushanbe,0
+218,Tanzania,Dodoma,0
+219,Thailand,Bangkok,0
+220,Togo,Lomé,0
+221,Tonga,Nukuʻalofa,0
+222,Transnistria,Tiraspol,0
+223,Trinidad and Tobago,Port of Spain,0
+224,Tristan da Cunha,Edinburgh of the Seven Seas,0
+225,Tunisia,Tunis,0
+226,Turkey,Ankara,0
+227,Turkmenistan,Ashgabat,0
+228,Turks and Caicos Islands,Cockburn Town,0
+229,Tuvalu,Funafuti,0
+230,Uganda,Kampala,0
+231,Ukraine,Kiev,0
+232,United Arab Emirates,Abu Dhabi,0
+233,United Kingdom Northern Ireland,Belfast,0
+234,United Kingdom; England,London,0
+235,United States,"Washington, D.C.",0
+236,United States Virgin Islands,Charlotte Amalie,0
+237,Uruguay,Montevideo,0
+238,Uzbekistan,Tashkent,0
+239,Vanuatu,Port Vila,0
+240,Vatican City,Vatican City,0
+241,Venezuela,Caracas,0
+242,Vietnam,Hanoi,0
+243,Wales,Cardiff,0
+244,Wallis and Futuna,Mata-Utu,0
+245,Western Sahara,El Aaiún,0
+246,Yemen,Sanaá,0
+247,Zambia,Lusaka,0
+248,Zimbabwe,Harare,0
