@@ -157,6 +157,15 @@ namespace P045_Generics
             NodeListFilterU<Fork, Tool> forkToolNodeList = new NodeListFilterU<Fork, Tool>();
             // NodeListFilterU priima tik klases, kurios paveldeja is U (Antro perduoto duomenu tipo)
             // NodeListFilterU<Fork, Keyboard> toolForkNodeList = new NodeListFilterU<Fork, Keyboard>();
+
+
+            Console.WriteLine("------------------------");
+            GenericMethodBaseClass methodBaseClass = new GenericMethodBaseClass();
+            Fork fork = new Fork();
+
+            methodBaseClass.Print("Hello");
+            methodBaseClass.Print(fork);
+
         }
 
         #endregion
