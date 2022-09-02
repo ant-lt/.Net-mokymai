@@ -29,7 +29,7 @@ namespace P041_InterfacesPolymorphism_Uzd4.Interfaces
         ///  Turetu grazinti megstamiausios rusies hobio auksciausia ivertinima turincio iraso informacija
         /// </summary>
         /// <returns>Megstamiausios rusies hobio auksciausia ivertinima turincio iraso informacija</returns>
-        IHobby GetFavoriteHobby();
+        string GetFavoriteHobby();
 
         /// <summary>
         /// Turetu grazinti auksciausio ivertinimo irasa is kiekvienos rusies hobio

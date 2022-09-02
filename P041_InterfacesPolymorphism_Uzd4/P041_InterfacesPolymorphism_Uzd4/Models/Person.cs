@@ -9,16 +9,8 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
 {
     public class Person: IPerson
     {
-        public List<IHobby> CheckoutList = new List<IHobby>;
-
-        /// <summary>
-        ///  Prideda nauja(Nesikartojanti) hobby is kito zmogaus atsitiktine tvarka
-        /// </summary>
-        /// <param name="person"></param>
-        public void AddRandomToCheckList(Person person)
-        {
-            person.
-        }
+        public string Name { get; set; }
+        public List<IHobby> Hobbies { get; set; }
 
         public List<string> FindMatchingGenres(Person toPerson, string hobbyType)
         {
@@ -44,15 +36,95 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
         {
             throw new NotImplementedException();
         }
+        //public List<IHobby> GetFavoriteFromEachHobby()
+        //{
+        //    Dictionary<string, int> favoriteHobbyOccurence = GetHobbyOccurances();
+        //    Dictionary<IHobby> favoriteHobbies = new List<IHobby>();
 
-        public IHobby GetFavoriteHobby()
+        //    foreach(KeyValuePair<string, int> hobbyTypes in favoriteHobbyOccurence)
+        //    {
+        //        foreach (IHobby hobby in Hobbies)
+        //        {
+        //            if(hobby.GetHobbyName() == hobbyTypes.Key)
+        //            {
+        //                favoriteHobbies[]
+        //            }    
+        //        }
+        //    }
+        //}
+
+        private Dictionary<string, int> GetHobbyOccurances()
         {
-            throw new NotImplementedException();
+            Dictionary<string, int> favoriteHobbyOccurence = new Dictionary<string, int>();
+
+            List<string> allHobbyTypes = GetHobbyTypes();
+
+            foreach (string hobby in allHobbyTypes)
+            {
+                favoriteHobbyOccurence.Add(hobby, 0);
+            }
+
+            foreach (IHobby hobby in Hobbies)
+            {
+                favoriteHobbyOccurence[hobby.GetHobbyName()] += 1;
+            }
+
+            return favoriteHobbyOccurence;
+        }
+
+        public string GetFavoriteHobby()
+        {
+            Dictionary<string, int> favoriteHobbyOccurence = GetHobbyOccurances();
+
+            string favoriteHobby = string.Empty;
+
+            foreach (KeyValuePair<string, int> hobby in favoriteHobbyOccurence)
+            {
+                if (hobby.Value > favoriteHobbyOccurence[favoriteHobby])
+                {
+                    favoriteHobby = hobby.Key;
+                }
+            }
+
+            IHobby favHobby = null;
+
+            foreach (IHobby hobby in Hobbies)
+            {
+                if (hobby.GetHobbyName() == favoriteHobby)
+                {
+                    if (favHobby.Rating < hobby.Rating)
+                    {
+                        favHobby = hobby;
+                    }
+                }
+            }
+            // Jei turetume grazinti objekta vietoj string
+            //return favHobby;
+            return favoriteHobby;
+        }
+
+        private List<string> GetHobbyTypes()
+        {
+            List<string> result = new List<string>();
+
+            foreach (var hobby in Hobbies)
+            {
+                string hobbyName = hobby.GetHobbyName();
+
+                if (!result.Contains(hobbyName))
+                {
+                    result.Add(hobbyName);
+                }
+            }
+
+            return result;
         }
 
         public string GetFavoriteHobbyType()
         {
-            throw new NotImplementedException();
+            Hobbies.Sort((h1, h2) => h1.Rating.CompareTo(h2.Rating));
+
+            return Hobbies.FirstOrDefault().Name;
         }
 
         public string GetFavoriteMusicGenre()
@@ -62,7 +134,7 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
 
         public void Interact(IHobby hobby)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{Name} person is currently interacting with {hobby.GetHobbyName()} {hobby.Name}");
         }
 
         public void ShareHobbies(Person toPerson)
@@ -71,6 +143,11 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
         }
 
         public void ShareOldMovies(Person toPerson)
+        {
+            throw new NotImplementedException();
+        }
+
+        string IPerson.GetFavoriteHobby()
         {
             throw new NotImplementedException();
         }

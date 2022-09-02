@@ -9,45 +9,29 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
 {
     public class Music:IHobby
     {
-        /// <summary>
-        /// private fieldai butini interfeisui IHobby
-        /// </summary>
-        private string _name;
-        private string _publisher;
-        private string _genre;
-        private int _rating;
+        private const string _hobbyType = "Listening music";
 
         public int Id { get; set; }
         public int Length { get; set; }
         public string ArtistName { get; set; }
+        public string Name { get; }
+        public string Publisher { get; }
+        public string Genre { get; }
+        public int Rating { get; }
 
-        public Music(string name, string publisher, string genre, int rating, int id, int length, string artistName)
+        public Music(int id, int length, string artistName, string name, string publisher, string genre, int rating)
         {
-            _name = name;
-            _publisher = publisher;
-            _genre = genre;
-            _rating = rating;
             Id = id;
             Length = length;
             ArtistName = artistName;
+            Name = name;
+            Publisher = publisher;
+            Genre = genre;
+            Rating = rating;
         }
 
-        public string Name => _name;
+        public string GetHobbyInformation() => $"Music  \"{Name}\" Artist: {ArtistName} Genre:{Genre}\nRating:{Rating}\nPublisher:{Publisher}";
 
-        public string Publisher => _publisher;
-
-        public string Genre => _genre;
-
-        public int Rating => _rating;
-
-        public string GetHobbyInformation()
-        {
-            return string.Format($"Muzika \"{Name}\" Artistas: {ArtistName} Žanras: {Genre} Įvertinimas: {Rating}");
-        }
-
-        public string GetHobbyName()
-        {
-            return "Listening music";
-        }
+        public string GetHobbyName() => _hobbyType;
     }
 }

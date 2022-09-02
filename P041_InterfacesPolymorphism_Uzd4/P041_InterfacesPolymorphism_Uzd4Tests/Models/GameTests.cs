@@ -16,7 +16,7 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models.Tests
         public void GameTest()
         {
             // Arrange
-            var game = new Game(id: 1, platform: "Platform", isMultiplayer: true, gameName: "Game Name", gamePublisher: "Game Publisher", gameGenre: "Game Genre", gameRating: 1);
+            var game = new Game(id: 1, platForm: "Platform", isMultiplayer: true, gameName: "Game Name", gamePublisher: "Game Publisher", gameGenre: "Game Genre", gameRating: 1);
 
             var expectedId = 1;
             var expectedPlatform = "Platform";
@@ -27,7 +27,7 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models.Tests
             var expectedGameRating = 1;
 
             var actualId = game.Id;
-            var actualPlatform = game.Platform;
+            var actualPlatform = game.PlatForm;
             var actualIsMultiplayer = game.IsMultiplayer;
             var actualGameName = game.Name;
             var actualGamePublisher = game.Publisher;
@@ -47,7 +47,7 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models.Tests
         public void GetHobbyInformationTest()
         {
             // Arrange
-            IHobby hobyy = new Game(id: 1, platform: "Platform", isMultiplayer: true, gameName: "Game Name", gamePublisher: "Game Publisher", gameGenre: "Game Genre", gameRating: 1);
+            IHobby hobyy = new Game(id: 1, platForm: "Platform", isMultiplayer: true, gameName: "Game Name", gamePublisher: "Game Publisher", gameGenre: "Game Genre", gameRating: 1);
             
             var expected = "Žaidimas \"Game Name\" Žanras: Game Genre Įvertinimas: 1";
 
@@ -59,7 +59,7 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models.Tests
         public void GetHobbyNameTest()
         {
             // Arrange
-            IHobby hobyy = new Game(id: 1, platform: "Platform", isMultiplayer: true, gameName: "Game Name", gamePublisher: "Game Publisher", gameGenre: "Game Genre", gameRating: 1);
+            IHobby hobyy = new Game(id: 1, platForm: "Platform", isMultiplayer: true, gameName: "Game Name", gamePublisher: "Game Publisher", gameGenre: "Game Genre", gameRating: 1);
 
             var expected = "Gaming";
 

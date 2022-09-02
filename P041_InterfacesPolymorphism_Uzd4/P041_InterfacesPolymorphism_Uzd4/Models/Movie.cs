@@ -9,43 +9,26 @@ namespace P041_InterfacesPolymorphism_Uzd4.Models
 {
     public class Movie:IHobby
     {
-        /// <summary>
-        /// private fieldai butini interfeisui IHobby
-        /// </summary>
-        private string _name;
-        private string _publisher;
-        private string _genre;
-        private int _rating;
-
+        private const string _hobbyType = "Watching movie";
         public int Id { get; set; }
         public DateTime CreationDate { get; set; }
+        public string Name { get; }
+        public string Publisher { get; }
+        public string Genre { get; }
+        public int Rating { get; }
 
-        public Movie(string name, string publisher, string genre, int rating, int id, DateTime creationDate)
+        public Movie(int id, DateTime creationDate, string name, string publisher, string genre, int rating)
         {
-            _name = name;
-            _publisher = publisher;
-            _genre = genre;
-            _rating = rating;
             Id = id;
             CreationDate = creationDate;
+            Name = name;
+            Publisher = publisher;
+            Genre = genre;
+            Rating = rating;
         }
 
-        public string Name => _name;
+        public string GetHobbyInformation() => $"Genre:{Genre}\nRating:{Rating}\nPublisher:{Publisher}";
 
-        public string Publisher => _publisher;
-
-        public string Genre => _genre;
-
-        public int Rating => _rating;
-
-        public string GetHobbyInformation()
-        {
-            return string.Format($"Filmas \"{Name}\" Žanras: {Genre} Įvertinimas: {Rating}");
-        }
-
-        public string GetHobbyName()
-        {
-            return "Watching movie";
-        }
+        public string GetHobbyName() => _hobbyType;
     }
 }
