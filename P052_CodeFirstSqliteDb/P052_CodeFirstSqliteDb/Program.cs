@@ -7,7 +7,7 @@ namespace P052_CodeFirstSqliteDb
 
     // SVARBU!!
     // PAGRINDINES CLI(PACKAGE MANAGER CONSOLE) KOMANDOS:
-    // KOMANDOS TURI BUTI LEIDZIAMAS ANT INFRSTRUKTUROS PROJEKTO (Ten kur randasi DbContext)
+    // KOMANDOS TURI BUTI LEIDZIAMAS ANT *INFRASTRUKTUROS!!! PROJEKTO (Ten kur randasi DbContext)
     // add-migration "*MigrationName*"
     // update-database
     // update-database "*MigrationName*" - cia pavadinimas kaip paaiskinimas kas pasikeicia
@@ -23,6 +23,14 @@ namespace P052_CodeFirstSqliteDb
  Uzduotis 1:
     Atnaujinkit Person, kad turetu Weight(double), Biography(string:nullable) atributus  (Nauja migracija turetu tureti tik siuos atnaujinimus). Sukurkite nauja klase Animal, kuri turetu AnimalId(Primary Key), Name, Type, BirthDate atributus.
  */
+
+    /*
+     * Uzduotis 2:
+    Sukurkite metodus, kurie leistu prideti nauja gyvuna, atspausdintu visus gyvunus, isgautu gyvunus kurie yra paduoto tipo, atspausdintu visus gyvunus surikiuotus pagal varda. 
+    Pridekite sias funkcijas I main programos pasirinkimu menu.
+     * 
+     */
+
 
     internal class Program
     {
@@ -47,7 +55,7 @@ namespace P052_CodeFirstSqliteDb
 
             while (true)
             {
-                Console.WriteLine($"\n1.Add new user\n2.Display all users\n3.Display all users sorted by name\nq.Quit");
+                Console.WriteLine($"\n1.Add new user\n2.Display all users\n3.Display all users sorted by name\n4.Add animal\n5.Print All animals\nq.Quit");
 
                 char selection = Console.ReadKey().KeyChar;
 
@@ -70,6 +78,16 @@ namespace P052_CodeFirstSqliteDb
                     case '3':
                         _bloggingRepository.PrintAllPersonsSorted();
                         break;
+                    case '4':
+
+                     //   _bloggingRepository.AddAnimal( );
+                        break;
+
+                    case '5':
+
+                           _bloggingRepository.PrintAllAnimalSortedl();
+                        break;
+
                     case 'q':
                         return;
                     default:

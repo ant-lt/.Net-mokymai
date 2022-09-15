@@ -13,5 +13,9 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Interfaces
         public void AddPerson(string firstName, string lastName, DateTime birthDate);
         public void PrintAllPersons();
         public void PrintAllPersonsSorted();
+        public void AddAnimal(Animal animal);
+        public void PrintAllAnimalSortedl();
+
+        public List<Animal> FetchingAnimalofType(string type);
     }
 }

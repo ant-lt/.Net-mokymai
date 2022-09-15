@@ -18,6 +18,14 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Database
             context.Database.EnsureCreated();
         }
 
+        public void AddAnimal(Animal animal)
+        {
+            using var context = new BloggingContext();
+            context.Animals.Add(animal);
+            //
+            context.SaveChanges();
+        }
+
         public void AddPerson(Person person)
         {
             using var context = new BloggingContext();
@@ -38,6 +46,20 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Database
 
             context.Persons.Add(person); // Pridedame perduota person i musu DbContext
             context.SaveChanges();
+        }
+
+        public List<Animal> FetchingAnimalofType(string type)
+        {
+            using var context = new BloggingContext();
+            var animals = context.Animals
+                .Where(a => a.Type == type)
+                .ToList();
+
+            var animalQuerySyntax = (from animal in animals
+                                    where animal.Type == type
+                                    select animal).ToList();
+
+            return animals;
         }
 
         public void PrintAllPersons()
@@ -63,6 +85,19 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Database
             foreach (var person in persons)
             {
                 Console.WriteLine($"{person.PersonId}. {person.FirstName} {person.LastName}");
+            }
+        }
+
+
+        public void PrintAllAnimalSortedl()
+        {
+            using var context = new BloggingContext();
+            var animals = context.Animals
+                .OrderBy(p => p.Name);
+
+            foreach (var animal in animals)
+            {
+                Console.WriteLine($"{animal.AnimalId}. {animal.Name} {animal.Type}");
             }
         }
     }

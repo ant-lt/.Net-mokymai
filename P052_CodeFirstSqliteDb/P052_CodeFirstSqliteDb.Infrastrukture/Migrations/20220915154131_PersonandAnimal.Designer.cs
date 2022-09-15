@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using P052_CodeFirstSqliteDb.Infrastrukture.Database;
 
@@ -10,9 +11,10 @@ using P052_CodeFirstSqliteDb.Infrastrukture.Database;
 namespace P052_CodeFirstSqliteDb.Infrastrukture.Migrations
 {
     [DbContext(typeof(BloggingContext))]
-    partial class BloggingContextModelSnapshot : ModelSnapshot
+    [Migration("20220915154131_PersonandAnimal")]
+    partial class PersonandAnimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -23,23 +25,12 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("AnimalId");
 
                     b.ToTable("Animals");
                 });
 
-            modelBuilder.Entity("P052_CodeFirstSqliteDb.Domain.Models.Person", b =>
+            modelBuilder.Entity("P052_CodeFirstSqliteDb.Domain.Models.Persons", b =>
                 {
                     b.Property<int>("PersonId")
                         .ValueGeneratedOnAdd()

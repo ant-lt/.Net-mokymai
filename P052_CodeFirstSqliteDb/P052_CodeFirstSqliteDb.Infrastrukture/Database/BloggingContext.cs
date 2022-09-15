@@ -21,6 +21,7 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Database
 
         // Registruojame nauja lentele savo duombazeje
         public DbSet<Person> Persons { get; set; }
+        public DbSet<Animal> Animals { get; set; }
         public string DbPath { get; } // ConnectionString
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,6 +38,13 @@ namespace P052_CodeFirstSqliteDb.Infrastrukture.Database
 
             // Kuo skiriasi LazyLoading nuo EagerLoading
             optionsBuilder.UseLazyLoadingProxies();
+        }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Animal>()
+                .HasKey(a => a.AnimalId);
         }
     }
 }

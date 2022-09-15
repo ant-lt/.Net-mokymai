@@ -30,5 +30,7 @@ namespace P052_CodeFirstSqliteDb.Domain.Models
         public DateTime? BirthDate { get; set; }
         public string? Email { get; set; }
         public double? Height { get; set; }
+        public double Weight { get; set; } = 0;
+        public string? Biography { get; set; }
     }
 }
