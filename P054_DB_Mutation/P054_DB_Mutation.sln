@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P054_DB_Mutation", "P054_DB_Mutation\P054_DB_Mutation.csproj", "{777D1915-CA44-4619-AD02-857FFCC97F46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{45A504D8-1FE0-44A9-9D01-2811E32BAFB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P054_DB_MutationTests", "P054_DB_MutationTests1\P054_DB_MutationTests.csproj", "{53228065-7A44-4160-8DCC-194FE37562ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{777D1915-CA44-4619-AD02-857FFCC97F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777D1915-CA44-4619-AD02-857FFCC97F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777D1915-CA44-4619-AD02-857FFCC97F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777D1915-CA44-4619-AD02-857FFCC97F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53228065-7A44-4160-8DCC-194FE37562ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53228065-7A44-4160-8DCC-194FE37562ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53228065-7A44-4160-8DCC-194FE37562ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53228065-7A44-4160-8DCC-194FE37562ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{53228065-7A44-4160-8DCC-194FE37562ED} = {45A504D8-1FE0-44A9-9D01-2811E32BAFB5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {829A5906-1E46-440C-A3C3-9C4E81E69EBB}
+	EndGlobalSection
+EndGlobal
