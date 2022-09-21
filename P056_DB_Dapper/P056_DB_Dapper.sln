@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P056_DB_Dapper", "P056_DB_Dapper\P056_DB_Dapper.csproj", "{4F9487BB-2B03-4C69-B509-1EC7EEE1213D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P056_Uzduotis1_NoteBook", "P056_Uzduotis1_NoteBook\P056_Uzduotis1_NoteBook.csproj", "{AE1AB435-3760-47D0-9300-4ACBA29BB41A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F9487BB-2B03-4C69-B509-1EC7EEE1213D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9487BB-2B03-4C69-B509-1EC7EEE1213D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9487BB-2B03-4C69-B509-1EC7EEE1213D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F9487BB-2B03-4C69-B509-1EC7EEE1213D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE1AB435-3760-47D0-9300-4ACBA29BB41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1AB435-3760-47D0-9300-4ACBA29BB41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1AB435-3760-47D0-9300-4ACBA29BB41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1AB435-3760-47D0-9300-4ACBA29BB41A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22C770F8-9BB4-4012-90A5-A925ED67AF66}
+	EndGlobalSection
+EndGlobal
