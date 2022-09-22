@@ -1,4 +1,6 @@
-﻿using System.Runtime.InteropServices;
+﻿using P053_QueryingSqliteDb_Namu_darbas.Database;
+using P053_QueryingSqliteDb_Namu_darbas.Services;
+using System.Runtime.InteropServices;
 
 namespace P053_QueryingSqliteDb_Namu_darbas
 {
@@ -9,10 +11,12 @@ namespace P053_QueryingSqliteDb_Namu_darbas
             o	Name[iki 100 simboliu, privalomas]
             o	Type[iki10 simboliu, privalomas] // Moteriski, vyriski, vaikiski etc
             o	Price
+
             -	ShoeSize
             o	Id
             o	Size
             o	Quantity
+
             -	Sale
             o	Id
             o	Shoe (Kurie buvo nupirkti)
@@ -28,12 +32,25 @@ namespace P053_QueryingSqliteDb_Namu_darbas
             public List<Sale> GetAllPurchases()
             Tam, kad visus siuos reikalavimus igyvendintumete jums reikes uzsipildyti pradinius duomenis duomenu bazeje (batu kiekiai, dydziai ir t.t)
             Sukurkite klase ShoeShop, kuri veiktu kaip jusu programine interface dalis (UI/ConsoleWriteline) ir turetu metoda Purchase(), kuris i ekrana isvestu reikiamas zinutes ir valdytu visa pirkimo logika (Atemimas is quantity, pridejimas i Purchases)
+    Entity framework tutorial
+    https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
+
 */
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, SQLite DB namu darbas!");
+            using (var context = new ShoeShopContext())
+            {
+                //ctx.Database.EnsureCreated();
+
+                var shoeShopRepository = new ShoeShopRepository(context);
+                IShoeShop shop = new ShoeShop(shoeShopRepository);
+                shop.Begin();
+
+            }
+
         }
     }
 }
