@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 namespace P056_Uzduotis1_NoteBook.Database
 {
 
-    public class Note : IDatabaseBootstrap
+    public class DatabaseBootstrap : IDatabaseBootstrap
     {
         private readonly DatabaseConfig _databaseConfig;
 
-        public Note(DatabaseConfig databaseConfig)
+        public DatabaseBootstrap(DatabaseConfig databaseConfig)
         {
             _databaseConfig = databaseConfig;
         }
@@ -27,21 +27,24 @@ namespace P056_Uzduotis1_NoteBook.Database
                 SELECT name
                 FROM sqlite_master
                 WHERE type = 'table'
-                    AND name = 'Note';");
+                    AND name = 'Notebook';");
             var tableName = table.FirstOrDefault();
 
             // Tikriname ar turime lentele Note. Jei turime iseiname nieko nedare.
-            if (!string.IsNullOrEmpty(tableName) && tableName == "Note")
+            if (!string.IsNullOrEmpty(tableName) && tableName == "Notebook")
                 return;
 
-            // Kuriame lentele Note, nes sitoje vietoje esame garantuoti, kad Product lentele neegzistuoja paduotoje duomenu bazeje
+            // AUTOINCREMENT - (SQLite) Kada turime si atributa mums reiksme apskaiciuoja ir priskiria pati duomenu baze.
+            // SQLite generuoja nuo 1 iki X. Kiekviena eilute gauna vis didesni ID.
+            // Identity(1,1) == AUTOINCREMENT. Identity yra naudojamas SQL Server.
+            // PRIMARY KEY - Pagrindinis lenteles raktas, kuris yra unikalus yra tampa nebe istrinimas (non-nullable)
             connection.Execute(@"
-                CREATE TABLE Note (
+                CREATE TABLE Notebook (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Title varchar NOT NULL,
-                Description varchar,
+                Title VARCHAR(100) NOT NULL,
                 CreationDatetime DATETIME DEFAULT current_timestamp,
-                Priority varchar DEFAULT 0);");
+                Description VARCHAR(1000) NULL,
+                Priority VARCHAR(100) DEFAULT 0);");
 
         }
     }
