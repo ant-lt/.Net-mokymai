@@ -1,0 +1,9 @@
+{
+    "name": "Ange Agniene",
+    "courses": [ "C#", "T-SQL" ],
+    "happy": true,
+    "car": {
+        "model": "Enterprise",
+        "year": "2020"
+    }
+}
