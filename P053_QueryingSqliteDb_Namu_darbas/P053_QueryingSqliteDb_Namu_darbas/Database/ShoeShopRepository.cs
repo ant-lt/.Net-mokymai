@@ -25,7 +25,7 @@ namespace P053_QueryingSqliteDb_Namu_darbas.Database
         {
             var sale = new Sale
             {
-                SaleId = shoeSizeId,
+                ShoeSizeId = shoeSizeId,
                 Pairs = quantity
             };
 

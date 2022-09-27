@@ -53,9 +53,9 @@ namespace P053_QueryingSqliteDb_Namu_darbas.Database.Tests
             Assert.AreEqual(6, context.ShoeSizes.Find(2).Quantity); // veikia
             var shoes = context.Sales.Include(ShoeSize => ShoeSize.ShoeSize).First(x => x.ShoeSizeId == 2).Pairs;
 
-          // Assert.AreEqual(5, context.Sales.First(x => x.ShoeSizeId == 2).Pairs); // neveikia
-            Assert.AreEqual(5, shoes); // neveikia
-         //    Assert.AreEqual(500, context.Sales.First(x => x.ShoeSizeId == 2).PurchaseTotal);// neveikia
+           Assert.AreEqual(5, context.Sales.First(x => x.ShoeSizeId == 2).Pairs); 
+            
+             Assert.AreEqual(500, context.Sales.First(x => x.ShoeSizeId == 2).PurchaseTotal);
         }
 
 
