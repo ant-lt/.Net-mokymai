@@ -14,4 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DB_MUSIC_SHOP.Domain\DB_MUSIC_SHOP.Domain.csproj" />
+    <ProjectReference Include="..\DB_MUSIC_SHOP.Infrastrukture\DB_MUSIC_SHOP.Infrastrukture.csproj" />
+  </ItemGroup>
+
 </Project>
