@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace P060_DB_MUSIC_SHOP_EXAM
 {
@@ -19,7 +21,8 @@ namespace P060_DB_MUSIC_SHOP_EXAM
         public string? Composer { get; set; }
         public long Milliseconds { get; set; }
         public long? Bytes { get; set; }
-        public byte[] UnitPrice { get; set; } = null!;
+        public decimal UnitPrice { get; set; }
+        public string Status { get; set; }
 
         public virtual Album? Album { get; set; }
         public virtual Genre? Genre { get; set; }

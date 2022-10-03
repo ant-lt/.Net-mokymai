@@ -3,6 +3,7 @@ using System;
 using DB_MUSIC_SHOP.Infrastrukture.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB_MUSIC_SHOP.Infrastrukture.Migrations
 {
     [DbContext(typeof(chinookContext))]
-    partial class chinookContextModelSnapshot : ModelSnapshot
+    [Migration("20220928200158_Pridedas Status laukas track lenteleje")]
+    partial class PridedasStatuslaukastracklenteleje
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");

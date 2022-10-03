@@ -1,10 +1,18 @@
-﻿namespace P060_DB_MUSIC_SHOP_EXAM
+﻿using DB_MUSIC_SHOP.Infrastrukture.Interfaces;
+using DB_MUSIC_SHOP.Infrastrukture.Services;
+using System.Text;
+
+namespace P060_DB_MUSIC_SHOP_EXAM
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.OutputEncoding = Encoding.GetEncoding(1200);
+            Console.InputEncoding = Encoding.GetEncoding(1200);
+
+            IMusicShop shop = new MusicShop();
+            shop.Begin();
         }
     }
 }
@@ -71,7 +79,12 @@ EKRANAS [PIRKIMO EKRANAS]:
 
 
 EKRANAS [PIRKIMO EKRANAS->Peržiūrėti katalogą]:
-Pasirinkus "Peržiūrėti katalogą" turėtų išmesti visus esamus Tracks įrašus, kurių Status yra "Active". Šiam uždaviniui išspręsti turite atnaujinti Tracks lentelę ir pridėti naują stulpelį [Status] su default reiksme "Active". Darbuotojai turės galimybę pakeisti Tracks status iš Active į Inactive ir atvirkščiai. Šiame lange naviguoti turi būti galima naudojant raides 'q' - grįžti atgal; 'o' - turėtų atidaryti rikiavimo langą, kuriame vartotojas galėtų pasirinkti pagal ką rikiuoti, 's' - turėtų atidaryti paieškos langą, kuriame vartotojas galėtų pasirinkti pagal ką ieškoti.  Kiekvienam Track atvaizduokite tai kas jūsų nuomone yra svarbiausios dalys apsipirkinėjant šiam atvejui būtina įdėti Id, Name, Composer, Genre->Name, Album->Title, Milliseconds, Price.
+Pasirinkus "Peržiūrėti katalogą" turėtų išmesti visus esamus Tracks įrašus, kurių Status yra "Active". 
+Šiam uždaviniui išspręsti turite atnaujinti Tracks lentelę ir pridėti naują stulpelį [Status] su default reiksme "Active". 
+Darbuotojai turės galimybę pakeisti Tracks status iš Active į Inactive ir atvirkščiai. 
+Šiame lange naviguoti turi būti galima naudojant raides 
+'q' - grįžti atgal; 'o' - turėtų atidaryti rikiavimo langą, kuriame vartotojas galėtų pasirinkti pagal ką rikiuoti, 's' - turėtų atidaryti paieškos langą, kuriame vartotojas galėtų pasirinkti pagal ką ieškoti.  
+Kiekvienam Track atvaizduokite tai kas jūsų nuomone yra svarbiausios dalys apsipirkinėjant šiam atvejui būtina įdėti Id, Name, Composer, Genre->Name, Album->Title, Milliseconds, Price.
 {Pagrindinės rikiavimo funkcijos}:
 Pagal Name abecėlės tvarka
 Pagal Name atvirkštine abecėlės tvarka

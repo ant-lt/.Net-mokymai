@@ -9,8 +9,16 @@ namespace DB_MUSIC_SHOP.Infrastrukture.Database
 {
     public partial class chinookContext : DbContext
     {
+        public string? ConnectionString { get; }
+
         public chinookContext()
         {
+            // cia dar reikia padirbeti su direktorijomis
+            //var folder = Environment.SpecialFolder.LocalApplicationData;
+            //var path = Environment.GetFolderPath(folder);
+            //ConnectionString = Path.Join(path, "chinook.db");
+
+            ConnectionString = "C:\\Project\\CA Mokymai\\P060_DB_MUSIC_SHOP_EXAM\\P060_DB_MUSIC_SHOP_EXAM\\chinook.db";
         }
 
         public chinookContext(DbContextOptions<chinookContext> options)
@@ -33,8 +41,9 @@ namespace DB_MUSIC_SHOP.Infrastrukture.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlite("DataSource=C:\\Project\\CA Mokymai\\P060_DB_MUSIC_SHOP_EXAM\\P060_DB_MUSIC_SHOP_EXAM\\chinook.db");
+                optionsBuilder.UseSqlite($"Data Source={ConnectionString}"); 
+                optionsBuilder.UseLazyLoadingProxies(); 
+
             }
         }
 
@@ -231,6 +240,8 @@ namespace DB_MUSIC_SHOP.Infrastrukture.Database
                 entity.Property(e => e.Name).HasColumnType("NVARCHAR(200)");
 
                 entity.Property(e => e.UnitPrice).HasColumnType("NUMERIC(10,2)");
+                entity.Property(e => e.Status).HasColumnType("NVARCHAR(200)")
+                .HasDefaultValue("Active");
 
                 entity.HasOne(d => d.Album)
                     .WithMany(p => p.Tracks)
