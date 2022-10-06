@@ -4,14 +4,14 @@
 
 body {
     background-color: azure;
+    background-image: url("../img/chocolate1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-span {
-    padding: 0;
-    margin: 15px;
-    background-color: orange;
-    width: 150px;
-    height: 50px;
+main {
+    
 }
 
 div {
@@ -22,20 +22,9 @@ div {
     height: 200px;
     min-width: 700px;
     border: 1px solid black;
-    /* min-width: 150px;
-    min-height: 200px;
-    max-width: 600px;
-    max-height: 200px; */
 }
 
-article {
-    padding: 0;
-    margin: 15px;
-    background-color:lightsalmon;
-    min-width: 80%;
-    min-height: 50%;
-    /* Parodyti rytoj */
-}
+
 
 p {
     text-align: center;
@@ -44,20 +33,21 @@ p {
     text-decoration-style: dotted;
     text-decoration-thickness: 25%;
     letter-spacing: 3px;
-    /* letter-spacing: -3px; */
+    
 }
 
 img {
     float: left;
-    /*
-    TLBR 
-    border-radius: 25px; // Affects all sides
-    TLBR TRBL */
-    /* border-radius: 0px 25px;  */
-    /* Affects all described sides */
     border-radius: 0px 0px 25px 0px;
-    /* border-top-left-radius: 25px; */
     margin-right: 25px;
     height: 100%;
     border-right: 1px solid black;
+}
+
+H2 {
+    font-weight: bold;
+}
+
+H3 {
+    font-weight: bold;
 }

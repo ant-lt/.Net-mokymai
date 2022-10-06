@@ -1,0 +1,76 @@
+/* * {
+    padding: 5px;
+} */
+
+body {
+    background-color: azure;
+    background-image: url("../img/chocolate1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+main {
+    
+}
+
+div {
+    padding: 0px 25px 0px 0px;
+    margin: 15px;
+    background-color:aquamarine;
+    width: 50%;
+    height: 200px;
+    color: magenta;
+    min-width: 700px;
+    border: 1px solid black;
+    border: groove;
+    border-radius: 0px 0px 25px 0px;
+}
+
+
+div.vienas {
+    padding: 0px 25px 0px 0px;
+    margin: 20px audio;
+    background-color:aquamarine;
+    width: 400px;
+    height: 200px;
+    min-width: 700px;
+    border: 10px dashed red;
+}
+
+div.du {
+    padding: 0px 25px 0px 0px;
+    margin: 20px audio;
+    background-color:aquamarine;
+    width: 400px;
+    height: 200px;
+    min-width: 700px;
+    border: 10px dashed red;
+    box-sizing: border-box;
+}
+
+p {
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-color: green;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 25%;
+    letter-spacing: 3px;
+    
+}
+
+img {
+    float: left;
+    border-radius: 0px 0px 25px 0px;
+    margin-right: 25px;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+H2 {
+    font-weight: bold;
+}
+
+H3 {
+    font-weight: bold;
+}
