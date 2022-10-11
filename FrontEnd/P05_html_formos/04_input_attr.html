@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello imput attributes</title>
+  </head>
+  <body>
+    <form action="https://atikas.github.io/BlazorConsole/" method="get">
+      <h1>readonly Attribute</h1>
+
+      <label for="fname">First name:</label>
+      <br />
+      <input type="text" id="fname" name="fname" value="Jonas" readonly />
+      <br />
+      <h1>disabled Attribute</h1>
+      <label for="lname">Last name:</label>
+      <br />
+      <input type="text" id="lname" name="lname" value="Doe" disabled />
+      <h1>size Attribute</h1>
+      <!-- works with: text, search, tel, url, email, and password -->
+      <label for="pin">PIN:</label>
+      <br />
+      <input type="text" id="pin" name="pin" size="4" autofocus />
+      <h1>maxlength Attribute</h1>
+      <label for="pin1">PIN1:</label>
+      <br />
+      <input type="text" id="pin1" name="pin1" size="4" maxlength="4" />
+      <h1>min and max Attribute</h1>
+      <!--  works with:  number, range, date, datetime-local, month, time and week -->
+      <label for="quantity">Quantity (between 1 and 5):</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        min="1"
+        max="5"
+        required
+      />
+      <br />
+      <label for="datemax">Enter a date before 1980-01-01:</label>
+      <input type="date" id="datemax" name="datemax" max="1979-12-31" />
+      <h1>placeholder Attribute</h1>
+      <label for="phone">Enter a phone number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="+370 0 00 00000" />
+      <h1>height and width Attribute</h1>
+      <input type="image" src="star.png" alt="Submit" width="48" height="48" />
+
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </form>
+    <h1>autocomplete Attribute</h1>
+    <form action="/action_page.php" autocomplete="on">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" autocomplete="off" />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>

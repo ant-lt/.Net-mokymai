@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello elements</title>
+  </head>
+  <body>
+    <h1>HTML Forms</h1>
+    <form action="https://atikas.github.io/BlazorConsole/" method="get">
+      <h2>The &lt;input&gt; Element</h2>
+      <span>First name:</span>
+      <br />
+      <input type="text" id="fname" name="fname" value="" />
+      <br />
+      <!-- --------------------------- -->
+      <h2>The &lt;label&gt; Element</h2>
+      <label for="lname">Last name:</label>
+      <br />
+      <input type="text" id="lname" name="lname" value="Doe" />
+      <!-- --------------------------- -->
+      <h2>The &lt;select&gt; Element (dropdown)</h2>
+      <label for="cars">pasirinkite automobili</label>
+      <br />
+      <select id="cars" name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab" selected>Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+      </select>
+      <!-- --------------------------- -->
+      <h2>The &lt;select&gt; Element (list)</h2>
+      <label for="cars">pasirinkite automobili</label>
+      <br />
+      <select id="cars1" name="cars1" size="5" multiple>
+        <option value="volvo">Volvo</option>
+        <option value="saab" selected>Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+      </select>
+      <!-- --------------------------- -->
+      <h2>The &lt;textarea&gt; Element</h2>
+      <textarea name="message" rows="10" cols="30">
+Lorem ipsum dolor sit amet 
+      </textarea>
+      <!-- --------------------------- -->
+      <h2>The &lt;button&gt; Element</h2>
+      <button type="button" onclick="alert('Tu mane paspaudei')">
+        Paspausk mane
+      </button>
+      <!-- ------------------------------------------------------ -->
+      <h2>The &lt;fieldset&gt; and &lt;legend&gt; Element</h2>
+      <!-- The <fieldset> element is used to group related data in a form.
+             The <legend> element defines a caption for the <fieldset> element. -->
+      <fieldset>
+        <legend>Personalia:</legend>
+        <label for="fname">First name:</label>
+        <br />
+        <input type="text" id="fname" name="fname" value="John" />
+        <br />
+        <label for="lname">Last name:</label>
+        <br />
+        <input type="text" id="lname" name="lname" value="Doe" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+      </fieldset>
+      <!-- ------------------------------------------------------ -->
+      <h2>The &lt;datalist&gt; Element</h2>
+      <input list="browsers" />
+      <datalist id="browsers">
+        <option value="Internet Explorer"></option>
+        <option value="Firefox"></option>
+        <option value="Chrome"></option>
+        <option value="Opera"></option>
+        <option value="Safari"></option>
+      </datalist>
+      <input type="submit" value="Submit" />
+    </form>
+    <br />
+    <!-- ------------------------------------------------------ -->
+    <h2>The &lt;output&gt; Element</h2>
+    <form
+      action="https://atikas.github.io/BlazorConsole/"
+      method="get"
+      oninput="x.value=parseInt(a.value)+parseInt(b.value)"
+    >
+      <input type="number" id="a" name="a" value="50" />
+      +
+      <input type="number" id="b" name="b" value="20" />
+      =
+      <output name="x" for="a b"></output>
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </body>
+</html>
