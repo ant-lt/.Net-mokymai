@@ -1,0 +1,110 @@
+<!DOCTYPE html lang="lt">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="HTML mokymai" />
+    <meta name="keywords" content="HTML, CodeMstery" />
+    <meta name="author" content="Robertas Ūselis" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello text formating</title>
+    <style>
+      .container {
+        border: 1px solid black;
+      }
+      .bg-blue {
+        background-color: blue;
+      }
+      .txt-red {
+        color: red;
+      }
+      .txt-yellow {
+        color: yellow;
+      }
+      .text-center {
+        text-align: center;
+      }
+      h1 {
+        border: 1px solid silver;
+      }
+      .d-table {
+        display: table;
+        border: 1px solid black;
+        height: 200px;
+      }
+      .d-table-cell {
+        display: table-cell;
+        border: 1px solid grey;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color</h1>
+    <p class="container txt-red">Raudonas tekstas</p>
+    <p class="container bg-blue txt-yellow">Geltonas tekstas mėlyname fone</p>
+    <hr />
+    <h1>Text Alignment</h1>
+    <p class="container text-center">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe fugiat
+      minima ea asperiores at, porro aspernatur eos necessitatibus quisquam
+      veritatis a quae debitis, dolores molestias laudantium! Repellat possimus
+      dignissimos sequi?
+    </p>
+    <p class="container" style="text-align: left">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe fugiat
+      minima ea asperiores at, porro aspernatur eos necessitatibus quisquam
+      veritatis a quae debitis, dolores molestias laudantium! Repellat possimus
+      dignissimos sequi?
+    </p>
+    <p class="container" style="text-align: right; height: 100px">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe fugiat
+      minima ea asperiores at, porro aspernatur eos necessitatibus quisquam
+      veritatis a quae debitis, dolores molestias laudantium! Repellat possimus
+      dignissimos sequi?
+    </p>
+    <p class="container" style="text-align: justify">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe fugiat
+      minima ea asperiores at, porro aspernatur eos necessitatibus quisquam
+      veritatis a quae debitis, dolores molestias laudantium! Repellat possimus
+      dignissimos sequi?
+    </p>
+    <h1>Vertical Alignment</h1>
+    <p
+      class="container"
+      style="text-align: right; height: 100px; vertical-align: baseline"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe fugiat
+      minima ea asperiores at, porro aspernatur eos necessitatibus quisquam
+      veritatis a quae debitis, dolores molestias laudantium! Repellat possimus
+      dignissimos sequi?
+    </p>
+    <div>
+      <h1>
+        baseline
+        <img style="vertical-align: baseline" src="star.png" />
+      </h1>
+      <h1>
+        text-top
+        <img style="vertical-align: text-top" src="star.png" />
+      </h1>
+      <h1>
+        text-bottom
+        <img style="vertical-align: text-bottom" src="star.png" />
+      </h1>
+      <h1>
+        super
+        <img style="vertical-align: super" src="star.png" />
+      </h1>
+      <h1>
+        sub
+        <img style="vertical-align: sub" src="star.png" />
+      </h1>
+    </div>
+    <hr />
+    <div class="d-table">
+      <div class="d-table-cell" style="vertical-align: middle">middle</div>
+      <div class="d-table-cell" style="vertical-align: top">top</div>
+      <div class="d-table-cell" style="vertical-align: bottom">bottom</div>
+    </div>
+  </body>
+</html>
