@@ -1,0 +1,70 @@
+.container-flex-row .item-flex {
+    background-color: rgb(242, 95, 95);
+    color:white;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+    text-align: center;
+}
+
+.container-flex-row {
+    display: flex;
+    flex-direction: row;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.container-flex-row-reverse .item-flex {
+    background-color: rgb(238, 241, 75);
+    color:white;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+}
+
+.container-flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.container-flex-column .item-flex {
+    background-color: rgb(75, 188, 241);
+    color:white;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+}
+
+.container-flex-column {
+    display: flex;
+    flex-direction: column;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.container-flex-column-reverse .item-flex {
+    background-color: rgb(50, 221, 53);
+    color:white;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+}
+
+.container-flex-column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}

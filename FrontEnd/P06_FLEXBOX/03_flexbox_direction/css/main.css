@@ -1,0 +1,122 @@
+/* flex container */
+.container-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* flex items */
+.container-row div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}
+
+/* flex container */
+.container-row-reverse {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+/* flex items */
+.container-row-reverse div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}
+
+/* flex container */
+.container-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+/* flex items */
+.container-column div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}
+
+/* flex container */
+.container-column-reverse {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+}
+
+/* flex items */
+.container-column-reverse div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}
+
+/* flex container */
+.container-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* flex items */
+.container-wrap div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}
+
+/* flex container */
+.container-no-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* flex items */
+.container-no-wrap div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}
+
+/* flex container */
+.container-wrap-reverse {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+/* flex items */
+.container-wrap-reverse div {
+    width: 175px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+    margin: 1em;
+    word-wrap: break-word;
+}

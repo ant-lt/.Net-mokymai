@@ -1,0 +1,24 @@
+.item-flex {
+    height: 50px;
+    background-color: rgb(255, 122, 215);
+    border: 8px solid rgb(9, 172, 222);
+    min-width: 50px;
+    flex: 1;
+}
+
+.container-flex {
+    margin: 5px;
+    display: flex;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.container-inline-flex {
+    /* Turns flex into inline instead of block level element */
+    display: inline-flex;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+    /* justify-content: space-between; */
+}

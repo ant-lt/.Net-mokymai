@@ -1,0 +1,53 @@
+.container-nowrap div {
+    background-color: rgb(242, 95, 95);
+    color:white;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+    text-align: center;
+}
+
+.container-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.container-wrap div {
+    background-color: rgb(238, 241, 75);
+    color:white;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+}
+
+.container-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
+
+.container-wrap-reverse div {
+    background-color: rgb(75, 188, 241);
+    color:white;
+    max-width: 100px;
+    min-height: 100px;
+    margin: 2px;
+    flex: 1;
+}
+
+.container-wrap-reverse {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    /* Flex defaults */
+    /* flex-direction: row;
+    flex-wrap: nowrap; */
+}
