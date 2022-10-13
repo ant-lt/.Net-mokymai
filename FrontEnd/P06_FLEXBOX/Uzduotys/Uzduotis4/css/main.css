@@ -1,0 +1,100 @@
+main {
+    background-color: black;
+}
+
+.main-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.just-flex-start {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.just-flex-start div {
+    display: flex;
+    background-color: red;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    justify-content: center;
+    align-items:center;
+    font-weight: bold;
+}
+
+.just-flex-end {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.just-flex-end div {
+    background-color: yellow;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.just-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.just-center div {
+    display: flex;
+    background-color: lightblue;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    align-items:center;
+    font-weight: bold;
+}
+
+.just-space-between {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.just-space-between div {
+    background-color: lightgreen;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.just-space-around {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.just-space-around div {
+    background-color: lightpink;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.just-space-evenly {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.just-space-evenly div {
+    background-color: greenyellow;
+    color: white;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
