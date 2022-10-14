@@ -1,0 +1,166 @@
+div.container-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    border: 5px solid tomato;
+}
+
+div.container-row div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-column {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    width: 500px;
+    height: 300px;
+    border: 5px solid tomato;
+}
+
+div.container-column div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-row-end {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    border: 5px solid tomato;
+}
+
+div.container-row-end div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-column-end {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    height: 300px;
+    border: 5px solid tomato;
+}
+
+div.container-column-end div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-row-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    border: 5px solid tomato;
+}
+
+div.container-row-center div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-column-center {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    height: 300px;
+    border: 5px solid tomato;
+}
+
+div.container-column-center div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-row-space-between {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border: 5px solid tomato;
+}
+
+div.container-row-space-between div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-column-space-between {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    height: 300px;
+    width: 500px;
+    border: 5px solid tomato;
+}
+
+div.container-column-space-between div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-row-space-around {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    border: 5px solid tomato;
+}
+
+div.container-row-space-around div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}
+
+div.container-column-space-around {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    height: 500px;
+    border: 5px solid tomato;
+}
+
+div.container-column-space-around div {
+    width: 175px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid rgb(71, 255, 77);
+    background-color: darkgray;
+    text-align: center;
+}

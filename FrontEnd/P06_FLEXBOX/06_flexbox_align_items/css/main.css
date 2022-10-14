@@ -1,0 +1,245 @@
+/* container */
+.container-row-start {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    height: 700px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-row-start div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-column-start {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    height: 500px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-column-start div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-row-end {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    height: 700px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-row-end div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-column-end {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    height: 500px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-column-end div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-row-center {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    min-height: 700px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-row-center div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-column-center {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    height: 500px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-column-center div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-row-stretch {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    height: 700px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-row-stretch div {
+    /* flex-grow: 1; */
+    /* formatting */
+    width: 200px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-column-stretch {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+    height: 500px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-column-stretch div {
+    /* flex-grow: 1; */
+    /* formatting */
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+/* container */
+.container-row-baseline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: baseline;
+    height: 700px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-row-baseline div {
+    /* flex-grow: 1; */
+    /* formatting */
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+.container-row-baseline .start {
+    align-items: flex-start;
+}
+
+.container-row-baseline .center {
+    align-items: center;
+}
+
+.container-row-baseline .end {
+    align-items: flex-end;
+}
+
+/* container */
+.container-column-baseline {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: baseline;
+    height: 700px;
+    /* formatting */
+    border: 5px solid red;
+}
+
+/* flex items */
+.container-column-baseline div {
+    /* flex-grow: 1; */
+    /* formatting */
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid red;
+    background-color: darkgray;
+    text-align: center;
+}
+
+.container-column-baseline .start {
+    align-items: flex-start;
+}
+
+.container-column-baseline .center {
+    align-items: center;
+}
+
+.container-column-baseline .end {
+    align-items: flex-end;
+}

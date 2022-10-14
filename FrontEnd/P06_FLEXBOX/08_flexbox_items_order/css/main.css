@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-flow: column wrap;
+    border: 5px solid orange;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    margin: 1em;
+    border: 1px solid green;
+    background-color: darkgray;
+    text-align: center;
+}
+
+#nn {
+    order: 1;
+}
+
+#bb {
+    order: 2;
+}
+
+#cc {
+    order: 5;
+}
+
+#kk {
+    order: 4;
+}
