@@ -34,16 +34,16 @@
       <label for="cardtype">Card type:</label>
       <input list="cardtype" />
       <datalist id="cardtype">
-        <option value="Visa"></option>
-        <option value="Maestro"></option>
-        <option value="American"></option>
+        <option value="Visa" selected>Visa</option>
+        <option value="Maestro">Maestro</option>
+        <option value="American">American</option>
       </datalist>
       <br />
       <label for="cardnumber">Card number:*</label>
-      <input type="number" id="cardnumber" name="cardnumber" required  minlength="9"/>
+      <input type="number" id="cardnumber" name="cardnumber" required  minlength="11"/>
       <br />
       <label for="expdate">Expiration date:*</label>
-      <input type="datetime" id="expdate" name="expdate" required placeholder="dd/mm/yyyy, --:--" />
+      <input type="datetime" id="expdate" name="expdate" required placeholder="dd/mm/yyyy, --:--" min="2020-12-31"/>
       <br />
     
       <label for="terms">Agree with terms and conditions:*</label>
@@ -55,6 +55,12 @@
     </div>
       <br />
     </form>
+    <div class="Chip"></div>
+    <div class="CardNumberDots">
+        <span></span><span></span><span></span><span></span>&nbsp&nbsp&nbsp
+        <span></span><span></span><span></span><span></span>&nbsp&nbsp&nbsp
+        <span></span><span></span><span></span><span></span>&nbsp&nbsp&nbsp
+        <span></span><span></span><span></span><span></span>
     </div>
 </body>
 </html>
