@@ -6,61 +6,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+
+.payment_form {
+  width: 350px; 
+  height: fit-content; 
+  padding:20px;  
+  border: 2px solid lightgrey;  
+  border-radius: 10px; 
+  line-height: 1.5;
+}
+
+.solid-line {
+  width: 100% ;
+  size: auto;
+  color: lightslategray;
+}
+
+
+.label-description{
+        display: inline-block;
+        text-align: right;
+        align-content: flex-end;
+        width: 170px;
+}
+
+.payment_button {
+  border: 2px solid  lightgrey;  
+  border-radius: 5px; 
+  background-color:  lightgrey;
+}
+
+.card-form {
+  width: 350px;
+  height: auto;
+  margin: 0px;
+  padding: 40px;
+  border: 2px solid  gray;
+  background-color: gray;
+  border-radius: 10px; 
+}
+
+.hided-digit {
+  background-color: lightgrey;  
+  border-radius: 12px; 
+  font-size: 12px; 
+  color:  lightgrey;
+}
+
+.sim-main {
+  width: 70px; 
+  height: 50px; 
+  border: 1px solid rgba(121, 115, 115, 0.89); 
+  border-radius: 10px; 
+  background-color: rgba(121, 115, 115, 0.89); 
+}
+
+.sim-in-sim {
+  width: 50px; 
+  height:30px;
+  background-color: lightgrey;  
+  border-radius: 5px; 
+  margin-left: 0;
+  margin-top: 10px;
+  vertical-align: middle;
+  padding: 0px;
+}
+
+h1 h3 {
+  font-weight: bold;
+}
+
+</style>
 <body>
-    
-    <div style="width: 400px; height: fit-content; padding:50px;  border: 2px solid lightgrey;  border-radius: 10px; ">
-    <form
-      action="https://atikas.github.io/BlazorConsole/"
-      target="_blank"
-      method="get"
-
-      autocomplete="off"
-    >
-    <h1>Payment form</h1>
-    <h4>Required fields are followed by *.</h4>
-    <h3>Contact information</h3>
-
-      <label for="fname">Name:*</label>
-      <input type="text" id="fname" name="fname" required />
-      <br />
-      <!-- --------------------------- -->
-      <label for="email">E-mail:*</label>
-      <input type="email" id="email" name="email" required  />
-      <br />
-      <label for="password">Password:*</label>
-      <input type="password" id="password" name="password" required  />
-      <br />
+    <div>
+      <form
+          class="payment_form"
+          action="https://atikas.github.io/BlazorConsole/"
+          target="_blank"
+          method="get"
+        autocomplete="off"
+        >
+      <h1>Payment form</h1>
+      <h4>Required fields are followed by *.</h4>
+      <h3>Contact information</h3>
+      <p>
+        <label class="label-description" for="fname">Name:*</label>
+        <input type="text" id="fname" name="fname" required />
+        <br />
+        <!-- --------------------------- -->
+        <label class="label-description" for="email">E-mail:*</label>
+        <input type="email" id="email" name="email" required  />
+        <br />
+        <label class="label-description" for="password">Password:*</label>
+        <input type="password" id="password" name="password" required  />
+        <br />
+      </p>
       <h3>Payment information</h3>
-      <label for="cardtype">Card type:</label>
-      <input list="cardtype" />
-      <datalist id="cardtype">
-        <option value="Visa" selected>Visa</option>
+      <label class="label-description" for="cardtype">Card type:</label>
+      <select id="cardtype">
+        <option selected value="Visa">Visa</option>
         <option value="Maestro">Maestro</option>
         <option value="American">American</option>
-      </datalist>
+      </select>
       <br />
-      <label for="cardnumber">Card number:*</label>
+      <label class="label-description" for="cardnumber">Card number:*</label>
       <input type="number" id="cardnumber" name="cardnumber" required  minlength="11"/>
       <br />
-      <label for="expdate">Expiration date:*</label>
+      <label class="label-description" for="expdate">Expiration date:*</label>
       <input type="datetime" id="expdate" name="expdate" required placeholder="dd/mm/yyyy, --:--" min="2020-12-31"/>
-      <br />
-    
+      <br/>
+      <hr class="solid-line">    
       <label for="terms">Agree with terms and conditions:*</label>
       <input type="checkbox" id="terms" name="terms" required >
       <br />
       <div style="text-align: center;">
-        <br />
-      <input type="submit" value="Validate the payment" />
-    </div>
       <br />
-    </form>
-    <div class="Chip"></div>
-    <div class="CardNumberDots">
-        <span></span><span></span><span></span><span></span>&nbsp&nbsp&nbsp
-        <span></span><span></span><span></span><span></span>&nbsp&nbsp&nbsp
-        <span></span><span></span><span></span><span></span>&nbsp&nbsp&nbsp
-        <span></span><span></span><span></span><span></span>
+      <input class="payment_button" type="submit" value="Validate the payment" />    
+      <br />
+      </form>
+    </div>
+
+    <!-- --------------------------- -->
+    <br />
+    <div style="width: 1000px; ">
+      <div class="card-form">
+        <div class="sim-main">
+          <div class="sim-in-sim">
+          </div>
+        </div>
+        <br />
+        <br />
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span>&nbsp;&nbsp;</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span>&nbsp;&nbsp;</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span>&nbsp;&nbsp;</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <span class="hided-digit">00</span>
+        <div>
+          <p style="color:  lightgrey;  ">FULL NAME</p>
+        </div>      
+      </div>
+      <div style="width: 100px; ">
+        <label class="label-description" for="cardnumber">Card number</label>
+        <input type="number" id="cardnumber" name="cardnumber" required  minlength="11"/>
+        <label class="label-description" for="fname">Cardholder name</label>
+        <input type="text" id="fname" name="fname" required />
+        <br />
+        <label class="label-description" for="expdate">Expiry date</label>
+        <input type="datetime" id="expdate" name="expdate" required placeholder="MM/YYYY" min="2020-12-31"/>
+        <label class="label-description" for="cvc">Security Number</label>
+        <input type="number" id="cvc" name="cvc" required  placeholder="CVC" minlength="3"/>
+        <br />
+        <input class="payment_button" type="submit" value="Pay -.-Eur" />
+        <br />
+  
+    </div>
     </div>
 </body>
 </html>
