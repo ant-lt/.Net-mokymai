@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM ELEMENTS</title>
+    <link rel="stylesheet" href="_styles.css" />
+  </head>
+  <body>
+    <h1>Hello HTML DOM elements</h1>
+    <h2>getElementsByTagName()</h2>
+    <ul>
+      <li class="drink coffee">Kava</li>
+      <li class="drink tea">
+        Arbata
+        <ul id="tea_types">
+          <li>Juoda arbata</li>
+          <li>Zalia arbata</li>
+        </ul>
+      </li>
+      <li class="drink water">Vanduo</li>
+      <li class="drink milk">Pienas</li>
+    </ul>
+    <p>
+      <button type="button" onclick="changeFirstLi()">Modifikuoti Kava</button>
+    </p>
+    <p>
+      <button type="button" onclick="addMilkLi()">Prideti pieno</button>
+    </p>
+    <!-- --------------------- -->
+    <p>
+      <button
+        type="button"
+        onclick="document.getElementById('lbl_li_count').innerHTML = countLi()"
+      >
+        Suskaiciuoti li
+      </button>
+    </p>
+    <div id="lbl_li_count">not counted</div>
+    <!-- --------------------- -->
+    <p>
+      <button type="button" onclick="changeCoffee()">
+        Pakeisti kava i karsta sokolada
+      </button>
+    </p>
+    <!-- --------------------- -->
+    <p>
+      <button type="button" onclick="changeMilkToAlmindDrink()">
+        Pakeisti piena i migdolini gerima
+      </button>
+    </p>
+    <!-- --------------------- -->
+    <p>
+      <button type="button" onclick="changeStyleOfWater()">
+        Pakeisti vandens spalva i melyna
+      </button>
+    </p>
+    <!-- --------------------- -->
+    <p>
+      <button type="button" onclick="changeStyleOfMilk()">
+        Pagrazinti piena
+      </button>
+    </p>
+    <!-- --------------------- -->
+    <p>
+      <button type="button" onclick="changeStyleOfTea()">
+        Pagrazinti arbata
+      </button>
+    </p>
+    <!-- REGION SCRIPTS -->
+    <script src="_script.js"></script>
+    
+    <!--
+        
+1. Stilizuokite turinio meniu kaip mygtukus
+2. Paspaudus turinio meniu punktą (tik užkrovus puslapį turi būti nepasirinktas nei vienas receptas, o visos skiltys (Recepto paruošimas, Alergenai ir t.t.) turi būti tuščios):
+  - pakeiskite „recepto paruošimas“ skiltį pasirinktu receptu
+  - pakeiskite „ingredientai“ skiltį  pasirinkto recepto ingredientais
+  - rodomo recepto mygtukas turi pakeisti spalvą į kitokią
+  - pakeiskite rodomo produkto paveiksliuką
+3. Alergenai turi būti pridedami pagal ingredientų klases dinamiškai. Pvz. jei ingredientas „pienas“ turi klasę „milk“ į alergenų sąrašą dinamiškai pridedama „lacteos“ ikona ir t.t.
+Optional 4. Su JS nuskaitykite recepto paruošimo tekstą. Jei tekste yra žodis „šauktas“ šalia įrankių dinamiškai parodykite šauktą, jei „puodelis“ – puodelį ir t.t.
+    -->
+  </body>
+</html>
