@@ -1,0 +1,31 @@
+.d-table {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.d-table-cell {
+border: 1px solid grey;
+width: 150px;
+height: 50px;
+margin: 10px;
+vertical-align:middle;
+text-align: center;
+line-height: 3;
+}
+
+
+li {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid blue ;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+}
+
+a:hover {
+    color: red;
+}

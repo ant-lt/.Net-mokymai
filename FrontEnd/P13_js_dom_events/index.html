@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENTS</title>
+    <link rel="stylesheet" href="_styles.css" />
+  </head>
+  <body>
+    <h1 id="hello">kur as? kas as?</h1>
+    <p>
+      <!-- embeded event -->
+      <button
+        type="button"
+        onclick="document.getElementById('hello').innerHTML = 'Hello from embeded event'"
+      >
+        Say hello from embeded event
+      </button>
+    </p>
+    <!-- ----------------- -->
+    <p>
+      <!-- event handler -->
+      <button id="btn_with_handler" type="button">
+        Hello from event handler
+      </button>
+    </p>
+    <!-- ----------------- -->
+    <p>
+      <!-- event listner -->
+      <button id="btn_with_listner" type="button">
+        Hello from event listner
+      </button>
+    </p>
+    <!-- ----------------- -->
+    <p>
+      <label for="fld_name">Iveskite savo varda</label>
+      <input type="text" id="fld_name" />
+    </p>
+    <!-- ----------------- -->
+    <p>
+      <label for="fld_lastname">Iveskite savo pavarde</label>
+      <input type="text" id="fld_lastname" />
+    </p>
+    <!-- ----------------- -->
+    <p>
+      <label for="fld_age">Iveskite savo amziu</label>
+      <input type="text" id="fld_age" />
+    </p>
+    <!-- ----------------- -->
+    <p>
+      <label for="fld_number">Iveskite skaiciu</label>
+      <input type="text" id="fld_number" />
+    </p>
+    <p id="lbl_number">as nezinau skaiciaus</p>
+
+    <!-- ----------------- -->
+    <h2>form</h2>
+    <form id="frm_registration" method="post">
+      <div>
+        <label for="name">Vardas:</label>
+        <input type="text" id="name" name="user_name" value="Vardenis" />
+      </div>
+      <div>
+        <label for="mail">E-mail:</label>
+        <input
+          type="email"
+          id="mail"
+          name="user_mail"
+          value="Vardenis@pavardenis.tk"
+        />
+      </div>
+      <div>
+        <label for="msg">Zinute:</label>
+        <textarea id="msg" name="user_msg"></textarea>
+      </div>
+      <button type="submit">Registruotis</button>
+    </form>
+
+    <!-- REGION for scripts -->
+    <script src="_script.js"></script>
+  </body>
+</html>
