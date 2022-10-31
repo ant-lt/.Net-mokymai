@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser storage</title>
+  </head>
+  <body>
+    <h1>Browser storage</h1>
+    <div>
+      <h3>Issaugotos raktu reiksmes</h3>
+      <div>
+        mokymai_key=
+        <span id="lbl_mokymai_key"></span>
+      </div>
+      <div>
+        kitas_raktas=
+        <span id="lbl_kitas_raktas"></span>
+      </div>
+      <div>
+        mokymai_localStorage=
+        <span id="lbl_mokymai_localStorage"></span>
+      </div>
+      <div>
+        json_localStorage=
+        <span id="lbl_json_localStorage"></span>
+      </div>
+    </div>
+    <!-- Save to Storage ---------------------------------- -->
+    <div>
+      <h2>Save to Storage</h2>
+      <div>
+        <button id="btn_setSessionStorage" type="button">
+          set sessionStorage 'mokymai_key'
+        </button>
+        <span id="txt_setSessionStorage" style="color: red">
+          ---neirasyta--
+        </span>
+      </div>
+      <div>
+        <button id="btn_setSessionStorage1" type="button">
+          set sessionStorage 'kitas_raktas'
+        </button>
+        <span id="txt_setSessionStorage1" style="color: red">
+          ---neirasyta--
+        </span>
+      </div>
+      <!-- ----------------- -->
+      <div>
+        <button id="btn_setLocalStorage" type="button">
+          set localStorage 'mokymai_localStorage'
+        </button>
+        <span id="txt_setLocalStorage" style="color: red">---neirasyta--</span>
+      </div>
+      <div>
+        <button id="btn_json_localStorage" type="button">
+          set localStorage 'json_localStorage'
+        </button>
+        <span id="txt_json_localStorage" style="color: red">
+          ---neirasyta--
+        </span>
+      </div>
+    </div>
+    <!-- Read Data from Storage---------------------------------- -->
+    <div>
+      <h2>Read Data from Storage</h2>
+      <div>
+        <button id="btn_get_mokymai_key" type="button">
+          read sessionStorage 'mokymai_key'
+        </button>
+        <span id="txt_get_mokymai_key">--nenuskaityta--</span>
+      </div>
+      <div>
+        <button id="btn_get_kitas_raktas" type="button">
+          read sessionStorage 'kitas_raktas'
+        </button>
+        <span id="txt_get_kitas_raktas">--nenuskaityta--</span>
+      </div>
+      <!-- --------------------- -->
+      <div>
+        <button id="btn_get_mokymai_localStorage" type="button">
+          read localStorage 'mokymai_localStorage'
+        </button>
+        <span id="txt_get_mokymai_localStorage">--nenuskaityta--</span>
+      </div>
+      <!-- --------------------- -->
+      <div>
+        <button id="btn_get_json_localStorage" type="button">
+          read localStorage 'json_localStorage'
+        </button>
+        <span id="txt_get_json_localStorage">--nenuskaityta--</span>
+      </div>
+    </div>
+    <!-- Remove Data from Storage ---------------------------------- -->
+    <div>
+      <h2>Remove Data from Storage</h2>
+      <div>
+        <button id="btn_remove_mokymai_key" type="button">
+          remove sessionStorage 'mokymai_key'
+        </button>
+      </div>
+      <div>
+        <button id="btn_remove_kitas_raktas" type="button">
+          remove sessionStorage 'kitas_raktas'
+        </button>
+      </div>
+      <div>
+        <button id="btn_remove_mokymai_localStorage" type="button">
+          remove localStorage 'mokymai_localStorage'
+        </button>
+      </div>
+      <div>
+        <button id="btn_remove_json_localStorage" type="button">
+          remove localStorage 'json_localStorage'
+        </button>
+      </div>
+    </div>
+    <!-- Clear Data from Storage ---------------------------------- -->
+    <div>
+      <h2>Clear Data from Storage</h2>
+      <button id="btn_clearSessionStorage" type="button">
+        clear sessionStorage
+      </button>
+      <br />
+      <button id="btn_clearLocalStorage" type="button">
+        clear localStorage
+      </button>
+    </div>
+    <!-- Looping over keys ---------------------------------- -->
+    <div>
+      <h2>Looping over keys</h2>
+      <div>
+        <button id="btn_loop">loop over sessionStorage</button>
+        <ul id="lst_loop"></ul>
+      </div>
+    </div>
+    <!-- ---------------------------------- -->
+    <h2>Saving form data between refreshes</h2>
+    <form id="frm_registration">
+      <div>
+        <label form="f_name">Name:</label>
+        <input type="text" id="f_name" name="user_name" value="" />
+      </div>
+      <div>
+        <label form="f_mail">Email:</label>
+        <input type="email" id="f_mail" name="user_mail" value="" />
+      </div>
+      <div>
+        <label form="f_msg">Message:</label>
+        <textarea id="f_msg" name="user_message" value=""></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <!-- REGION SCRIPT -->
+    <script src="_script.js"></script>
+  </body>
+</html>
