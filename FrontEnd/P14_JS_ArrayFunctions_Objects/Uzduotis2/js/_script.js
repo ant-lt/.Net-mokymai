@@ -65,7 +65,7 @@ console.log(getBudgets());
 
 console.log(`2.4 uzdavinys`);
 
-const names = budgets.map(function(elementOfbudgets) { //elementOfNumbers2 is an element of numbers2
+const names = budgets.map(function(elementOfbudgets) { 
     return elementOfbudgets.name;
 });
 
