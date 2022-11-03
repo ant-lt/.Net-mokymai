@@ -29,38 +29,41 @@ const budgets = [
 
 console.log(`3.1 uzdavinys`);
 
-const names = budgets.map(function(elementOfbudgets) { 
-  return elementOfbudgets.name;
-});
-
-console.log(names);
-
-function isPersonInArray (namesArray, personName ){
-let greeting='';
-  if (namesArray.includes(personName)) {
-    let index= namesArray.indexOf(personName);
-   
-   if ( namesArray[index].slice(-1) =='s'){
-      greeting = 'Welcome Mr. '+ personName;
-    }
-    else { 
-      greeting = 'Welcome Miss. '+ personName;
-    }
-    
+function getBudgetPeople(budgetArr) {
+  return budgetArr.map(ele => ele.name);
 }
-else {
-    greeting = 'Unfotunately '+ personName +' is not in our list ';
+
+
+const budgetExercise = getBudgetPeople(budgets);
+console.log(budgetExercise);
+
+
+function isPersonInArray(nameArr, lookupName) {
+  return nameArr.includes(lookupName)
+      ? getGenderBasedGreet(lookupName)
+      : `Unfotunately Name is not in our list`;
 }
-      return greeting;
-  };
 
-  console.log(isPersonInArray(names,"Sandra"));
-  console.log(isPersonInArray(names,"Rytis"));
-  console.log(isPersonInArray(names,"Vitas"));
+function getGenderBasedGreet(name) {
+  // Alternative: can be used with endswith
+  let lastChar = name.charAt(name.length-1); // name[name.length-1]
+  if(lastChar === 's') {
+      return `Welcome Mr. ${name}`;
+  }
+  return `Welcome Miss. ${name}`;
+}
 
+  console.log(isPersonInArray(budgetExercise, 'Edvinas'));
+  console.log(isPersonInArray(budgetExercise,"Sandra"));
+  console.log(isPersonInArray(budgetExercise,"Rytis"));
+  console.log(isPersonInArray(budgetExercise,"Vitas"));
+
+  
   console.log(`3.2 uzdavinys`);
 
-  const filteredNumbers = numbers.filter(n => n  === 2).length;
+  function arrCountTwos(arr) {
+    return arr.filter(n => n === 2).length;
+}
 
-console.log("Dvejetų yra = " + filteredNumbers + " vienetai.");
+console.log(arrCountTwos(numbers));
 

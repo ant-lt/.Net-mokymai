@@ -30,40 +30,42 @@ console.log(`4 uzdavinys su some & every`);
 
 console.log(`4.1 uzdavinys`);
 
-const moniesNegative = monies.some(n => n < 0);
-console.log(moniesNegative);
+if(monies.some(n => n < 0)) {
+  console.log(`Found a budget account with a negative value.`);
+}
+
 
 console.log(`4.2 uzdavinys`);
 
-function belowHundred (numbersArray){
+function belowHundred(arr) {
+  if(arr.some(belowHundredCondition)) {
+      return arr.filter(belowHundredCondition);
+  }
+  return `All numbers are above 100`;
+};
 
-  if (monies.some(n => n <= 100)) {
-  const filteredNumbersUpTo100 = numbersArray.filter(n => n  <= 100);
-
-  if (filteredNumbersUpTo100.length === numbersArray.length) {
-    return "All numbers are above 100";
-  }
-  else {
-    return filteredNumbersUpTo100;
-  }
-  }
-  else {
-    return "No numbers";
-  }
+function belowHundredCondition(num) {
+  return num < 100;
 }
 
 console.log(belowHundred(monies));
 
 console.log(`4.3 uzdavinys`);
 
-function symbolified (namesArray){
-  const filteredNamesUpTo3 = namesArray.filter(n => n.length  >= 3 );
-
-  console.log(filteredNamesUpTo3);
-
-
-  let newStr = filteredNamesUpTo3.replace('a','@');
-  console.log(newStr);
+// arr.every() condition has to return a boolean value.
+function symbolified(arr) {
+  if(arr.every(n => n.length >= 3)) {
+      if(arr.some(symbolifiedCondition)) {
+          let newArr = arr.filter(symbolifiedCondition);
+          return newArr.map(function(ele) {
+              return ele.replace('a', '@');
+          });
+      }
+  }
 }
 
-symbolified(names);
+function symbolifiedCondition(word) {
+  return word.includes('a');
+}
+
+console.log(symbolified(names));

@@ -27,29 +27,20 @@ const budgets = [
 
 
 console.log(`2.1 uzdavinys`);
-function arrDoubled (){
-let numbers2 = new Array();
-    for (let i = 0; i < numbers.length; i++) {
-        numbers2[i]= numbers[i]*2;    
-    }
+function arrDouble(arr) {
+  return arr.map(function(arrEle) {
+      return arrEle * 2;
+  });
+}
 
-    return numbers2;
-};
-
-
-console.log(arrDoubled());
+console.log(arrDouble(numbers));
 
 console.log(`2.2 uzdavinys`);
-function arrMultiplied (array, multiplaer){
-let numbers2 = new Array();
-    for (let i = 0; i < array.length; i++) {
-            numbers2[i]= array[i]*multiplaer;    
-    }    
-    return numbers2;
-};
+function arrMultiplied(arr, multiplier) {
+  return arr.map(arrEle => arrEle * multiplier);
+}
 
 console.log(arrMultiplied(numbers, 3));
-
 
 console.log(`2.3 uzdavinys`);
 function getBudgets (){
