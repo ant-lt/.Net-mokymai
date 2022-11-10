@@ -5,9 +5,6 @@ function sendData() {
     let data = new FormData(animalForm);
     let obj = {};
 
-  
-    console.log(data);
-
     // #1 iteracija -> obj {name: 'asd'}
     // #2 iteracija -> obj {type: 'asd'}
     data.forEach((value, key) => {
@@ -15,10 +12,7 @@ function sendData() {
         obj[key] = value
     });
 
-    const url = 'https://testapi.io/api/Vitas/resource/Animals/'+obj.id;
-
-    const urlFetchAnimal = 'https://testapi.io/api/Vitas/resource/Animals/'+obj.id;
-
+    const urlFetchAnimal = 'https://testapi.io/api/Vitas/resource/Animals' + obj.id;
     const optionsFetchAnimal = {
         method: 'get',
         headers: {
@@ -28,26 +22,11 @@ function sendData() {
     }
 
     fetch(urlFetchAnimal, optionsFetchAnimal)
-    .then((response) => response.json())
-    .then((a) => {
-        console.log(`Animal exists: ${a}`);
-        return fetch(url, {
-            method: 'delete',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        })
-    })
-    .then(obj => { // Now we are working with our Delete fetch
-        const res = obj;// .json()
-        console.log(res);
-        return res;
-    })
+    .then((response) => console.log(response.json()))
     .catch((error) => {
         console.log(`Request failed with error: ${error}`);
     })
-    
+
 }
 
 
