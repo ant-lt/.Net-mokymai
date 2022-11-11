@@ -1,0 +1,28 @@
+.page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin:  auto;
+    width: 80vw;
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 100vh;
+}
+
+.login-buttons {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
