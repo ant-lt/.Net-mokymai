@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css_style.css">
+    <link rel="stylesheet" href="./app_to_do_app.css">
+    <title>TO DO APP</title>
+</head>
+<body>
+    <fieldset >
+        <legend class="loged-in-user"></legend>
+        <section class="todo-section">
+          <h3 class="loged-in-user"></h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Aprašymas</th>
+                <th>Tipas</th>
+                <th>Pabaigos data</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button class="add-todo">Pridėti naują</button>
+          <button class="logout">Atsijungti</button>
+          <form class="add-todo-form">
+            <input type="text" name="content" placeholder="Įveskite aprašymą" />
+            <input type="text" name="type" placeholder="Įveskite tipą" />
+            <input type="date" name="end-date" placeholder="Įveskite pabaigos data" />
+            <button class="add-new-todo">Pridėti naują to do įrašą</button>
+          </form>
+          
+        </section>
+    </fieldset>
+    <h3 class="not-logged-in"></h3>
+    <script src="app_to_do_app.js"></script>
+</body>
+</html>

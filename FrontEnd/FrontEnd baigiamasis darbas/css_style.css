@@ -1,11 +1,13 @@
-.page-content {
+.main-page-content,
+.login-page-content,
+.register-page-content,
+.todo-page-content {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
     margin:  auto;
     width: 80vw;
-    border: 1px solid black;
     flex-direction: column;
 }
 
@@ -18,6 +20,15 @@ body {
     height: 100vh;
 }
 
+div {
+    margin: 10px;
+}
+
+legend {
+    background-color: palegoldenrod;
+    border: 1px solid black;
+}
+
 .login-buttons {
     width: 200px;
     display: flex;
@@ -25,4 +36,9 @@ body {
     align-items: center;
 }
 
-
+.submit-button,
+.register-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
