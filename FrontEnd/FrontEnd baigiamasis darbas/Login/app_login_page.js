@@ -38,9 +38,9 @@ const onLoginSubmit = async (e) => {
 
         const userLogData = {
             ID: foundUsers[0].id,
-            FirstName: foundUsers[0].first_name,
-            LastName: foundUsers[0].last_name,
-            Email: foundUsers[0].email
+            first_name: foundUsers[0].first_name,
+            last_name: foundUsers[0].last_name,
+            email: foundUsers[0].email
         }
 
 

@@ -17,13 +17,18 @@ const optionsPost = {
 
 const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
 
-    if (!logUser) {
+console.log(logUser);
+
+if (!logUser) {
         alert('Jūs nesate prisijungę! Prisijunkite.');
         window.location.href = "../index.html";
-    };
+};
+
+console.log(logUser);
 
     if (logUser) {
-        document.querySelector(".loged-in-user").innerText = "Prisijungusio vartotojo " + logUser.FirstName + " " + logUser.LastName+ " TO DO:";
+        console.log('User login');
+        document.querySelector(".loged-in-user").innerText = "Prisijungusio vartotojo " + logUser.first_name + " " + logUser.last_name+ " TO DO:";
         console.log(logUser);
         
 
@@ -38,7 +43,7 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
               let tdEndDate = document.createElement("td");
         
               let updateObj = {
-                key: logUser.FirstName + logUser.LastName,
+                key: logUser.first_name + logUser.last_name,
                 content: obj.content,
                 type: obj.type,
                 end_date: obj.end_date,
@@ -89,14 +94,9 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
 
                 fetch(urlToDo + obj.id, {
                     method: 'delete',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
                 })
                 .then(res => {
                     if (res.ok) {
-                        console.log(res.json());
                         getTodos();
                     }
                     else {
@@ -148,7 +148,7 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
             console.log(toDoResponse.data);
         
             let filteredTodos = toDoResponse.data.filter(
-              (el) => el.key === logUser.FirstName + logUser.LastName,
+              (el) => el.key === logUser.first_name + logUser.last_name,
             );
         
             if (filteredTodos.length > 0) {
@@ -186,10 +186,9 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
         
         document.querySelector("form input[name='end-date']").addEventListener("input", (e) => {
             console.log(e.target.value);
-           // newTodoObj.end_date = e.target.value;
         });
         
-        newTodoObj.key = logUser.FirstName + logUser.LastName;
+        newTodoObj.key = logUser.first_name + logUser.last_name;
         
         document.querySelector(".add-new-todo").addEventListener("click", (e) => {
             e.preventDefault();
@@ -200,7 +199,7 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
         fetch(urlToDo, {
                 method: 'post',
                 headers: {
-                    'Accept': 'application/json, text/plain',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newTodoObj)

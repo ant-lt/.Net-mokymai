@@ -26,12 +26,19 @@ const onRegisterSubmit = (e) => {
         },
         body: JSON.stringify(obj)
     })
-    .then( obj => {
-        console.log(obj);
-        window.alert('Naujas vartotojas sukurtas sėkmingai!');
-        localStorage.setItem('TODOLOGUSER', JSON.stringify(obj));
-        window.location = '../todo/to_do_app_page.html';
-    })
+    .then(res => {
+        if (res.ok) {
+            console.log(res.json());
+            console.log(obj);
+            localStorage.setItem('TODOLOGUSER', JSON.stringify(obj));
+            window.alert('Naujas vartotojas sukurtas sėkmingai!');        
+            window.location = '../todo/to_do_app_page.html';            
+        }
+        else {
+            console.log(res.status);
+        }
+})
+
     .catch((klaida) => console.log(klaida));
   };
 
