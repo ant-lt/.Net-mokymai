@@ -3,3 +3,10 @@ table,
 .add-todo-form {
   display: none;
 }
+
+.delete-btn,
+.update-btn
+{
+  margin-left: 10px;
+  cursor: pointer;
+}
