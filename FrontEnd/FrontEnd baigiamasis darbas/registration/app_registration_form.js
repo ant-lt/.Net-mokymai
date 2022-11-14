@@ -29,6 +29,7 @@ const onRegisterSubmit = (e) => {
     .then( obj => {
         console.log(obj);
         window.alert('Naujas vartotojas sukurtas sėkmingai!');
+        localStorage.setItem('TODOLOGUSER', JSON.stringify(obj));
         window.location = '../todo/to_do_app_page.html';
     })
     .catch((klaida) => console.log(klaida));

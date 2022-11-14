@@ -18,8 +18,6 @@ const optionsPost = {
 const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
 
     if (!logUser) {
-        //document.querySelector(".todo-section").style.display = "none";
-        //document.querySelector(".not-logged-in").style.display = "block";
         alert('Jūs nesate prisijungę! Prisijunkite.');
         window.location.href = "../index.html";
     };
@@ -27,12 +25,13 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
     if (logUser) {
         document.querySelector(".loged-in-user").innerText = "Prisijungusio vartotojo " + logUser.FirstName + " " + logUser.LastName+ " TO DO:";
         console.log(logUser);
-        //user_name.innerHTML = user.FirstName + " " + user.LastName;
+        
 
         function createTbodyTr(arr) {
             document.querySelector("tbody").innerHTML = "";
             arr.forEach((obj) => {
               let trEl = document.createElement("tr");
+              trEl.setAttribute('id','tr'+obj.id);
         
               let tdTodoContent = document.createElement("td");
               let tdType = document.createElement("td");
@@ -50,14 +49,17 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
               let inputTodoContent = document.createElement("input");
               inputTodoContent.setAttribute("value", obj.content);
               inputTodoContent.setAttribute("class", "todo-content-input");
+              inputTodoContent.setAttribute('id','input-content-id'+obj.id);
         
               let inputTodoType = document.createElement("input");
               inputTodoType.setAttribute("value", obj.type);
               inputTodoType.setAttribute("class", "todo-type-input");
+              inputTodoType.setAttribute('id','input-type-id'+obj.id);
         
               let inputTodoEndDate = document.createElement("input");
               inputTodoEndDate.setAttribute("value", obj.end_date);
               inputTodoEndDate.setAttribute("class", "todo-end-date");
+              inputTodoEndDate.setAttribute('id','input-enddate-id'+obj.id);
         
               // Input append to td
         
@@ -79,27 +81,13 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
         
               document.querySelector("tbody").append(trEl);
         
-              // Input events
-        
-              document.querySelector(".todo-content-input").addEventListener("input", (e) => {
-                updateObj.content = e.target.value;
-              });
-        
-              document.querySelector(".todo-type-input").addEventListener("input", (e) => {
-                updateObj.type = e.target.value;
-              });
-        
-              document.querySelector(".todo-end-date").addEventListener("input", (e) => {
-                updateObj.end_date = e.target.value;
-              });
-        
               // HTTP req events
         
-              document.querySelector(".delete-btn").addEventListener("click", async () => {
+              deleteBtn.addEventListener("click", () => {
                 console.log('delete btn');      
                 console.log(obj.id);                
 
-                await  fetch(urlToDo + obj.id, {
+                fetch(urlToDo + obj.id, {
                     method: 'delete',
                     headers: {
                         'Accept': 'application/json',
@@ -119,12 +107,16 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
               });
         
 
-              document.querySelector(".update-btn").addEventListener("click", async () => {
+              updateBtn.addEventListener("click", () => {              
                 console.log('Update-btn');
                 console.log(updateObj);
                 console.log(obj.id);
+                updateObj.content =document.getElementById('input-content-id'+obj.id).value; 
+               updateObj.type=document.getElementById('input-type-id'+obj.id).value;
+               updateObj.end_date = document.getElementById('input-enddate-id'+obj.id).value;
+               console.log(updateObj.type);
 
-              await  fetch(urlToDo + obj.id, {
+              fetch(urlToDo + obj.id, {
                     method: 'put',
                     headers: {
                         'Accept': 'application/json',
@@ -194,26 +186,26 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
         
         document.querySelector("form input[name='end-date']").addEventListener("input", (e) => {
             console.log(e.target.value);
-            newTodoObj.end_date = e.target.value;
+           // newTodoObj.end_date = e.target.value;
         });
         
         newTodoObj.key = logUser.FirstName + logUser.LastName;
         
-        document.querySelector(".add-new-todo").addEventListener("click", async (e) => {
+        document.querySelector(".add-new-todo").addEventListener("click", (e) => {
             e.preventDefault();
          
            console.log(newTodoObj);
           
            
-           await fetch(urlToDo, {
+        fetch(urlToDo, {
                 method: 'post',
                 headers: {
                     'Accept': 'application/json, text/plain',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newTodoObj)
-            })
-            .then(res => {
+        })
+        .then(res => {
                 if (res.ok) {
                     console.log(res.json());
                     getTodos();
@@ -221,10 +213,9 @@ const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
                 else {
                     console.log(res.status);
                 }
-            })
-            .catch((err) =>  console.log(err));
-        
-        });
-    };
+        })
+        .catch((err) =>  console.log(err));
+    });
+};
 
 
