@@ -1,19 +1,3 @@
-const urlToDo = 'https://testapi.io/api/Vitas/resource/todo/';
-const optionsGet = {
-    method: 'get',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-};
-
-const optionsPost = {
-    method: 'post',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-}
 
 const logUser = JSON.parse(localStorage.getItem('TODOLOGUSER'));
 
@@ -76,7 +60,7 @@ function createTbodyTr(arr) {
       deleteBtn.addEventListener("click", () => {
         console.log('delete btn');      
         console.log(obj.id);                
-
+        console.log(urlToDo + obj.id);
         fetch(urlToDo + obj.id, {
             method: 'delete',
         })
@@ -103,7 +87,7 @@ function createTbodyTr(arr) {
         console.log(updateObj.type);
         console.log('End date');
         console.log(updateObj.end_date);
-
+        console.log(urlToDo + obj.id);
         fetch(urlToDo + obj.id, {
             method: 'put',
             headers: {
@@ -189,7 +173,6 @@ if (logUser) {
         
     document.querySelector("form input[name='end-date']").addEventListener("input", (e) => {
         newTodoObj.end_date = e.target.value;
-        //console.log(e.target.value);
     });
         
     newTodoObj.key = logUser.first_name + logUser.last_name;

@@ -1,17 +1,3 @@
-const urlUsers = 'https://testapi.io/api/Vitas/resource/users';
-const optionsGet = {
-    method: 'get',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
-}
-
-const saveToLocalStorage = (obj) => {
-    localStorage.setItem('TODOLOGUSER', JSON.stringify(obj));
-};
-
-
 const onLoginSubmit = async (e) => {
     e.preventDefault();
     const formElem = e.target;
