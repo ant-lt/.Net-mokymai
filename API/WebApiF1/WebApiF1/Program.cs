@@ -1,3 +1,5 @@
+using WebApiF1.Services;
+
 namespace WebApiF1
 {
     public class Program
@@ -7,6 +9,10 @@ namespace WebApiF1
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddTransient<IMyOperationTransient, GuidService>();
+            builder.Services.AddScoped<IMyOperationScoped, GuidService>();
+            builder.Services.AddSingleton<IMyOperationSingleton, GuidService>();
+            builder.Services.AddSingleton<IBookSet, BookSet>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
