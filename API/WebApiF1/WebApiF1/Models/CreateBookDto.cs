@@ -2,17 +2,12 @@
 {
     public class CreateBookDto
     {
-        public CreateBookDto(string title, string author, DateTime published)
-        {
-            Title = title;
-            Author = author;
-            Published = published;
-        }
+        public string Pavadinimas { get; set; }
 
-        public string Title { get; set; }
+        public string Autorius { get; set; }
 
-        public string Author { get; set; }
+        public DateTime Isleista { get; set; }
 
-        public DateTime Published { get; set; }
+        public string KnygosTipas { get; set; }
     }
 }

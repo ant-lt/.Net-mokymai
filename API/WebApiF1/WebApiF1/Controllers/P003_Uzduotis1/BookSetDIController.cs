@@ -24,7 +24,7 @@ namespace WebApiF1.Controllers.P003_Uzduotis1
         [HttpGet("{id}")]
         public Book? GetBookById(int id)
         {
-            return _mySet.Books.Where(b => b.id == id).FirstOrDefault();
+            return _mySet.Books.Where(b => b.Id == id).FirstOrDefault();
         }
 
     }

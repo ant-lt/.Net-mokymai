@@ -2,10 +2,10 @@
 {
     public class FilterBookRequest
     {
-        public string Author { get; set; }
+        public string Pavadinimas { get; set; }
 
-        public string Title { get; set; }
+        public string Autorius { get; set; }
 
-        public string BookType { get; set; }
+        public string KnygosTipas { get; set; }
     }
 }

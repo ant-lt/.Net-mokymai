@@ -8,16 +8,16 @@ namespace WebApiF1.Services
 
         private List<Book> books = new List<Book>
             {
-                new Book { id = 1, pavadinimas = "Ant medinės lentelės II", autorius = "Kristina Pišniukaitė - Šimkienė", leidybosMetai = 2022, coverType = ECoverType.Electronic }
-                ,new Book { id = 2, pavadinimas = "Kakė Makė ir magiška kelionė", autorius = "Lina Žutautė", leidybosMetai = 2022, coverType = ECoverType.Electronic}
-                ,new Book { id = 3, pavadinimas = "Tolimi krantai", autorius = "Santa Montefiore", leidybosMetai = 2022, coverType = ECoverType.Electronic}
-                ,new Book { id = 4, pavadinimas = "Aštuntas gyvenimas (Brilkai)", autorius = "Nino Haratischwili", leidybosMetai = 2022,coverType = ECoverType.Electronic }
-                ,new Book { id = 5, pavadinimas = "Ant medinės lentelės III", autorius = "Kristina Pišniukaitė - Šimkienė", leidybosMetai = 2022, coverType = ECoverType.Electronic }
-                ,new Book { id = 6, pavadinimas = "Kichotas", autorius = "Salman Rushdie", leidybosMetai = 2020, coverType = ECoverType.Electronic }
-                ,new Book { id = 7, pavadinimas = "Book6", autorius = "autor1", leidybosMetai = 2000,coverType = ECoverType.Electronic }
-                ,new Book { id = 8, pavadinimas = "Book7", autorius = "autor1", leidybosMetai = 2000,coverType = ECoverType.Electronic }
-                ,new Book { id = 9, pavadinimas = "Ant medinės lentelės IIV", autorius = "Kristina Pišniukaitė - Šimkienė", leidybosMetai = 2022, coverType = ECoverType.Electronic }
-                ,new Book { id = 10, pavadinimas = "Book8", autorius = "autor1", leidybosMetai = 2000, coverType = ECoverType.Electronic }
+                new Book { Id = 1, Title = "Ant medinės lentelės II", Author = "Kristina Pišniukaitė - Šimkienė", Years = 2022, CoverType = ECoverType.Electronic }
+                ,new Book { Id = 2, Title = "Kakė Makė ir magiška kelionė", Author = "Lina Žutautė", Years = 2022, CoverType = ECoverType.Electronic}
+                ,new Book { Id = 3, Title = "Tolimi krantai", Author = "Santa Montefiore", Years = 2022, CoverType = ECoverType.Electronic}
+                ,new Book { Id = 4, Title = "Aštuntas gyvenimas (Brilkai)", Author = "Nino Haratischwili", Years = 2022,CoverType = ECoverType.Electronic }
+                ,new Book { Id = 5, Title = "Ant medinės lentelės III", Author = "Kristina Pišniukaitė - Šimkienė", Years = 2022, CoverType = ECoverType.Electronic }
+                ,new Book { Id = 6, Title = "Kichotas", Author = "Salman Rushdie", Years = 2020, CoverType = ECoverType.Electronic }
+                ,new Book { Id = 7, Title = "Book6", Author = "autor1", Years = 2000,CoverType = ECoverType.Electronic }
+                ,new Book { Id = 8, Title = "Book7", Author = "autor1", Years = 2000,CoverType = ECoverType.Electronic }
+                ,new Book { Id = 9, Title = "Ant medinės lentelės IIV", Author = "Kristina Pišniukaitė - Šimkienė", Years = 2022, CoverType = ECoverType.Electronic }
+                ,new Book { Id = 10, Title = "Book8", Author = "autor1", Years = 2000, CoverType = ECoverType.Electronic }
             };
 
         public List<Book> Books

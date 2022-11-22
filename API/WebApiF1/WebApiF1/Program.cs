@@ -13,6 +13,8 @@ namespace WebApiF1
             builder.Services.AddScoped<IMyOperationScoped, GuidService>();
             builder.Services.AddSingleton<IMyOperationSingleton, GuidService>();
             builder.Services.AddSingleton<IBookSet, BookSet>();
+            builder.Services.AddTransient<IBookWrapper, BookWrapper>();
+            builder.Services.AddTransient<IBookManager, BookManager>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

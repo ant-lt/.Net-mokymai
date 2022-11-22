@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
 
-        public string TitleAndAuthor { get; set; }
+        public string PavadinimasIrAutorius { get; set; }
 
-        public int PublishYear { get; set; }
+        public int LeidybosMetai { get; set; }
     }
 }
