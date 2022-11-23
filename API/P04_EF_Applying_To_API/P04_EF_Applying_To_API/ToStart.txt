@@ -1,0 +1,3 @@
+﻿1. install-package Microsoft.EntityFrameworkCore.Sqlite
+2. install-package Microsoft.EntityFrameworkCore.Proxies
+3. install-package Microsoft.EntityFrameworkCore.Tools
