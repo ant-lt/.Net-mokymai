@@ -26,6 +26,6 @@ namespace P04_EF_Applying_To_API.Models
 
         public int DishId { get; set;}
 
-        public Disch Dish { get; set;}
+        public Dish Dish { get; set;}
     }
 }

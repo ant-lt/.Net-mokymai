@@ -12,7 +12,7 @@ namespace P04_EF_Applying_To_API.Data
         }
         // registruojamos lenteles
         // Prop pavadinimas = lenteles pavadinimas
-        public DbSet<Disch> Disches { get; set; }
+        public DbSet<Dish> Dishes { get; set; }
         public DbSet<RecipeItem> RecipeItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,11 +25,11 @@ namespace P04_EF_Applying_To_API.Data
             */
 
             // Data-seading
-            modelBuilder.Entity<RecipeItem>()
+            modelBuilder.Entity<Dish>()
                 .HasData(
-                    new Disch(1, "Fried Bread Sticks", "Snacks", "Mild", "Lithuanian", "gg", DateTime.Now),
-                    new Disch(2, "Potato dumplings", "Main dish", "Low", "Lithuanian", "gg", DateTime.Now),
-                    new Disch(3, "Kibinai", "Street food", "Low", "Lithuanian", "gg", DateTime.Now)
+                    new Dish(1, "Fried Bread Sticks", "Snacks", "Mild", "Lithuanian", "gg", DateTime.Now),
+                    new Dish(2, "Potato dumplings", "Main dish", "Low", "Lithuanian", "gg", DateTime.Now),
+                    new Dish(3, "Kibinai", "Street food", "Low", "Lithuanian", "gg", DateTime.Now)
                     );
 
             modelBuilder.Entity<RecipeItem>()

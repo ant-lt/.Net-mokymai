@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace P04_EF_Applying_To_API.Models
 {
-    public class Disch
+    public class Dish
     {
-        public Disch() { }
+        public Dish() { }
 
-        public Disch(int dishId, string name, string type, string spiceLevel, string country, string imagePath, DateTime createDateTime)
+        public Dish(int dishId, string name, string type, string spiceLevel, string country, string imagePath, DateTime createDateTime)
         {
             DishId = dishId;
             Name = name ;
