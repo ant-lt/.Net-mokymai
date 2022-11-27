@@ -1,3 +1,4 @@
+using WebApiF1.Database;
 using WebApiF1.Services;
 
 namespace WebApiF1
@@ -16,6 +17,7 @@ namespace WebApiF1
             builder.Services.AddTransient<IBookWrapper, BookWrapper>();
             builder.Services.AddTransient<IBookManager, BookManager>();
 
+            builder.Services.AddDbContext<BookDataContext>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

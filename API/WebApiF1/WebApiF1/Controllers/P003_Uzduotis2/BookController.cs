@@ -17,40 +17,50 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
         }
 
         [HttpGet]
-        public ActionResult<List<GetBookDto>> Get()
+        public ActionResult<List<Book>> Get()
         {
-            return Ok(_bookManager.Get());
+            return Ok( _bookManager.Get());
         }
-
+    
         [HttpGet("{id}")]
-        public ActionResult<GetBookDto> Get(int id)
+        public ActionResult<Book> Get(int id)
         {
-            throw new NotImplementedException();
+            return Ok(_bookManager.Get(id));
         }
 
+        /*
         [HttpGet("filter")]
         public ActionResult<List<GetBookDto>> Filter(FilterBookRequest req)
         {
             throw new NotImplementedException();
         }
+        */
 
         [HttpPost()]
-        public IActionResult Post(CreateBookDto req)
+        public ActionResult Create(Book req)
         {
-            throw new NotImplementedException();
+
+            return Ok(_bookManager.Add(req));
         }
 
-        [HttpPut()]
-        public IActionResult Put(UpdateBookDto req)
+        
+        [HttpPut("{id}")]
+        public ActionResult Update(int id, Book req)
         {
-            throw new NotImplementedException();
+            _bookManager.UpdateBook(id, req);
+            return Ok();
         }
 
+        
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
-            throw new NotImplementedException();
+
+            _bookManager.DeleteBook(id);
+            return Ok();
+
         }
+    
 
     }
 }
