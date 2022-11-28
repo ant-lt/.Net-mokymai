@@ -10,6 +10,17 @@ namespace WebApiF1
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
             // Add services to the container.
             builder.Services.AddTransient<IMyOperationTransient, GuidService>();
             builder.Services.AddScoped<IMyOperationScoped, GuidService>();
@@ -17,19 +28,21 @@ namespace WebApiF1
             builder.Services.AddSingleton<IBookSet, BookSet>();
             builder.Services.AddTransient<IBookWrapper, BookWrapper>();
             builder.Services.AddTransient<IBookManager, BookManager>();
+            builder.Services.AddTransient<IBadService, BadService>();
+            builder.Services.AddTransient<IDivide, DivideService>();
 
             builder.Services.AddDbContext<BookDataContext>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-           /* builder.Services.AddSwaggerGen(option =>
+            builder.Services.AddSwaggerGen(option =>
             {
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 option.IncludeXmlComments(xmlPath);
             });
-           */
+           
 
             var app = builder.Build();
 
