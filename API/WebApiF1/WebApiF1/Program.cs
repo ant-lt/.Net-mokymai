@@ -1,3 +1,4 @@
+using System.Reflection;
 using WebApiF1.Database;
 using WebApiF1.Services;
 
@@ -22,6 +23,13 @@ namespace WebApiF1
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+           /* builder.Services.AddSwaggerGen(option =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                option.IncludeXmlComments(xmlPath);
+            });
+           */
 
             var app = builder.Build();
 

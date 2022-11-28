@@ -52,12 +52,14 @@ namespace WebApiF1.Services
             return null;
         }
 
-        public int Add(Book bookAdd)
+        public Book? Add(Book bookAdd)
         {
-            var book = _bookDataContext.Books.Add(bookAdd);
-
-            _bookDataContext.SaveChanges();
-            return 0;
+            if (_bookDataContext.Books.Add(bookAdd) != null)
+            {
+                _bookDataContext.SaveChanges();
+                return bookAdd;
+            }
+            else return null;
         }
 
 

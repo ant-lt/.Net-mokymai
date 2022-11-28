@@ -8,7 +8,7 @@ namespace WebApiF1.Services
         public Book? Get(int id);
         public bool Exist(int id);
         public List<GetBookDto>? Filter(Dictionary<string, string> filter);
-        public int Add(Book book);
+        public Book? Add(Book book);
         public void UpdateBook(int id, Book book);
         public void DeleteBook(int id);
     }
