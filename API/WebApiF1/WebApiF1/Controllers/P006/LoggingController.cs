@@ -89,7 +89,7 @@ namespace WebApiF1.Controllers.P006
         /// <param name="b">antras skaicius</param>
         /// <returns>dalybos rezultatas</returns>
         [HttpGet("Divide")]
-        [ProducesResponseType(typeof(IEnumerable<GetLoggingResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(double), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetDivided( int a, int b)
         {
