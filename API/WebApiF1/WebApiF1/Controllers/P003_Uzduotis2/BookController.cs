@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 using WebApiF1.Controllers.P006;
 using WebApiF1.Models;
 using WebApiF1.Services;
@@ -26,9 +27,10 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
         /// <response code="200">OK</response>
         /// <response code="500">Error</response>
         [HttpGet("books",Name = "GetBooks")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Book>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetBookDto>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<List<Book>> GetBooks()
+        [Produces(MediaTypeNames.Application.Json)]
+        public ActionResult<List<GetBookDto>> GetBooks()
         {
             _logger.LogInformation("GetBooks");
             return Ok( _bookManager.Get());
@@ -44,11 +46,12 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
         /// <response code="400">Bad request</response>
         /// <response code="404">NotFound</response>
         [HttpGet("{id}", Name = "GetBookById")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Book))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetBookDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<Book> Get(int id)
+        [Produces(MediaTypeNames.Application.Json)]
+        public ActionResult<GetBookDto> Get(int id)
         {
             _logger.LogInformation($"GetBook by id={id}");
             if (id == 0)
@@ -82,12 +85,14 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
         /// <response code="500">Error</response>
         /// <response code="400">Bad request</response>
         [HttpPost()]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(Book))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateBookDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Create(Book req)
+        [Produces(MediaTypeNames.Application.Json)]
+        public ActionResult Create(CreateBookDto req)
         {
             _logger.LogInformation($"CreateBook");
+
             if (req == null) {
                 return BadRequest();
             }
@@ -105,37 +110,74 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
             return Ok(_bookManager.Add(req));
         }
 
-        
+
         /// <summary>
         /// Update book by id
         /// </summary>
         /// <param name="id"> Book Id</param>
         /// <param name="req"></param>
         /// <returns>Status code</returns>
+        /// <response code="200">OK</response>
+        /// <response code="500">Error</response>
+        /// <response code="404">NotFound</response>
         [HttpPut("{id}")]
-        public ActionResult Update(int id, Book req)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CreateBookDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Produces(MediaTypeNames.Application.Json)]
+        public ActionResult Update(int id, UpdateBookDto req)
         {
             _logger.LogInformation($"Update book by id={id}");
-            _bookManager.UpdateBook(id, req);
-            return Ok();
-        }
 
-        
+            try
+            {
+                if (_bookManager.UpdateBook(id, req) == null)
+                {
+                    return NotFound();
+                };
+                return Ok();
+
+            }
+
+            catch (Exception e)
+            {
+                _logger.LogError(e, "HttpPut UpdateBookById(id = {0}) nuluzo {1} ", id, DateTime.Now);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
 
         /// <summary>
         /// Delete book by Id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Status code</returns>
+        /// <response code="200">OK</response>
+        /// <response code="500">Error</response>
+        /// <response code="404">NotFound</response>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CreateBookDto))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Produces(MediaTypeNames.Application.Json)]
         public ActionResult Delete(int id)
         {
+            _logger.LogInformation($"HttpDelete Delete book by id={id}");
 
-            _bookManager.DeleteBook(id);
-            return Ok();
+            try
+            {
+                if (_bookManager.DeleteBook(id) == null)
+                {
+                    return NotFound();
+                }
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "HttpDelete DeleteBookById(id = {0}) nuluzo {1} ", id, DateTime.Now);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
 
         }
     
-
     }
 }
