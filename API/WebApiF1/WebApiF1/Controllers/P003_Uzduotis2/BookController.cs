@@ -137,7 +137,7 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
-        public ActionResult Create(CreateBookDto req)
+        public ActionResult<Book> Create(CreateBookDto req)
         {
             _logger.LogInformation($"CreateBook");
 
@@ -153,8 +153,8 @@ namespace WebApiF1.Controllers.P003_Uzduotis2
                     return BadRequest();
                 }
 
-                //return CreatedAtRoute("CreateBook", book);
-                return Ok(book);
+                return CreatedAtRoute("GetBookById", new { id = book.Id }, req);
+                //return Ok(book);
 
             }
 

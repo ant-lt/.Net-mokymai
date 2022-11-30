@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using P04_EF_Applying_To_API.Data;
+using P04_EF_Applying_To_API.Repository;
+using P04_EF_Applying_To_API.Repository.IRepository;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -15,8 +17,9 @@ namespace P04_EF_Applying_To_API
             builder.Services.AddDbContext<RestaurantContext>(option =>
             {
                 option.UseSqlite(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+                option.UseLazyLoadingProxies();
             });
-
+            builder.Services.AddScoped<IDishRepository, DishRepository>();
             builder.Services.AddControllers()
                 .AddJsonOptions(option => option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
