@@ -31,7 +31,12 @@ namespace WebApiF1
             builder.Services.AddTransient<IBadService, BadService>();
             builder.Services.AddTransient<IDivide, DivideService>();
 
-            builder.Services.AddDbContext<BookDataContext>();
+            builder.Services.AddDbContext<BookDataContext>(option =>
+            {
+                option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));                
+            });
+
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

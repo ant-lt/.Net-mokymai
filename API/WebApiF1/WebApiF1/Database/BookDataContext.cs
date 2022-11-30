@@ -1,4 +1,5 @@
 ﻿global using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using WebApiF1.Models;
 
 namespace WebApiF1.Database
@@ -10,12 +11,14 @@ namespace WebApiF1.Database
 
         }
 
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=booksdb;Trusted_Connection=True;TrustServerCertificate=true;");
+            //optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=booksdb;Trusted_Connection=True;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer(GetConnectionString("DefaultSQLConnection"));
         }
-
+        */
         public DbSet<Book> Books { get; set; }
     }
 }
