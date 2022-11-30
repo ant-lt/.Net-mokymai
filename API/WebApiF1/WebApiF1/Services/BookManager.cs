@@ -1,4 +1,5 @@
-﻿using WebApiF1.Database;
+﻿using System.Collections.Generic;
+using WebApiF1.Database;
 using WebApiF1.Models;
 
 namespace WebApiF1.Services
@@ -52,10 +53,24 @@ namespace WebApiF1.Services
             return false;
         }
 
-        public List<GetBookDto>? Filter( Dictionary<string, string> filter) {
 
-            return null;
+        public List<GetBookDto>? Filter(FilterBookRequest filter) {
+
+            var books = _bookDataContext.Books.Where(e => e.Title == filter.Pavadinimas && e.Author == filter.Autorius).ToList();
+
+            if (books.Count == 0)
+            {
+                return null;
+            }
+
+            List <GetBookDto> _bookDto = new List<GetBookDto>();
+            foreach (var book in books)
+            {
+                _bookDto.Add(_wrapper.Bind(book));
+            }
+            return _bookDto;
         }
+
 
         public Book? Add(CreateBookDto bookAdd)
         {
