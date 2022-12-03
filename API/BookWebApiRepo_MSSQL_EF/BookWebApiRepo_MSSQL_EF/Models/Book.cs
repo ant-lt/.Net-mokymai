@@ -1,11 +1,11 @@
-﻿using WebApiF1.Enums;
+﻿using BookWebApiRepo_MSSQL_EF.Enums;
 
-namespace WebApiF1.Models
+namespace BookWebApiRepo_MSSQL_EF.Models
 {
     public class Book
     {
-
         public int Id { get; set; }
+        
         /// <summary>
         /// Book title 
         /// </summary>
@@ -23,5 +23,6 @@ namespace WebApiF1.Models
             Years = years;
             CoverType = coverType;
         }
+
     }
 }

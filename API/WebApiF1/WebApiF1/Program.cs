@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.Json.Serialization;
 using WebApiF1.Database;
 using WebApiF1.Services;
 
@@ -37,7 +38,9 @@ namespace WebApiF1
             });
 
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                // reikalingas swagerio dokumentacijoje
+                 .AddJsonOptions(option => option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
