@@ -270,7 +270,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
 
 
         /// <summary>
-        /// Filter books by name and author
+        /// Filter books by name and author and book type
         /// </summary>
         /// <param name="req"></param>
         /// <returns>Status code</returns>
@@ -313,7 +313,6 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
             }
 
         }
-
 
     }
 }
