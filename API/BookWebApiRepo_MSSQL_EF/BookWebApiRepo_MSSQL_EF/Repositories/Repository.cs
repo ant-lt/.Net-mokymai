@@ -18,11 +18,11 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         public void Create(TEntity entity)
         {
-            _dbSet.Add(entity);
+            _dbSet.AddAsync(entity);
             Save();
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> filter, bool tracked = true)
+        public Task<TEntity> Get(Expression<Func<TEntity, bool>> filter, bool tracked = true)
         {
             IQueryable<TEntity> query = _dbSet;
 
@@ -33,10 +33,10 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
             query = query.Where(filter);
 
-            return query.FirstOrDefault();
+            return query.FirstOrDefaultAsync();
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter = null)
+        public Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>>? filter = null)
         {
             IQueryable<TEntity> query = _dbSet;
 
@@ -45,7 +45,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 query = query.Where(filter);
             }
 
-            return query.ToList();
+            return query.ToListAsync();
         }
 
         public void Remove(TEntity entity)
@@ -56,7 +56,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         public void Save()
         {
-            _db.SaveChanges();
+            _db.SaveChangesAsync();
         }
     }
 }

@@ -4,6 +4,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories.IRepository
 {
     public interface IBookRepository : IRepository<Book>
     {
-        Book Update(Book book);
+        Task<Book> Update(Book book);
+        Task<List<Book>> Filter(Book book);
     }
 }

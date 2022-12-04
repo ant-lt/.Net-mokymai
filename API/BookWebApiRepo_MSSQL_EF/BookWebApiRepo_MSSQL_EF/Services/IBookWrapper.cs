@@ -8,5 +8,6 @@ namespace BookWebApiRepo_MSSQL_EF.Services
         public GetBookDto Bind(Book book);
         public Book Bind(CreateBookDto book);
         public Book Bind(UpdateBookDto book);
+        public Book Bind(FilterBookRequest book);
     }
 }

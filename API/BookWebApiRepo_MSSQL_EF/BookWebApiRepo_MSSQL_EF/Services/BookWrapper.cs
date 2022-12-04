@@ -39,5 +39,15 @@ namespace BookWebApiRepo_MSSQL_EF.Services
 
         }
 
+        public Book Bind(FilterBookRequest bookFilter)
+        {
+            return new Book
+            {
+                Title = bookFilter.Pavadinimas,
+                Author = bookFilter.Autorius,               
+                CoverType = (ECoverType)Enum.Parse(typeof(ECoverType), bookFilter.KnygosTipas),
+            };
+
+        }
     }
 }
