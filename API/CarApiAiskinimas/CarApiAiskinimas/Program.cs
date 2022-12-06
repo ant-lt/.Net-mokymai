@@ -21,7 +21,7 @@ namespace CarApiAiskinimas
             });
 
             
-            builder.Services.AddTransient<IRepository<Car>, CarRepository>();
+            builder.Services.AddTransient<ICarRepository, CarRepository>();
             builder.Services.AddTransient<ICarAdapter, CarAdapter>();
 
             builder.Services.AddControllers();
