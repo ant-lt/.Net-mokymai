@@ -1,4 +1,6 @@
-﻿namespace BookWebApiRepo_MSSQL_EF.Models.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BookWebApiRepo_MSSQL_EF.Models.Dto
 {
     public class GetBookDto
     {
@@ -7,6 +9,7 @@
         /// <summary>
         /// Apjungtas per tarpą tekstas kgygos pavadinimas + knygos autorius
         /// </summary>
+        [MaxLength(255, ErrorMessage = "PavadinimasIrAutorius cannot be longer than 255 characters")]
         public string PavadinimasIrAutorius { get; set; }
 
         /// <summary>

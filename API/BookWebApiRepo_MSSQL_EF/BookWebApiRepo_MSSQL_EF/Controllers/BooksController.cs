@@ -1,10 +1,12 @@
 ﻿using Azure;
+using BookWebApiRepo_MSSQL_EF.Enums;
 using BookWebApiRepo_MSSQL_EF.Models;
 using BookWebApiRepo_MSSQL_EF.Models.Dto;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
 using BookWebApiRepo_MSSQL_EF.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Net.Mime;
 
 namespace BookWebApiRepo_MSSQL_EF.Controllers
@@ -94,6 +96,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
 
                 if (book == null)
                 {
+                    _logger.LogInformation("Book with id {id} not found", id);
                     return NotFound();
                 }
 
@@ -142,6 +145,16 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                     return BadRequest();
                 }
 
+                if (!Enum.TryParse(typeof(ECoverType), bookDto.KnygosTipas, out _))
+                {
+                    var validValues = Enum.GetNames(typeof(ECoverType));
+                    ModelState.AddModelError(nameof(bookDto.KnygosTipas), $"Not valid value. Valid values are: {string.Join(", ", validValues)}");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return ValidationProblem(ModelState);
+                }
 
                 Book book = _wrapper.Bind(bookDto);
                 _bookRepo.Create(book);
@@ -248,6 +261,17 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                     return NotFound();
                 }
 
+                if (!Enum.TryParse(typeof(ECoverType), updateBookDto.KnygosTipas, out _))
+                {
+                    var validValues = Enum.GetNames(typeof(ECoverType));
+                    ModelState.AddModelError(nameof(updateBookDto.KnygosTipas), $"Not valid value. Valid values are: {string.Join(", ", validValues)}");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return ValidationProblem(ModelState);
+                }
+
 
                 Book _bookUpdate = _wrapper.Bind(updateBookDto);
 
@@ -286,12 +310,23 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<IEnumerable<GetBookDto>>> Filter([FromQuery]FilterBookRequest req)
         {
-            _logger.LogInformation("Books->Filter");
+            _logger.LogInformation("Getting book list with parameters {req}", JsonConvert.SerializeObject(req));
             try
             {
                 if (req == null)
                 {
                     return BadRequest();
+                }
+
+                if (!Enum.TryParse(typeof(ECoverType), req.KnygosTipas, out _))
+                {
+                    var validValues = Enum.GetNames(typeof(ECoverType));
+                    ModelState.AddModelError(nameof(req.KnygosTipas), $"Not valid value. Valid values are: {string.Join(", ", validValues)}");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return ValidationProblem(ModelState);
                 }
 
                 var book = _wrapper.Bind(req);
@@ -300,6 +335,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                 {
                     return NotFound();
                 }
+
 
                 IEnumerable<GetBookDto> getBookDto = books.Select(d => _wrapper.Bind(d)).ToList();
 
@@ -311,8 +347,6 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                 _logger.LogError(e, $"{DateTime.Now} Books->Filter nuluzo.");
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-
         }
-
     }
 }
