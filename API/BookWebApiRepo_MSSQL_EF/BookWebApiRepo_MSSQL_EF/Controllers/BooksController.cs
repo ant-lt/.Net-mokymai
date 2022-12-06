@@ -284,7 +284,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
-        public async Task<ActionResult<IEnumerable<GetBookDto>>> Filter(FilterBookRequest req)
+        public async Task<ActionResult<IEnumerable<GetBookDto>>> Filter([FromQuery]FilterBookRequest req)
         {
             _logger.LogInformation("Books->Filter");
             try
