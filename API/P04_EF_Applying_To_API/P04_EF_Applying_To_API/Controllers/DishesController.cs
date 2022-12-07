@@ -3,6 +3,7 @@ using P04_EF_Applying_To_API.Models.Dto;
 using P04_EF_Applying_To_API.Models;
 using P04_EF_Applying_To_API.Repository.IRepository;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -70,7 +71,9 @@ public class DishesController : ControllerBase
         return Ok(new GetDishDTO(dish));
     }
 
+    
     [HttpPost("dishes")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateDishDTO))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
