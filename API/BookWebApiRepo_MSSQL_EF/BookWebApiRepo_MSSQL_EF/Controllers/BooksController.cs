@@ -4,6 +4,7 @@ using BookWebApiRepo_MSSQL_EF.Models;
 using BookWebApiRepo_MSSQL_EF.Models.Dto;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
 using BookWebApiRepo_MSSQL_EF.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -130,6 +131,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         ///     }
         /// </remarks>
         [HttpPost("Create", Name = "CreateBook")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateBookDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -178,6 +180,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// <response code="404">Book not found</response>
         /// <response code="500">Internal server error</response>
         [HttpDelete("delete/{id:int}")]
+        [Authorize(Roles = "super-admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -238,6 +241,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         ///
         /// </remarks>
         [HttpPut("update/{id:int}")]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

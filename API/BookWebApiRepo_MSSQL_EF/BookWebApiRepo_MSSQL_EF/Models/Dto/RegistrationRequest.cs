@@ -1,4 +1,4 @@
-﻿namespace P04_EF_Applying_To_API.Models.Dto
+﻿namespace BookWebApiRepo_MSSQL_EF.Models.Dto
 {
     public class RegistrationRequest
     {

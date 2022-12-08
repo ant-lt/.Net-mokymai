@@ -11,5 +11,6 @@ namespace BookWebApiRepo_MSSQL_EF.Data
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<LocalUser> LocalUsers { get; set; }
     }
 }

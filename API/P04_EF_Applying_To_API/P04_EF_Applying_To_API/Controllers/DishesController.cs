@@ -100,6 +100,7 @@ public class DishesController : ControllerBase
     }
 
     [HttpDelete("dishes/delete/{id:int}")]
+    [Authorize(Roles = "super-admin")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -124,6 +125,7 @@ public class DishesController : ControllerBase
     }
 
     [HttpPut("dishes/update/{id:int}")]
+    [Authorize(Roles = "admin")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

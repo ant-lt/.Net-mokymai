@@ -1,22 +1,20 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using P04_EF_Applying_To_API.Data;
-using P04_EF_Applying_To_API.Models;
-using P04_EF_Applying_To_API.Models.Dto;
-using P04_EF_Applying_To_API.Repository.IRepository;
-using P04_EF_Applying_To_API.Services.IServices;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
+﻿using BookWebApiRepo_MSSQL_EF.Data;
+using BookWebApiRepo_MSSQL_EF.Models;
+using BookWebApiRepo_MSSQL_EF.Models.Dto;
+using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
+using BookWebApiRepo_MSSQL_EF.Services.IServices;
 using System.Text;
 
-namespace P04_EF_Applying_To_API.Repository
+
+namespace BookWebApiRepo_MSSQL_EF.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly RestaurantContext _db;
+        private readonly BookContext _db;
         private readonly IPasswordService _passwordService;
         private readonly IJwtService _jwtService;
 
-        public UserRepository(RestaurantContext db, IPasswordService passwordService, IJwtService jwtService)
+        public UserRepository(BookContext db, IPasswordService passwordService, IJwtService jwtService)
         {
             _db = db;
             _passwordService = passwordService;
