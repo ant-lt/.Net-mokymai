@@ -24,6 +24,7 @@ namespace BookWebApiRepo_MSSQL_EF.Services
                 Author = book.Autorius,
                 Years = book.Isleista.Year,
                 CoverType = (ECoverType)Enum.Parse(typeof(ECoverType), book.KnygosTipas),
+                OwnedQty = book.GautasKiekis,
             };
         }
 

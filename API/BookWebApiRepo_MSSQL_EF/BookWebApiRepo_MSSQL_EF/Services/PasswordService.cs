@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace P04_EF_Applying_To_API.Services
+namespace BookWebApiRepo_MSSQL_EF.Services
 {
     public class PasswordService : IPasswordService
     {

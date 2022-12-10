@@ -34,6 +34,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// <response code="200">OK</response>
         /// <response code="500">Internal server error</response>
         [HttpGet(Name = "GetBooks")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetBookDto>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
@@ -131,7 +132,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         ///     }
         /// </remarks>
         [HttpPost("Create", Name = "CreateBook")]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateBookDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -161,7 +162,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                 Book book = _wrapper.Bind(bookDto);
                 _bookRepo.Create(book);
 
-                return CreatedAtRoute("GetBook", new { id = book.Id }, bookDto);
+                return CreatedAtRoute("CreateBook", new { id = book.Id }, bookDto);
             }
             catch (Exception e)
             {

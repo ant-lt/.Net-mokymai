@@ -28,5 +28,11 @@ namespace BookWebApiRepo_MSSQL_EF.Models.Dto
         [MaxLength(15, ErrorMessage = "Knygos tipas cannot be longer than 15 characters")]
         public string KnygosTipas { get; set; }
 
+        /// <summary>
+        /// Knygos gaunamas kiekis
+        /// </summary>
+      //  [MinLength(1, ErrorMessage = "Knygos tipas cannot less than 1 characters")]
+        public int GautasKiekis { get; set; }
+
     }
 }

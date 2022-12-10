@@ -1,13 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using BookWebApiRepo_MSSQL_EF.Data;
 using BookWebApiRepo_MSSQL_EF.Repositories;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
 using BookWebApiRepo_MSSQL_EF.Services;
 using BookWebApiRepo_MSSQL_EF.Services.IServices;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using P04_EF_Applying_To_API.Services;
 using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -113,8 +112,10 @@ namespace BookWebApiRepo_MSSQL_EF
 
             app.UseHttpsRedirection();
 
+            //------------------
+            app.UseAuthentication(); // Order matters
             app.UseAuthorization();
-
+            //--------------------
 
             app.MapControllers();
 

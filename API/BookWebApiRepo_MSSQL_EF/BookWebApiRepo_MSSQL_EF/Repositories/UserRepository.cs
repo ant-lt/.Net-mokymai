@@ -59,6 +59,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             };
 
             loginResponse.User.PasswordHash = null;
+            loginResponse.User.PasswordSalt = null;
 
             return loginResponse;
         }
@@ -82,6 +83,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             _db.LocalUsers.Add(user);
             _db.SaveChanges();
             user.PasswordHash = null;
+            user.PasswordSalt = null;
             return user;
         }
     }
