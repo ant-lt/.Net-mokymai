@@ -41,6 +41,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             var inputPasswordBytes = Encoding.UTF8.GetBytes(loginRequest.Password);
             var user = _db.LocalUsers.FirstOrDefault(x => x.Username.ToLower() == loginRequest.Username.ToLower());
 
+
             if (user == null && !_passwordService.VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return new LoginResponse
@@ -50,7 +51,11 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 };
             }
 
-            var token = _jwtService.GetJwtToken(user.Id, user.Role);
+            var userRoleName = _db.Roles.FirstOrDefault(x => x.Id == user.RoleId).Name;
+            //var token = _jwtService.GetJwtToken(user.Id, user.RoleName);
+            var token = _jwtService.GetJwtToken(user.Id, userRoleName);
+
+            user.Role = null;
 
             LoginResponse loginResponse = new()
             {
@@ -71,13 +76,15 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
             _passwordService.CreatePasswordHash(registrationRequest.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
+            var userRole = _db.Roles.FirstOrDefault(x => x.Name == registrationRequest.Role);
             LocalUser user = new()
             {
                 Username = registrationRequest.Username,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 Name = registrationRequest.Name,
-                Role = registrationRequest.Role
+                Role = userRole
+                //RoleName = registrationRequest.Role
             };
 
             _db.LocalUsers.Add(user);

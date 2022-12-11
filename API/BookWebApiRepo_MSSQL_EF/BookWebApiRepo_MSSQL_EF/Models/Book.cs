@@ -15,7 +15,11 @@ namespace BookWebApiRepo_MSSQL_EF.Models
         public ECoverType CoverType { get; set; }
         public int OwnedQty { get; set; }
 
-        public Book() { }
+        public Book() 
+        {
+            Reservations = new HashSet<Reservation>();
+            Loans = new HashSet<Loan>();
+        }
         public Book(int id, string title, string authors, int years, ECoverType coverType, int ownedQty)
         {
             Id = id;
@@ -26,7 +30,7 @@ namespace BookWebApiRepo_MSSQL_EF.Models
             OwnedQty = ownedQty;
         }
 
-        public ICollection<Loan> Loans { get; set; }
-        public ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

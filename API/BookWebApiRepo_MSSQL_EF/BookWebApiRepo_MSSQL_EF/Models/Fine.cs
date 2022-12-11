@@ -6,9 +6,12 @@
         public DateTime FineDate { get; set; }
 
         public decimal FineAmount { get; set; }
+        public int LocalUserId { get; set; }
+        public int LoanId { get; set; }
 
-        public LocalUser LocalUser { get; set; } = null!;
-        public Loan Loan { get; set; } = null!;
+
+        public virtual LocalUser LocalUser { get; set; } = null!;
+        public virtual Loan Loan { get; set; } = null!;
 
     }
 }

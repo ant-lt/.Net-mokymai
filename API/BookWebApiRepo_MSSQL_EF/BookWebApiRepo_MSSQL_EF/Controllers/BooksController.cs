@@ -32,10 +32,12 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// </summary>
         /// <returns>All books in DB</returns>
         /// <response code="200">OK</response>
+        /// <response code="401">Client could not authenticate a request</response>
         /// <response code="500">Internal server error</response>
         [HttpGet(Name = "GetBooks")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetBookDto>))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<IEnumerable<GetBookDto>>> GetBooks()
@@ -62,8 +64,9 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// </summary>
         /// <param name="id">Requested book ID</param>
         /// <returns>Dish with specified ID</returns>
-        /// <response code="200">OK</response>
+        /// <response code="200">OK</response>        
         /// <response code="400">Book bad request description</response>
+        /// <response code="401">Client could not authenticate a request</response>
         /// <response code="404">Book not found </response>
         /// <response code="500">Internal server error</response>
         /// <remarks>
@@ -78,8 +81,10 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         ///
         /// </remarks>
         [HttpGet("{id:int}", Name = "GetBookById")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetBookDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
@@ -119,6 +124,8 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// <returns>Created new book</returns>
         /// <response code="201">Book created</response>
         /// <response code="400">Bad request</response>
+        /// <response code="401">Client could not authenticate a request</response>
+        /// <response code="403">Forbidden</response>
         /// <response code="500">Error</response>
         /// <remarks>
         /// Sample request:
@@ -132,9 +139,11 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         ///     }
         /// </remarks>
         [HttpPost("Create", Name = "CreateBook")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(CreateBookDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden )]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<CreateBookDto>> CreateBook(CreateBookDto bookDto)
@@ -178,12 +187,14 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// <returns>Status code</returns>
         /// <response code="204">Book deleted</response>
         /// <response code="400">Bad Request</response>
+        /// <response code="401">Client could not authenticate a request</response>
         /// <response code="404">Book not found</response>
         /// <response code="500">Internal server error</response>
         [HttpDelete("delete/{id:int}")]
-        [Authorize(Roles = "super-admin")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
@@ -226,6 +237,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// <returns>Status code</returns>
         /// <response code="204">Book updated</response>
         /// <response code="400">Bad request</response>
+        /// <response code="401">Client could not authenticate a request</response>       
         /// <response code="404">Book not found</response>
         /// <response code="500">Internal server error</response> 
         /// <remarks>
@@ -242,9 +254,10 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         ///
         /// </remarks>
         [HttpPut("update/{id:int}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "Administrator,Secretary")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
@@ -305,17 +318,20 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
         /// <returns>Status code</returns>
         /// <response code="200">OK</response>
         /// <response code="400">Bad request</response>
+        /// <response code="401">Client could not authenticate a request</response>
         /// <response code="404">Book not found</response>
         /// <response code="500">Error</response>
         [HttpGet("Filter", Name = "Filter")]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetBookDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<IEnumerable<GetBookDto>>> Filter([FromQuery]FilterBookRequest req)
         {
-            _logger.LogInformation("Getting book list with parameters {req}", JsonConvert.SerializeObject(req));
+            _logger.LogInformation("Getting book Filter with parameters {req}", JsonConvert.SerializeObject(req));
             try
             {
                 if (req == null)

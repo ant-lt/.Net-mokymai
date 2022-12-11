@@ -50,6 +50,71 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "Kristina Pišniukaitė - Šimkienė",
+                            CoverType = 0,
+                            OwnedQty = 1,
+                            Title = "Ant medinės lentelės II",
+                            Years = 2022
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Lina Žutautė",
+                            CoverType = 1,
+                            OwnedQty = 2,
+                            Title = "Kakė Makė ir magiška kelionė",
+                            Years = 2022
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Author = "Santa Montefiore",
+                            CoverType = 2,
+                            OwnedQty = 3,
+                            Title = "Tolimi krantai",
+                            Years = 2022
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Author = "Nino Haratischwili",
+                            CoverType = 2,
+                            OwnedQty = 1,
+                            Title = "Aštuntas gyvenimas (Brilkai)",
+                            Years = 2022
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Author = "Kristina Pišniukaitė - Šimkienė",
+                            CoverType = 2,
+                            OwnedQty = 2,
+                            Title = "Ant medinės lentelės III",
+                            Years = 2022
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Author = "Salman Rushdie",
+                            CoverType = 1,
+                            OwnedQty = 3,
+                            Title = "Kichotas",
+                            Years = 2020
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Author = "Kristina Pišniukaitė - Šimkienė",
+                            CoverType = 2,
+                            OwnedQty = 1,
+                            Title = "Ant medinės lentelės IIV",
+                            Years = 2022
+                        });
                 });
 
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Fine", b =>
@@ -92,8 +157,14 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("LoanDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("LocalUserId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ReturnedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -127,15 +198,16 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
 
                     b.ToTable("LocalUsers");
                 });
@@ -157,7 +229,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("ReservationStatusId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -166,7 +238,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
 
                     b.HasIndex("LocalUserId");
 
-                    b.HasIndex("StatusId");
+                    b.HasIndex("ReservationStatusId");
 
                     b.ToTable("Reservations");
                 });
@@ -186,6 +258,62 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ReservationStatus");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Status = "Active"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Status = "Returned"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Status = "Canceled"
+                        });
+                });
+
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Administrator"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Secretary"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Librarian"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Reader"
+                        });
                 });
 
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Fine", b =>
@@ -226,6 +354,17 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Navigation("LocalUser");
                 });
 
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.LocalUser", b =>
+                {
+                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.Role", "Role")
+                        .WithMany("LocalUsers")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Reservation", b =>
                 {
                     b.HasOne("BookWebApiRepo_MSSQL_EF.Models.Book", "Book")
@@ -240,9 +379,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.ReservationStatus", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
+                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.ReservationStatus", "ReservationStatus")
+                        .WithMany("Reservations")
+                        .HasForeignKey("ReservationStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -250,7 +389,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
 
                     b.Navigation("LocalUser");
 
-                    b.Navigation("Status");
+                    b.Navigation("ReservationStatus");
                 });
 
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Book", b =>
@@ -267,6 +406,16 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Navigation("Loans");
 
                     b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.ReservationStatus", b =>
+                {
+                    b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Role", b =>
+                {
+                    b.Navigation("LocalUsers");
                 });
 #pragma warning restore 612, 618
         }

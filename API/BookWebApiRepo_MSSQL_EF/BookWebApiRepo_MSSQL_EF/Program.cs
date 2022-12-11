@@ -24,6 +24,7 @@ namespace BookWebApiRepo_MSSQL_EF
             builder.Services.AddDbContext<BookContext>(option =>
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+               // option.UseLazyLoadingProxies();
             });
 
             builder.Services.AddTransient<IBookWrapper, BookWrapper>();
@@ -32,6 +33,8 @@ namespace BookWebApiRepo_MSSQL_EF
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IPasswordService, PasswordService>();
             builder.Services.AddScoped<IJwtService, JwtService>();
+
+            builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 
