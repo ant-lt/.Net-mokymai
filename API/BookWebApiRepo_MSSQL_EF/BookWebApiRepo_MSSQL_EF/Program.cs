@@ -35,6 +35,7 @@ namespace BookWebApiRepo_MSSQL_EF
             builder.Services.AddScoped<IJwtService, JwtService>();
 
             builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+            builder.Services.AddScoped<IBookReservationManager, BookReservationManager>();
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 

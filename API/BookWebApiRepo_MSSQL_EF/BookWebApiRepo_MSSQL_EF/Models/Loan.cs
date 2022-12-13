@@ -5,6 +5,8 @@
         public int Id { get; set; }
         public DateTime LoanDate { get; set; }
         public DateTime? ReturnedDate { get; set; } = null!;
+        public int BookId { get; set; }
+        public int LocalUserId { get; set; }
 
         public virtual LocalUser LocalUser { get; set; } = null!;
         public virtual Book Book { get; set; } = null!;
