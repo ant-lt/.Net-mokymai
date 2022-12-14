@@ -46,7 +46,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
 
             try
             {
-                var books = await _bookRepo.GetAll();
+                var books = await _bookRepo.GetAllAsync();
 
                 IEnumerable<GetBookDto>  getBookDto =books.Select(d => _wrapper.Bind(d)).ToList();
 
@@ -99,7 +99,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                     return BadRequest();
                 }
 
-                var book =  await _bookRepo.Get(d => d.Id == id);
+                var book =  await _bookRepo.GetAsync(d => d.Id == id);
 
                 if (book == null)
                 {
@@ -169,7 +169,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                 }
 
                 Book book = _wrapper.Bind(bookDto);
-                _bookRepo.Create(book);
+                await _bookRepo.CreateAsync(book);
 
                 return CreatedAtRoute("CreateBook", new { id = book.Id }, bookDto);
             }
@@ -209,14 +209,14 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                     return BadRequest();
                 }
 
-                var book = await _bookRepo.Get(d => d.Id == id);
+                var book = await _bookRepo.GetAsync(d => d.Id == id);
 
                 if (book == null)
                 {
                     return NotFound();
                 }
 
-                _bookRepo.Remove(book);
+                await _bookRepo.RemoveAsync(book);
 
                 return NoContent();
             }
@@ -272,7 +272,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                     return BadRequest();
                 }
 
-                var foundBook = await _bookRepo.Get(d => d.Id == id);
+                var foundBook = await _bookRepo.GetAsync(d => d.Id == id);
 
                 if (foundBook == null)
                 {
@@ -298,7 +298,7 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                 foundBook.Years = _bookUpdate.Years;
                 foundBook.CoverType = _bookUpdate.CoverType;
 
-                await _bookRepo.Update(foundBook);
+                await _bookRepo.UpdateAsync(foundBook);
 
                 return NoContent();
             }

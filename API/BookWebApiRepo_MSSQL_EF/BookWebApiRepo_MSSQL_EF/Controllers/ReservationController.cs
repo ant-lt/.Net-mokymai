@@ -16,15 +16,17 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
     public class ReservationController : ControllerBase
     {
         private readonly IReservationRepository _reservationRepo;
-        private readonly IBookReservationManager _bookReservationManager;
+      //  private readonly IBookReservationManager _bookReservationManager;
+        private readonly IReservationWrapper _reservationWrapper;
 
         private readonly ILogger<ReservationController> _logger;
 
-        public ReservationController(IReservationRepository reservationRepository, IBookReservationManager bookReservationManager, ILogger<ReservationController> logger )
+        public ReservationController(IReservationRepository reservationRepository, /*IBookReservationManager bookReservationManager,*/ ILogger<ReservationController> logger, IReservationWrapper reservationWrapper)
         {
             _reservationRepo= reservationRepository;
-            _bookReservationManager= bookReservationManager;
+      //      _bookReservationManager= bookReservationManager;
             _logger= logger;
+            _reservationWrapper = reservationWrapper;
         }
 
         /// <summary>
@@ -46,10 +48,24 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
 
             try
             {
-                var reservations = await _bookReservationManager.GetAll();
+                //var reservations = await _bookReservationManager.GetAll();
+                var reservations = await _reservationRepo.GetAllAsync();
 
+                var reservationResponse = new List<ReservationResponse>();
 
-                return Ok(reservations);
+                foreach (var reservation in reservations)
+                {
+                    var reservationResponseNew = new ReservationResponse();
+
+                    var bookTitle = await _reservationRepo.GetBookTitleById(reservation.BookId);
+                    var reservationStatus = await _reservationRepo.GetReservationStatusNameById(reservation.ReservationStatusId);
+                    var userName = await _reservationRepo.GetUserNameById(reservation.LocalUserId);
+
+                    reservationResponseNew = _reservationWrapper.Bind(reservation, bookTitle, reservationStatus, userName );
+                    reservationResponse.Add(reservationResponseNew);
+                }
+
+                return Ok(reservationResponse);
             }
             catch (Exception e)
             {

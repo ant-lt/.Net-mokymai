@@ -21,7 +21,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             return await books;
         }
 
-        public async Task<Book> Update(Book book)
+        public async Task<Book> UpdateAsync(Book book)
         {
             _db.Books.Update(book);
             await _db.SaveChangesAsync();

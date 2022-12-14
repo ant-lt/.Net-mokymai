@@ -16,13 +16,13 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             _dbSet = _db.Set<TEntity>();
         }
 
-        public void Create(TEntity entity)
+        public async Task CreateAsync(TEntity entity)
         {
-            _dbSet.AddAsync(entity);
-            Save();
+            _dbSet.Add(entity);
+            await SaveAsync();
         }
 
-        public Task<TEntity> Get(Expression<Func<TEntity, bool>> filter, bool tracked = true)
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> filter, bool tracked = true)
         {
             IQueryable<TEntity> query = _dbSet;
 
@@ -33,10 +33,10 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
             query = query.Where(filter);
 
-            return query.FirstOrDefaultAsync();
+            return await query.FirstOrDefaultAsync();
         }
 
-        public Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>>? filter = null)
+        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>>? filter = null)
         {
             IQueryable<TEntity> query = _dbSet;
 
@@ -45,18 +45,18 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 query = query.Where(filter);
             }
 
-            return query.ToListAsync();
+            return await query.ToListAsync();
         }
 
-        public void Remove(TEntity entity)
+        public async Task RemoveAsync(TEntity entity)
         {
             _dbSet.Remove(entity);
-            Save();
+            await SaveAsync();
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
         }
     }
 }

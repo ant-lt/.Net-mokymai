@@ -28,6 +28,8 @@ namespace BookWebApiRepo_MSSQL_EF
             });
 
             builder.Services.AddTransient<IBookWrapper, BookWrapper>();
+            builder.Services.AddTransient<IReservationWrapper, ReservationWrapper>();
+
             builder.Services.AddScoped<IBookRepository, BookRepository>();
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -35,7 +37,7 @@ namespace BookWebApiRepo_MSSQL_EF
             builder.Services.AddScoped<IJwtService, JwtService>();
 
             builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
-            builder.Services.AddScoped<IBookReservationManager, BookReservationManager>();
+ //           builder.Services.AddScoped<IBookReservationManager, BookReservationManager>();
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 

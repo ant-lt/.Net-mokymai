@@ -3,6 +3,7 @@ using BookWebApiRepo_MSSQL_EF.Models;
 using BookWebApiRepo_MSSQL_EF.Models.Dto;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
 using BookWebApiRepo_MSSQL_EF.Services.IServices;
+using Microsoft.EntityFrameworkCore;
 using System.Text;
 
 
@@ -26,9 +27,9 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
         /// </summary>
         /// <param name="username">Registration username</param>
         /// <returns>A flag indicating if username already exists</returns>
-        public bool IsUniqueUser(string username)
+        public async Task<bool> IsUniqueUserAsync(string username)
         {
-            var user = _db.LocalUsers.FirstOrDefault(x => x.Username == username);
+            var user = await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username == username);
             if (user == null)
             {
                 return true;
@@ -36,10 +37,10 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             return false;
         }
 
-        public LoginResponse Login(LoginRequest loginRequest)
+        public async Task<LoginResponse> LoginAsync(LoginRequest loginRequest)
         {
             var inputPasswordBytes = Encoding.UTF8.GetBytes(loginRequest.Password);
-            var user = _db.LocalUsers.FirstOrDefault(x => x.Username.ToLower() == loginRequest.Username.ToLower());
+            var user = await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username.ToLower() == loginRequest.Username.ToLower());
 
 
             if (user == null && !_passwordService.VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
@@ -51,7 +52,9 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 };
             }
 
-            var userRoleName = _db.Roles.FirstOrDefault(x => x.Id == user.RoleId).Name;
+            var userRole = await _db.Roles.FirstOrDefaultAsync(x => x.Id == user.RoleId);
+            var userRoleName = userRole.Name;
+
             //var token = _jwtService.GetJwtToken(user.Id, user.RoleName);
             var token = _jwtService.GetJwtToken(user.Id, userRoleName);
 
@@ -71,12 +74,12 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         // Add RegistrationResponse (Should not include password)
         // Add adapter classes to map to wanted classes
-        public LocalUser Register(RegistrationRequest registrationRequest)
+        public async Task<LocalUser> RegisterAsync(RegistrationRequest registrationRequest)
         {
 
             _passwordService.CreatePasswordHash(registrationRequest.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
-            var userRole = _db.Roles.FirstOrDefault(x => x.Name == registrationRequest.Role);
+            var userRole = await _db.Roles.FirstOrDefaultAsync(x => x.Name == registrationRequest.Role);
             LocalUser user = new()
             {
                 Username = registrationRequest.Username,
@@ -88,7 +91,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             };
 
             _db.LocalUsers.Add(user);
-            _db.SaveChanges();
+            _db.SaveChangesAsync();
             user.PasswordHash = null;
             user.PasswordSalt = null;
             return user;

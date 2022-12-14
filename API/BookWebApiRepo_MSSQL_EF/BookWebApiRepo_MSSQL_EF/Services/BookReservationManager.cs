@@ -22,7 +22,7 @@ namespace BookWebApiRepo_MSSQL_EF.Services
 
         public async Task<List<ReservationResponse>> GetAll()
         {
-            var reservations = await _reservationRepo.GetAll();
+            var reservations = await _reservationRepo.GetAllAsync();
 
             var reservationResponse = new List<ReservationResponse>(); 
 
@@ -30,11 +30,13 @@ namespace BookWebApiRepo_MSSQL_EF.Services
             {
                 var reservationResponseNew = new ReservationResponse();
 
-                reservationResponseNew.ReservationDate = reservation.ReservationDate;
-                reservationResponseNew.BookTitle = await _reservationRepo.GetBookTitleById(reservation.BookId);
                 reservationResponseNew.ReservationId = reservation.Id;
+                reservationResponseNew.ReservationDate = reservation.ReservationDate;
+                reservationResponseNew.BookTitle = await _reservationRepo.GetBookTitleById(reservation.BookId);                
                 reservationResponseNew.ReservationStatus = await _reservationRepo.GetReservationStatusNameById(reservation.ReservationStatusId);
+                reservationResponseNew.UserName = await _reservationRepo.GetUserNameById(reservation.LocalUserId);
 
+                
                 reservationResponse.Add(reservationResponseNew);
             }
 
