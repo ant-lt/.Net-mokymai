@@ -15,9 +15,30 @@ namespace P04_EF_Applying_To_API.Data
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<RecipeItem> RecipeItems { get; set; }
         public DbSet<LocalUser> LocalUsers { get; set; }
+        public DbSet<DishOrder> DishOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+
+            modelBuilder.Entity<DishOrder>()
+                .HasKey(d => d.DishOrderId);
+            // Setting auto inrement behaviour
+            modelBuilder.Entity<DishOrder>()
+                .Property(d => d.DishOrderId)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<DishOrder>()
+                .HasOne(dio => dio.Dish)
+                .WithMany(d => d.DishOrders)
+                .HasForeignKey(d => d.DishId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<DishOrder>()
+                .HasOne(dio => dio.LocalUser)
+                .WithMany(u => u.DishOrders)
+                .HasForeignKey(u => u.LocalUserId)
+                .OnDelete(DeleteBehavior.NoAction);
             /*
             modelBuilder.Entity<Dish>()
                 .HasKey(d => d.DishId);
