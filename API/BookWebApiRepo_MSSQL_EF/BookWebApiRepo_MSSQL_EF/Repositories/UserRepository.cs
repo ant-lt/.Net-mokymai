@@ -43,7 +43,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             var user = await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username.ToLower() == loginRequest.Username.ToLower());
 
 
-            if (user == null && !_passwordService.VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
+            if (user == null || !_passwordService.VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return new LoginResponse
                 {
@@ -86,12 +86,12 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 Name = registrationRequest.Name,
-                Role = userRole
-                //RoleName = registrationRequest.Role
+                Role = userRole,
+                Active = true
             };
 
             _db.LocalUsers.Add(user);
-            _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
             user.PasswordHash = null;
             user.PasswordSalt = null;
             return user;

@@ -106,6 +106,20 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                 }
 
 
+                var isBookAvailable = await _reservationRepo.IsBookAvailableForReservation(bookId);
+                
+                if (!isBookAvailable) 
+                {
+                    return BadRequest(new { message = "Book is not available for reservation." });
+                }
+
+                var userReservedBookCount = await _reservationRepo.GetUserReservedBooksCount(userName);
+
+                if ( userReservedBookCount >= 5)
+                {
+                    return BadRequest(new { message = "User have exceeded 5 book reservations limit." });
+                }
+
                 var  bookReservation = await _reservationRepo.Reserve(bookId, userName);
 
 

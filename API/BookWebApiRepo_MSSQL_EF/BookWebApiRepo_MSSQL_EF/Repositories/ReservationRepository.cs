@@ -2,6 +2,7 @@
 using BookWebApiRepo_MSSQL_EF.Models;
 using BookWebApiRepo_MSSQL_EF.Models.Dto;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
+using BookWebApiRepo_MSSQL_EF.Services;
 using System.Net;
 
 namespace BookWebApiRepo_MSSQL_EF.Repositories
@@ -33,8 +34,39 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             return user.Username;
         }
 
+        public async Task<int> GetUserReservedBooksCount(string userName)
+        {
+            int userId = _db.LocalUsers.FirstOrDefault(x => x.Username == userName).Id;
+            int ActiveReservationStatusId =  _db.ReservationStatus.FirstOrDefault(x => x.Status == "Active").Id;
+
+            int bookCount = 0;
+
+            bookCount =  _db.Reservations.Where(x => x.LocalUserId == userId && x.ReservationStatusId == ActiveReservationStatusId).Count();
+            return bookCount;
+        }
+
+        public async Task<bool> IsBookAvailableForReservation(int bookId)
+        {
+            var book = await _db.Books.FindAsync(bookId);
+
+            if (book == null)
+            {
+                return false;
+            }
+
+            if (book.OwnedQty >0) 
+            { 
+                return true;
+            }
+            else 
+                return false;
+
+        }
+
         public async Task<ReservationResponse> Reserve(int bookId, string userName)
         {
+
+            var book = await _db.Books.FindAsync(bookId);
 
             var reservation = new Reservation()
             {
@@ -44,7 +76,15 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 ReservationStatus = _db.ReservationStatus.FirstOrDefault(x => x.Status == "Active")
             };
 
-            await CreateAsync(reservation);            
+
+
+            await CreateAsync(reservation);
+
+            book.OwnedQty -= 1;
+
+            _db.Books.Update(book);
+            // await _db.SaveChangesAsync();
+
             await SaveAsync();
 
             var ReservationResponse = new ReservationResponse()
@@ -58,6 +98,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
             return ReservationResponse;
         }
+
 
         public async Task<ReservationResponse> Return(int bookId, string userName)
         {
@@ -93,6 +134,18 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             _db.Loans.Add(createLoan);
 
             await SaveAsync();
+
+
+
+            var _fineCalc = new FinesService();
+            var fine = _fineCalc.CallculateFineOnReturn(createLoan);
+
+            if (fine != null)
+            {
+                _db.Fines.Add(fine);
+                await SaveAsync();
+            }
+
 
             return reservationResponse;
         }

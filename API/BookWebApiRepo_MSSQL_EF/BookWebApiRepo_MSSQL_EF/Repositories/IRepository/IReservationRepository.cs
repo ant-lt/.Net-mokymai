@@ -10,5 +10,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories.IRepository
         Task<string> GetReservationStatusNameById(int reservationStatusId);
         Task<string> GetBookTitleById(int bookId);
         Task<string> GetUserNameById(int userId);
+        Task<bool> IsBookAvailableForReservation(int bookId);
+        Task<int> GetUserReservedBooksCount(string userName);
     }
 }
