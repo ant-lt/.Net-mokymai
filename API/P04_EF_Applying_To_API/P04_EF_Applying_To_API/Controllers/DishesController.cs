@@ -165,6 +165,28 @@ public class DishesController : ControllerBase
         return NoContent();
     }
 
+
+    /*
+  https://jsonpatch.com/
+    [
+      {
+        "path": "/Name",
+        "op": "replace",
+        "value": "Patched with DTO value"
+      }
+    ]
+    [
+      {
+        "path": "/RecipeItems",
+        "op": "add",
+        "value": [{
+    "Name":"TestRecipeItem",
+    "Calories":"50"
+    }]
+      }
+    ]
+ */
+
     [HttpPatch("patch/{id:int}", Name = "UpdatePartialDish")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
