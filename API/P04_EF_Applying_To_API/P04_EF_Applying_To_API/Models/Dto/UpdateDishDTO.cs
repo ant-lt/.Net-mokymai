@@ -8,7 +8,7 @@
 
         public string Type { get; set; }
 
-        public string SpiceLevel { get; set; }
+        public string? SpiceLevel { get; set; }
 
         public string Country { get; set; }
 

@@ -3,6 +3,7 @@ using BookWebApiRepo_MSSQL_EF.Models;
 using BookWebApiRepo_MSSQL_EF.Models.Dto;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
 using BookWebApiRepo_MSSQL_EF.Services;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace BookWebApiRepo_MSSQL_EF.Repositories
@@ -36,8 +37,8 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         public async Task<int> GetUserReservedBooksCount(string userName)
         {
-            int userId = _db.LocalUsers.FirstOrDefault(x => x.Username == userName).Id;
-            int ActiveReservationStatusId =  _db.ReservationStatus.FirstOrDefault(x => x.Status == "Active").Id;
+            int userId = (await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username == userName)).Id;
+            int ActiveReservationStatusId =  (await _db.ReservationStatus.FirstOrDefaultAsync(x => x.Status == "Active")).Id;
 
             int bookCount = 0;
 
@@ -72,8 +73,8 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             {
                 ReservationDate = DateTime.Now,
                 BookId = bookId,
-                LocalUserId = _db.LocalUsers.FirstOrDefault(x => x.Username == userName).Id,
-                ReservationStatus = _db.ReservationStatus.FirstOrDefault(x => x.Status == "Active")
+                LocalUserId = (await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username == userName)).Id,
+                ReservationStatus = await _db.ReservationStatus.FirstOrDefaultAsync(x => x.Status == "Active")
             };
 
 
@@ -92,7 +93,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 ReservationId = reservation.Id,
                 ReservationDate = reservation.ReservationDate,
                 UserName = userName,
-                BookTitle = _db.Books.FirstOrDefault(x => x.Id == bookId).Title,
+                BookTitle = (await _db.Books.FirstOrDefaultAsync(x => x.Id == bookId)).Title,
                 ReservationStatus = "Active"
             };
 
@@ -102,11 +103,12 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         public async Task<ReservationResponse> Return(int bookId, string userName)
         {
-            var localUserId = _db.LocalUsers.First(x => x.Username == userName).Id;
-            var activeStatus = _db.ReservationStatus.First(x => x.Status == "Active");
-            var reservation = _db.Reservations.First(x => x.BookId == bookId  && x.LocalUserId == localUserId && x.ReservationStatusId == activeStatus.Id);
+            var localUserId = (await _db.LocalUsers.FirstAsync(x => x.Username == userName)).Id;
 
-            reservation.ReservationStatus = _db.ReservationStatus.FirstOrDefault(x => x.Status == "Returned");
+            var activeStatus = await _db.ReservationStatus.FirstAsync(x => x.Status == "Active");
+            var reservation = await _db.Reservations.FirstAsync(x => x.BookId == bookId  && x.LocalUserId == localUserId && x.ReservationStatusId == activeStatus.Id);
+
+            reservation.ReservationStatus =  await _db.ReservationStatus.FirstOrDefaultAsync(x => x.Status == "Returned");
 
         
 
@@ -115,14 +117,13 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 ReservationId = reservation.Id,
                 ReservationDate = reservation.ReservationDate,
                 UserName = userName,
-                BookTitle = _db.Books.FirstOrDefault(x => x.Id == bookId).Title,
+                BookTitle = (await _db.Books.FirstOrDefaultAsync(x => x.Id == bookId)).Title,
                 ReservationStatus = "Returned"
             };
 
             _db.Reservations.Update(reservation);
 
      
-
             var createLoan = new Loan()
             {
                 BookId= bookId,
@@ -135,8 +136,6 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
             await SaveAsync();
 
-
-
             var _fineCalc = new FinesService();
             var fine = _fineCalc.CallculateFineOnReturn(createLoan);
 
@@ -145,7 +144,6 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 _db.Fines.Add(fine);
                 await SaveAsync();
             }
-
 
             return reservationResponse;
         }

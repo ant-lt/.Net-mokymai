@@ -38,6 +38,8 @@ namespace BookWebApiRepo_MSSQL_EF
 
             builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
+            //to do prideti IFineService ir uzregistruoti DI , nereikes new daryti.
+
             //////////////////
             builder.Services.AddHttpClient("ShippingApiUri", client => {
                 client.BaseAddress = new Uri(builder.Configuration["ExternalServices:ShippingApiUri"]);

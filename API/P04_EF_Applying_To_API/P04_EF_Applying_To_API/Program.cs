@@ -17,6 +17,7 @@ namespace P04_EF_Applying_To_API
 {
 
     // https://jwt.io/
+    // https://jsonpatch.com/
 
     public class Program
     {
@@ -36,6 +37,7 @@ namespace P04_EF_Applying_To_API
             builder.Services.AddScoped<IPasswordService, PasswordService>();
             builder.Services.AddScoped<IJwtService, JwtService>();
             builder.Services.AddTransient<IDishOrderAdapter, DishOrderAdapter>();
+            builder.Services.AddTransient<IDishAdapter, DishAdapter>();
             builder.Services.AddTransient<ICookingService, CookingService>();
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
@@ -59,6 +61,7 @@ namespace P04_EF_Applying_To_API
                 });
 
             builder.Services.AddControllers()
+                .AddNewtonsoftJson()
                 .AddJsonOptions(option => option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
