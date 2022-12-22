@@ -39,6 +39,8 @@ namespace P04_EF_Applying_To_API
             builder.Services.AddTransient<IDishOrderAdapter, DishOrderAdapter>();
             builder.Services.AddTransient<IDishAdapter, DishAdapter>();
             builder.Services.AddTransient<ICookingService, CookingService>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 

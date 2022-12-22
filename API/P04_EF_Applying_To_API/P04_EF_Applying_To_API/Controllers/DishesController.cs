@@ -31,8 +31,9 @@ public class DishesController : ControllerBase
     [Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetDishDTO>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<IEnumerable<GetDishDTO>>> GetDishes()
+    public async Task<IActionResult> GetDishes()
     {
+        // printingService.Print(Message)
         var dishes = await _dishRepo.GetAllAsync();
 
         return Ok(dishes
