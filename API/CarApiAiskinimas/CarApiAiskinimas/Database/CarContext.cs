@@ -11,6 +11,7 @@ namespace CarApiAiskinimas.Database
         }
 
         public DbSet<Car> Cars { get; set; } //cia yra db lentele
+        public DbSet<LocalUser> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +42,9 @@ namespace CarApiAiskinimas.Database
                 .HasMaxLength(15);
 
             modelBuilder.Entity<Car>().HasData(CarInitialData.DataSeed);
+
+
+            modelBuilder.Entity<LocalUser>().HasKey(x => x.Id);
         }
 
     }
