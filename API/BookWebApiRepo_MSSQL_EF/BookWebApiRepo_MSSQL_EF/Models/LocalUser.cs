@@ -4,9 +4,9 @@
     {
         public LocalUser() 
         {
-            Reservations = new HashSet<Reservation>();
-            Fines = new HashSet<Fine>();
-            Loans = new HashSet<Loan>();
+  //          Reservations = new HashSet<Reservation>();
+  //          Fines = new HashSet<Fine>();
+  //          Loans = new HashSet<Loan>();
         }
 
         public int Id { get; set; }
@@ -22,10 +22,10 @@
         public int UserLevelId { get; set; }
 
         //   public string RoleName { get; set; }
-        public virtual Role Role { get; set; }
-        public virtual UserLevel UserLevel { get; set; }
-        public virtual ICollection<Reservation> Reservations { get; set; }
-        public virtual ICollection<Fine> Fines { get; set; }
-        public virtual ICollection<Loan> Loans { get; set; }
+        public virtual Role Role { get; set; } 
+        public virtual UserLevel UserLevel { get; set; } 
+  //      public virtual ICollection<Reservation> Reservations { get; set; }
+  //      public virtual ICollection<Fine> Fines { get; set; }
+  //      public virtual ICollection<Loan> Loans { get; set; }
     }
 }

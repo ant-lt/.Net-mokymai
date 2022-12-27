@@ -64,6 +64,18 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         }
 
+        public async Task<bool> IsUserHaveDebts(string userName)
+        {
+            int userId = (await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username == userName)).Id;
+            var fine = await _db.Fines.Where(x => x.LocalUserId == userId).Select( x => x.FineAmount).SumAsync();
+            if (fine <= 10) 
+            {
+                return false;
+            }
+            else return true;
+
+        }
+
         public async Task<ReservationResponse> Reserve(int bookId, string userName)
         {
 

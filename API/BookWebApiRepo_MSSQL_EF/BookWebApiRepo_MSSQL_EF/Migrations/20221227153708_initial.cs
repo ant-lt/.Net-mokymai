@@ -8,26 +8,22 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BookWebApiRepoMSSQLEF.Migrations
 {
     /// <inheritdoc />
-    public partial class initicial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Books",
+                name: "Genres",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Years = table.Column<int>(type: "int", nullable: false),
-                    CoverType = table.Column<int>(type: "int", nullable: false),
-                    OwnedQty = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.PrimaryKey("PK_Genres", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,6 +64,30 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserLevels", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Books",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Years = table.Column<int>(type: "int", nullable: false),
+                    CoverType = table.Column<int>(type: "int", nullable: false),
+                    OwnedQty = table.Column<int>(type: "int", nullable: false),
+                    GenreId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Books_Genres_GenreId",
+                        column: x => x.GenreId,
+                        principalTable: "Genres",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -220,17 +240,15 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Books",
-                columns: new[] { "Id", "Author", "CoverType", "OwnedQty", "Title", "Years" },
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Kristina Pišniukaitė - Šimkienė", 0, 1, "Ant medinės lentelės II", 2022 },
-                    { 2, "Lina Žutautė", 1, 2, "Kakė Makė ir magiška kelionė", 2022 },
-                    { 3, "Santa Montefiore", 2, 3, "Tolimi krantai", 2022 },
-                    { 4, "Nino Haratischwili", 2, 1, "Aštuntas gyvenimas (Brilkai)", 2022 },
-                    { 5, "Kristina Pišniukaitė - Šimkienė", 2, 2, "Ant medinės lentelės III", 2022 },
-                    { 6, "Salman Rushdie", 1, 3, "Kichotas", 2020 },
-                    { 7, "Kristina Pišniukaitė - Šimkienė", 2, 1, "Ant medinės lentelės IIV", 2022 }
+                    { 1, "Pasaka" },
+                    { 2, "Legenda" },
+                    { 3, "Romanas" },
+                    { 4, "Fantastika" },
+                    { 5, "Drama" }
                 });
 
             migrationBuilder.InsertData(
@@ -265,6 +283,25 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     { 4, "Guru", 25000 }
                 });
 
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "Author", "CoverType", "GenreId", "OwnedQty", "Title", "Years" },
+                values: new object[,]
+                {
+                    { 1, "Kristina Pišniukaitė - Šimkienė", 0, 1, 1, "Ant medinės lentelės II", 2022 },
+                    { 2, "Lina Žutautė", 1, 1, 2, "Kakė Makė ir magiška kelionė", 2022 },
+                    { 3, "Santa Montefiore", 2, 1, 3, "Tolimi krantai", 2022 },
+                    { 4, "Nino Haratischwili", 2, 2, 1, "Aštuntas gyvenimas (Brilkai)", 2022 },
+                    { 5, "Kristina Pišniukaitė - Šimkienė", 2, 3, 2, "Ant medinės lentelės III", 2022 },
+                    { 6, "Salman Rushdie", 1, 4, 3, "Kichotas", 2020 },
+                    { 7, "Kristina Pišniukaitė - Šimkienė", 2, 5, 1, "Ant medinės lentelės IIV", 2022 }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_GenreId",
+                table: "Books",
+                column: "GenreId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Fines_LoanId",
                 table: "Fines",
@@ -293,8 +330,8 @@ namespace BookWebApiRepoMSSQLEF.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_LocalUsers_UserLevelId",
                 table: "LocalUsers",
-                column: "UserLevelId",
-                unique: true);
+                column: "UserLevelId"
+               );
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_BookId",
@@ -345,6 +382,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
 
             migrationBuilder.DropTable(
                 name: "LocalUsers");
+
+            migrationBuilder.DropTable(
+                name: "Genres");
 
             migrationBuilder.DropTable(
                 name: "Roles");

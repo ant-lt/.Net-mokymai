@@ -1,4 +1,5 @@
 ﻿using BookWebApiRepo_MSSQL_EF.Enums;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace BookWebApiRepo_MSSQL_EF.Models
 {
@@ -14,13 +15,18 @@ namespace BookWebApiRepo_MSSQL_EF.Models
         public int Years { get; set; }
         public ECoverType CoverType { get; set; }
         public int OwnedQty { get; set; }
+        public int GenreId { get; set; }
+        public virtual Genre Genres { get; set; } = null!;
+
 
         public Book() 
         {
             Reservations = new HashSet<Reservation>();
             Loans = new HashSet<Loan>();
         }
-        public Book(int id, string title, string authors, int years, ECoverType coverType, int ownedQty)
+
+        /*
+        public Book(int id, string title, string authors, int years, ECoverType coverType, int ownedQty, Genre genre)
         {
             Id = id;
             Title = title ?? throw new ArgumentNullException(nameof(title));
@@ -28,7 +34,9 @@ namespace BookWebApiRepo_MSSQL_EF.Models
             Years = years;
             CoverType = coverType;
             OwnedQty = ownedQty;
+            Genres = genre;
         }
+        */
 
         public virtual ICollection<Loan> Loans { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
