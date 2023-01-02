@@ -54,7 +54,7 @@ namespace CarApiAiskinimas.Repositories.Tests
             IUserService userService = new UserService();
 
             var sut = new UserController(mockUserRepository.Object, userService, jwtService);
-            var actual = sut.Login(new LoginDto { UserName = fake_username, Password = fake_password });
+            var actual = sut.Login(new LoginRequest { UserName = fake_username, Password = fake_password });
 
             Assert.IsInstanceOfType(actual, typeof(OkObjectResult));
         }
@@ -72,7 +72,7 @@ namespace CarApiAiskinimas.Repositories.Tests
             IUserService userService = new UserService();
 
             var sut = new UserController(mockUserRepository.Object, userService, jwtService);
-            var actual = sut.Login(new LoginDto { UserName = fake_username, Password = fake_password });
+            var actual = sut.Login(new LoginRequest { UserName = fake_username, Password = fake_password });
 
             Assert.IsInstanceOfType(actual, typeof(UnauthorizedObjectResult));
         }

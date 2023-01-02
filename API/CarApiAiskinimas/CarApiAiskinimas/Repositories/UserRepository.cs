@@ -6,10 +6,10 @@ namespace CarApiAiskinimas.Repositories
 {
     public interface IUserRepository
     {
+        bool Exist(string userName);
         int Register(LocalUser user);
         bool TryLogin(string userName, string password, out LocalUser? user);
     }
-
     public class UserRepository : IUserRepository
     {
         private readonly CarContext _context;
@@ -24,12 +24,11 @@ namespace CarApiAiskinimas.Repositories
 
         public virtual bool TryLogin(string userName, string password, out LocalUser? user)
         {
-            _userService.CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
             user = _context.Users.FirstOrDefault(x => x.UserName == userName);
             if (user == null)
                 return false;
 
-            if (_userService.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+            if (!_userService.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 return false;
 
             return true;
@@ -40,6 +39,11 @@ namespace CarApiAiskinimas.Repositories
             _context.Users.Add(user);
             _context.SaveChanges();
             return user.Id;
+        }
+
+        public bool Exist(string userName)
+        {
+            return _context.Users.Any(x => x.UserName == userName);
         }
     }
 }
