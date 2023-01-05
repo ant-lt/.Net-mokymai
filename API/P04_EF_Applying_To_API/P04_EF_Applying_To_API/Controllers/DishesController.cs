@@ -28,7 +28,7 @@ public class DishesController : ControllerBase
     /// </summary>
     /// <returns>All dishes in DB</returns>
     [HttpGet("dishes")]
-    [Authorize]
+    //[Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetDishDTO>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetDishes()

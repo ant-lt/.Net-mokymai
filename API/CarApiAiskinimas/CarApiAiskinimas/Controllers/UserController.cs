@@ -57,7 +57,9 @@ namespace CarApiAiskinimas.Controllers
                 UserName = model.UserName,
                 Role = model.Role,
                 PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
+                PasswordSalt = passwordSalt,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
             };
 
             var id = _userRepository.Register(user);
@@ -79,6 +81,15 @@ namespace CarApiAiskinimas.Controllers
 
         [Required]
         public string? Role { get; set; }
+
+        [Required]
+        public string? FirstName { get; set; }
+
+        [Required]
+        public string? LastName { get; set; }
+
+        [Required]
+        public string? LegalId { get; set; }
 
     }
 

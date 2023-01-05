@@ -45,5 +45,13 @@ namespace CarApiAiskinimas.Repositories
         {
             return _context.Users.Any(x => x.UserName == userName);
         }
+
+
+        public LocalUser GetLocalUser(string userName) 
+        {
+            var user = _context.Users.FirstOrDefault(x => x.UserName == userName);
+
+            return user;
+        }
     }
 }

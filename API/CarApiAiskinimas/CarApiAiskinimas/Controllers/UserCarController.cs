@@ -3,6 +3,7 @@ using CarApiAiskinimas.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace CarApiAiskinimas.Controllers
 {
@@ -12,30 +13,55 @@ namespace CarApiAiskinimas.Controllers
     public class UserCarController : ControllerBase
     {
         private readonly IUserCarRepository _repository;
+        private readonly IUserRepository _userRepository;
+
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILogger<UserCarController> _logger;
+        
         public UserCarController(IUserCarRepository repository,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor,
+            ILogger<UserCarController> logger,
+            IUserRepository  userRepository)
         {
             _repository = repository;
             _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
+            _userRepository = userRepository;
         }
 
         [HttpGet("/api/user/{key}/cars")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetCarResponse>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetUserCarResponse>))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [Produces(MediaTypeNames.Application.Json)]
         public IActionResult Get(int key)
         {
             var currentUserId = int.Parse(_httpContextAccessor.HttpContext.User.Identity.Name);
             if (currentUserId != key)
+            {
+                _logger.LogWarning("User {currentUserId} tried to access user {key} cars", currentUserId, key);
                 return Forbid();
-
+            }
             var cars = _repository.Get(key);
-            return Ok(cars.Select(c => new GetCarResponse(c)));
+            // return Ok(cars.Select(c => new GetUserCarResponse(c)));
+            throw new NotImplementedException();
         }
     }
 
-    public class GetCarResponse
+    public class GetUserCarResponse
     {
-        public GetCarResponse(Car car)
+        public string Vardas { get; set; }
+        public string Pavarde { get; set; }
+        public string AsmensKodas { get; set; }
+
+        public IList<GetUserCarResponseCar> Automobiliai { get; set; }
+
+
+    }
+
+    public class GetUserCarResponseCar
+    {
+        public GetUserCarResponseCar(Car car)
         {
             Id = car.Id;
             Mark = car.Mark;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>BitFood Pagrindinis</title>
+</head>
+<body>
+    <main class="container main-class">
+        <header class="main-header">
+            <h1 class="header-h1">BitFood</h1>
+            <nav>
+                <a href="./index.html">Pradinis</a>
+                <a href="./menu.html" class="active">Menu</a>
+                <a href="./registration.html">Registracija</a>
+                <a href="./login.html">Prisijungimas</a>
+            </nav>
+        </header>
+        <article>
+            <h2>BitFood Patiekalo Registracija</h2>
+            <p class="error-message"></p>
+            <form id="dish-create-form">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name"><br><br>
+                <label for="type">Type</label>
+                <input type="text" name="type" id="type" placeholder="Type"><br><br>
+                <label for="spiceLevel">Spice level</label>
+                <input type="text" name="spiceLevel" id="spiceLevel" placeholder="Spice level"><br><br>
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country" placeholder="Country"><br><br>
+                <label for="imagePath">Image path</label>
+                <input type="text" name="imagePath" id="imagePath" placeholder="Image path"><br><br>
+                <input type="button" id="dish-create-form-submit" value="Create">
+            </form>
+        </article>
+    </main>
+    <script src="js/app-dish-create.js"></script>
+</body>
+</html>
