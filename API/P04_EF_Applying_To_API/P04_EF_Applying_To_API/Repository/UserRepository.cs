@@ -50,7 +50,7 @@ namespace P04_EF_Applying_To_API.Repository
             var inputPasswordBytes = Encoding.UTF8.GetBytes(loginRequest.Password);
             var user = await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username.ToLower() == loginRequest.Username.ToLower());
 
-            if (user == null && !_passwordService.VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
+            if (user == null || !_passwordService.VerifyPasswordHash(loginRequest.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return new LoginResponse
                 {
@@ -68,6 +68,7 @@ namespace P04_EF_Applying_To_API.Repository
             };
 
             loginResponse.User.PasswordHash = null;
+            loginResponse.User.PasswordSalt = null;
 
             return loginResponse;
         }
