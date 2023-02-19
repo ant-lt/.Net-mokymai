@@ -102,6 +102,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
         public async Task<ReservationResponse> Return(int bookId, string userName)
         {
+            
             var localUserId = _db.LocalUsers.First(x => x.Username == userName).Id;
             var activeStatus = _db.ReservationStatus.First(x => x.Status == "Active");
             var reservation = _db.Reservations.First(x => x.BookId == bookId  && x.LocalUserId == localUserId && x.ReservationStatusId == activeStatus.Id);
@@ -133,8 +134,14 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
 
             _db.Loans.Add(createLoan);
 
-            await SaveAsync();
 
+            var book = await _db.Books.FindAsync(bookId);
+            book.OwnedQty += 1;
+
+            _db.Books.Update(book);
+
+
+            await SaveAsync();
 
 
             var _fineCalc = new FinesService();
