@@ -8,26 +8,22 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BookWebApiRepoMSSQLEF.Migrations
 {
     /// <inheritdoc />
-    public partial class Initialmigration : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Books",
+                name: "Genres",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Years = table.Column<int>(type: "int", nullable: false),
-                    CoverType = table.Column<int>(type: "int", nullable: false),
-                    OwnedQty = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.PrimaryKey("PK_Genres", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,6 +53,44 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserLevels",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PointsLevel = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserLevels", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Books",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Years = table.Column<int>(type: "int", nullable: false),
+                    CoverType = table.Column<int>(type: "int", nullable: false),
+                    OwnedQty = table.Column<int>(type: "int", nullable: false),
+                    GenreId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Books", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Books_Genres_GenreId",
+                        column: x => x.GenreId,
+                        principalTable: "Genres",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LocalUsers",
                 columns: table => new
                 {
@@ -67,7 +101,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false),
-                    RoleId = table.Column<int>(type: "int", nullable: false)
+                    Points = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false),
+                    UserLevelId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,6 +112,12 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         name: "FK_LocalUsers_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LocalUsers_UserLevels_UserLevelId",
+                        column: x => x.UserLevelId,
+                        principalTable: "UserLevels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -88,8 +130,8 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LoanDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LocalUserId = table.Column<int>(type: "int", nullable: false),
-                    BookId = table.Column<int>(type: "int", nullable: false)
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    LocalUserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -143,6 +185,33 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Wishbooks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    LocalUserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Wishbooks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Wishbooks_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Wishbooks_LocalUsers_LocalUserId",
+                        column: x => x.LocalUserId,
+                        principalTable: "LocalUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Fines",
                 columns: table => new
                 {
@@ -171,17 +240,15 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Books",
-                columns: new[] { "Id", "Author", "CoverType", "OwnedQty", "Title", "Years" },
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Kristina Pišniukaitė - Šimkienė", 0, 1, "Ant medinės lentelės II", 2022 },
-                    { 2, "Lina Žutautė", 1, 2, "Kakė Makė ir magiška kelionė", 2022 },
-                    { 3, "Santa Montefiore", 2, 3, "Tolimi krantai", 2022 },
-                    { 4, "Nino Haratischwili", 2, 1, "Aštuntas gyvenimas (Brilkai)", 2022 },
-                    { 5, "Kristina Pišniukaitė - Šimkienė", 2, 2, "Ant medinės lentelės III", 2022 },
-                    { 6, "Salman Rushdie", 1, 3, "Kichotas", 2020 },
-                    { 7, "Kristina Pišniukaitė - Šimkienė", 2, 1, "Ant medinės lentelės IIV", 2022 }
+                    { 1, "Pasaka" },
+                    { 2, "Legenda" },
+                    { 3, "Romanas" },
+                    { 4, "Fantastika" },
+                    { 5, "Drama" }
                 });
 
             migrationBuilder.InsertData(
@@ -204,6 +271,36 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     { 3, "Librarian" },
                     { 4, "Reader" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "UserLevels",
+                columns: new[] { "Id", "Name", "PointsLevel" },
+                values: new object[,]
+                {
+                    { 1, "Pradinukas", 0 },
+                    { 2, "Megejas", 2000 },
+                    { 3, "Ekspertas", 10000 },
+                    { 4, "Guru", 25000 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Books",
+                columns: new[] { "Id", "Author", "CoverType", "GenreId", "OwnedQty", "Title", "Years" },
+                values: new object[,]
+                {
+                    { 1, "Kristina Pišniukaitė - Šimkienė", 0, 1, 1, "Ant medinės lentelės II", 2022 },
+                    { 2, "Lina Žutautė", 1, 1, 2, "Kakė Makė ir magiška kelionė", 2022 },
+                    { 3, "Santa Montefiore", 2, 1, 3, "Tolimi krantai", 2022 },
+                    { 4, "Nino Haratischwili", 2, 2, 1, "Aštuntas gyvenimas (Brilkai)", 2022 },
+                    { 5, "Kristina Pišniukaitė - Šimkienė", 2, 3, 2, "Ant medinės lentelės III", 2022 },
+                    { 6, "Salman Rushdie", 1, 4, 3, "Kichotas", 2020 },
+                    { 7, "Kristina Pišniukaitė - Šimkienė", 2, 5, 1, "Ant medinės lentelės IIV", 2022 }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_GenreId",
+                table: "Books",
+                column: "GenreId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Fines_LoanId",
@@ -231,6 +328,12 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LocalUsers_UserLevelId",
+                table: "LocalUsers",
+                column: "UserLevelId"
+               );
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reservations_BookId",
                 table: "Reservations",
                 column: "BookId");
@@ -244,6 +347,16 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 name: "IX_Reservations_ReservationStatusId",
                 table: "Reservations",
                 column: "ReservationStatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Wishbooks_BookId",
+                table: "Wishbooks",
+                column: "BookId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Wishbooks_LocalUserId",
+                table: "Wishbooks",
+                column: "LocalUserId");
         }
 
         /// <inheritdoc />
@@ -254,6 +367,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reservations");
+
+            migrationBuilder.DropTable(
+                name: "Wishbooks");
 
             migrationBuilder.DropTable(
                 name: "Loans");
@@ -268,7 +384,13 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                 name: "LocalUsers");
 
             migrationBuilder.DropTable(
+                name: "Genres");
+
+            migrationBuilder.DropTable(
                 name: "Roles");
+
+            migrationBuilder.DropTable(
+                name: "UserLevels");
         }
     }
 }

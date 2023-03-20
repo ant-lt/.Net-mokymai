@@ -30,6 +30,14 @@ namespace WebApiF1
             builder.Services.AddTransient<IBookWrapper, BookWrapper>();
             builder.Services.AddTransient<IBookManager, BookManager>();
             builder.Services.AddTransient<IBadService, BadService>();
+
+            builder.Services.AddHttpClient("FakeApi", client => {
+                client.BaseAddress = new Uri(builder.Configuration["ExternalServices:FakeApiUri"]);
+                client.Timeout = TimeSpan.FromSeconds(10);
+                client.DefaultRequestHeaders.Clear();
+            });
+            builder.Services.AddTransient<IFakeApiProxyService, FakeApiProxyService>();
+
             builder.Services.AddTransient<IDivide, DivideService>();
 
             builder.Services.AddDbContext<BookDataContext>(option =>

@@ -1,4 +1,4 @@
-﻿using BookWebApiRepo_MSSQL_EF.Data;
+using BookWebApiRepo_MSSQL_EF.Data;
 using BookWebApiRepo_MSSQL_EF.Models;
 using BookWebApiRepo_MSSQL_EF.Models.Dto;
 using BookWebApiRepo_MSSQL_EF.Repositories.IRepository;
@@ -72,8 +72,8 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             {
                 ReservationDate = DateTime.Now,
                 BookId = bookId,
-                LocalUserId = _db.LocalUsers.FirstOrDefault(x => x.Username == userName).Id,
-                ReservationStatus = _db.ReservationStatus.FirstOrDefault(x => x.Status == "Active")
+                LocalUserId = (await _db.LocalUsers.FirstOrDefaultAsync(x => x.Username == userName)).Id,
+                ReservationStatus = await _db.ReservationStatus.FirstOrDefaultAsync(x => x.Status == "Active")
             };
 
 
@@ -135,6 +135,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             _db.Loans.Add(createLoan);
 
 
+<<<<<<< HEAD
             var book = await _db.Books.FindAsync(bookId);
             book.OwnedQty += 1;
 

@@ -17,7 +17,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0")
+                .HasAnnotation("ProductVersion", "7.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -37,6 +37,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Property<int>("CoverType")
                         .HasColumnType("int");
 
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
+
                     b.Property<int>("OwnedQty")
                         .HasColumnType("int");
 
@@ -49,6 +52,8 @@ namespace BookWebApiRepoMSSQLEF.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GenreId");
+
                     b.ToTable("Books");
 
                     b.HasData(
@@ -57,6 +62,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 1,
                             Author = "Kristina Pišniukaitė - Šimkienė",
                             CoverType = 0,
+                            GenreId = 1,
                             OwnedQty = 1,
                             Title = "Ant medinės lentelės II",
                             Years = 2022
@@ -66,6 +72,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 2,
                             Author = "Lina Žutautė",
                             CoverType = 1,
+                            GenreId = 1,
                             OwnedQty = 2,
                             Title = "Kakė Makė ir magiška kelionė",
                             Years = 2022
@@ -75,6 +82,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 3,
                             Author = "Santa Montefiore",
                             CoverType = 2,
+                            GenreId = 1,
                             OwnedQty = 3,
                             Title = "Tolimi krantai",
                             Years = 2022
@@ -84,6 +92,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 4,
                             Author = "Nino Haratischwili",
                             CoverType = 2,
+                            GenreId = 2,
                             OwnedQty = 1,
                             Title = "Aštuntas gyvenimas (Brilkai)",
                             Years = 2022
@@ -93,6 +102,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 5,
                             Author = "Kristina Pišniukaitė - Šimkienė",
                             CoverType = 2,
+                            GenreId = 3,
                             OwnedQty = 2,
                             Title = "Ant medinės lentelės III",
                             Years = 2022
@@ -102,6 +112,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 6,
                             Author = "Salman Rushdie",
                             CoverType = 1,
+                            GenreId = 4,
                             OwnedQty = 3,
                             Title = "Kichotas",
                             Years = 2020
@@ -111,6 +122,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                             Id = 7,
                             Author = "Kristina Pišniukaitė - Šimkienė",
                             CoverType = 2,
+                            GenreId = 5,
                             OwnedQty = 1,
                             Title = "Ant medinės lentelės IIV",
                             Years = 2022
@@ -144,6 +156,50 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.HasIndex("LocalUserId");
 
                     b.ToTable("Fines");
+                });
+
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Genre", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Pasaka"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Legenda"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Romanas"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Fantastika"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Drama"
+                        });
                 });
 
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Loan", b =>
@@ -198,7 +254,13 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
+
                     b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserLevelId")
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
@@ -208,6 +270,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
+
+                    b.HasIndex("UserLevelId")
+                        .IsUnique();
 
                     b.ToTable("LocalUsers");
                 });
@@ -316,6 +381,89 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.UserLevel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PointsLevel")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLevels");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Pradinukas",
+                            PointsLevel = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Megejas",
+                            PointsLevel = 2000
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Ekspertas",
+                            PointsLevel = 10000
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Guru",
+                            PointsLevel = 25000
+                        });
+                });
+
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Wishbook", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LocalUserId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("LocalUserId");
+
+                    b.ToTable("Wishbooks");
+                });
+
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Book", b =>
+                {
+                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.Genre", "Genres")
+                        .WithMany("Books")
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genres");
+                });
+
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Fine", b =>
                 {
                     b.HasOne("BookWebApiRepo_MSSQL_EF.Models.Loan", "Loan")
@@ -325,7 +473,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .IsRequired();
 
                     b.HasOne("BookWebApiRepo_MSSQL_EF.Models.LocalUser", "LocalUser")
-                        .WithMany("Fines")
+                        .WithMany()
                         .HasForeignKey("LocalUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -344,7 +492,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .IsRequired();
 
                     b.HasOne("BookWebApiRepo_MSSQL_EF.Models.LocalUser", "LocalUser")
-                        .WithMany("Loans")
+                        .WithMany()
                         .HasForeignKey("LocalUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -357,12 +505,20 @@ namespace BookWebApiRepoMSSQLEF.Migrations
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.LocalUser", b =>
                 {
                     b.HasOne("BookWebApiRepo_MSSQL_EF.Models.Role", "Role")
-                        .WithMany("LocalUsers")
+                        .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.UserLevel", "UserLevel")
+                        .WithOne("LocalUser")
+                        .HasForeignKey("BookWebApiRepo_MSSQL_EF.Models.LocalUser", "UserLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Role");
+
+                    b.Navigation("UserLevel");
                 });
 
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Reservation", b =>
@@ -374,7 +530,7 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                         .IsRequired();
 
                     b.HasOne("BookWebApiRepo_MSSQL_EF.Models.LocalUser", "LocalUser")
-                        .WithMany("Reservations")
+                        .WithMany()
                         .HasForeignKey("LocalUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -392,6 +548,25 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Navigation("ReservationStatus");
                 });
 
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Wishbook", b =>
+                {
+                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookWebApiRepo_MSSQL_EF.Models.LocalUser", "LocalUser")
+                        .WithMany()
+                        .HasForeignKey("LocalUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("LocalUser");
+                });
+
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Book", b =>
                 {
                     b.Navigation("Loans");
@@ -399,13 +574,9 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Navigation("Reservations");
                 });
 
-            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.LocalUser", b =>
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Genre", b =>
                 {
-                    b.Navigation("Fines");
-
-                    b.Navigation("Loans");
-
-                    b.Navigation("Reservations");
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.ReservationStatus", b =>
@@ -413,9 +584,10 @@ namespace BookWebApiRepoMSSQLEF.Migrations
                     b.Navigation("Reservations");
                 });
 
-            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.Role", b =>
+            modelBuilder.Entity("BookWebApiRepo_MSSQL_EF.Models.UserLevel", b =>
                 {
-                    b.Navigation("LocalUsers");
+                    b.Navigation("LocalUser")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

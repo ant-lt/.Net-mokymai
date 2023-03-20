@@ -37,7 +37,23 @@ namespace BookWebApiRepo_MSSQL_EF
             builder.Services.AddScoped<IJwtService, JwtService>();
 
             builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
- //           builder.Services.AddScoped<IBookReservationManager, BookReservationManager>();
+
+            //to do prideti IFineService ir uzregistruoti DI , nereikes new daryti.
+
+            //////////////////
+            builder.Services.AddHttpClient("ShippingApiUri", client => {
+                client.BaseAddress = new Uri(builder.Configuration["ExternalServices:ShippingApiUri"]);
+                client.Timeout = TimeSpan.FromSeconds(10);
+                client.DefaultRequestHeaders.Clear();
+            });
+
+            builder.Services.AddTransient<IShippingApiProxyService, ShippingApiProxyService>();
+
+            ///////////////////
+
+            //           builder.Services.AddScoped<IBookReservationManager, BookReservationManager>();
+
+
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 

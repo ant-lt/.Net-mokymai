@@ -43,7 +43,6 @@ namespace P04EFApplyingToAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SpiceLevel")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Type")
@@ -62,7 +61,7 @@ namespace P04EFApplyingToAPI.Migrations
                         {
                             DishId = 1,
                             Country = "Lithuanian",
-                            CreateDateTime = new DateTime(2022, 12, 15, 19, 7, 10, 130, DateTimeKind.Local).AddTicks(1487),
+                            CreateDateTime = new DateTime(2022, 12, 21, 18, 21, 16, 955, DateTimeKind.Local).AddTicks(1216),
                             ImagePath = "gg",
                             Name = "Fried Bread Sticks",
                             SpiceLevel = "Mild",
@@ -73,7 +72,7 @@ namespace P04EFApplyingToAPI.Migrations
                         {
                             DishId = 2,
                             Country = "Lithuanian",
-                            CreateDateTime = new DateTime(2022, 12, 15, 19, 7, 10, 130, DateTimeKind.Local).AddTicks(1517),
+                            CreateDateTime = new DateTime(2022, 12, 21, 18, 21, 16, 955, DateTimeKind.Local).AddTicks(1254),
                             ImagePath = "gg",
                             Name = "Potato dumplings",
                             SpiceLevel = "Low",
@@ -84,7 +83,7 @@ namespace P04EFApplyingToAPI.Migrations
                         {
                             DishId = 3,
                             Country = "Lithuanian",
-                            CreateDateTime = new DateTime(2022, 12, 15, 19, 7, 10, 130, DateTimeKind.Local).AddTicks(1519),
+                            CreateDateTime = new DateTime(2022, 12, 21, 18, 21, 16, 955, DateTimeKind.Local).AddTicks(1256),
                             ImagePath = "gg",
                             Name = "Kibinai",
                             SpiceLevel = "Low",

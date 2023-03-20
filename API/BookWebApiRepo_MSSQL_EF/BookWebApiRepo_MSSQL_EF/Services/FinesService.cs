@@ -17,6 +17,12 @@ namespace BookWebApiRepo_MSSQL_EF.Services
             if (daysDelayed > 0 )
             {
                 decimal fineAmount = (decimal)Math.Pow(daysDelayed, 2) * finefee;
+
+                if(fineAmount > 50 )
+                {
+                    fineAmount= 50;
+                }
+
                 var fine = new Fine() 
                 { 
                     LoanId = loan.Id, 

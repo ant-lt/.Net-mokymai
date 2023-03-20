@@ -120,7 +120,15 @@ namespace BookWebApiRepo_MSSQL_EF.Controllers
                     return BadRequest(new { message = "User have exceeded 5 book reservations limit." });
                 }
 
-                var  bookReservation = await _reservationRepo.Reserve(bookId, userName);
+                var userDebt = await _reservationRepo.IsUserHaveDebts(userName);
+
+                if (userDebt)
+                {
+                    return BadRequest(new { message = "User have debts more that 10 Eur." });
+                }
+
+
+                var bookReservation = await _reservationRepo.Reserve(bookId, userName);
 
 
                 return CreatedAtRoute("CreateBookReservation", new { id = bookReservation.ReservationId }, bookReservation);

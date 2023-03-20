@@ -1,19 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using P04_EF_Applying_To_API.Models.Dto;
 using P04_EF_Applying_To_API.Models;
 using P04_EF_Applying_To_API.Repository.IRepository;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.JsonPatch;
+using System.Net.Mime;
+using P04_EF_Applying_To_API.Services.Adapters.IAdapters;
 
 [Route("api/[controller]")]
 [ApiController]
 public class DishesController : ControllerBase
 {
     private readonly IDishRepository _dishRepo;
+    private readonly IDishAdapter _dishAdapter;
 
-    public DishesController(IDishRepository dishRepo)
+    public DishesController(IDishRepository dishRepo, IDishAdapter dishAdapter)
     {
         _dishRepo = dishRepo;
+        _dishAdapter= dishAdapter;
     }
 
     /// <summary>
@@ -21,11 +28,12 @@ public class DishesController : ControllerBase
     /// </summary>
     /// <returns>All dishes in DB</returns>
     [HttpGet("dishes")]
-    [Authorize]
+    //[Authorize]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetDishDTO>))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<IEnumerable<GetDishDTO>>> GetDishes()
+    public async Task<IActionResult> GetDishes()
     {
+        // printingService.Print(Message)
         var dishes = await _dishRepo.GetAllAsync();
 
         return Ok(dishes
@@ -157,4 +165,111 @@ public class DishesController : ControllerBase
 
         return NoContent();
     }
+
+
+    /*
+  https://jsonpatch.com/
+    [
+      {
+        "path": "/Name",
+        "op": "replace",
+        "value": "Patched with DTO value"
+      }
+    ]
+    [
+      {
+        "path": "/RecipeItems",
+        "op": "add",
+        "value": [{
+    "Name":"TestRecipeItem",
+    "Calories":"50"
+    }]
+      }
+    ]
+ */
+
+    [HttpPatch("patch/{id:int}", Name = "UpdatePartialDish")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult> UpdatePartialDish(int id, JsonPatchDocument<Dish> request)
+    {
+        if (id == 0 || request == null)
+        {
+            return BadRequest();
+        }
+
+        var dishExists = await _dishRepo.ExistAsync(d => d.DishId == id);
+
+        if (!dishExists)
+        {
+            return NotFound();
+        }
+
+        var foundDish = await _dishRepo.GetAsync(d => d.DishId == id);
+
+        request.ApplyTo(foundDish, ModelState);
+
+        await _dishRepo.UpdateAsync(foundDish);
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        return NoContent();
+    }
+
+
+    /*
+  https://jsonpatch.com/
+    [
+      {
+        "path": "/Name",
+        "op": "replace",
+        "value": "Patched with DTO value"
+      }
+    ]
+ */
+
+    [HttpPatch("patch/{id:int}/dto", Name = "UpdatePartialDishDto")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<ActionResult> UpdatePartialDishByDto(int id, JsonPatchDocument<UpdateDishDTO> request)
+    {
+        if (id == 0 || request == null)
+        {
+            return BadRequest();
+        }
+
+        var dishExists = await _dishRepo.ExistAsync(d => d.DishId == id);
+
+        if (!dishExists)
+        {
+            return NotFound();
+        }
+
+        var foundDish = await _dishRepo.GetAsync(d => d.DishId == id, tracked: false);
+
+        var updateDishDto = _dishAdapter.Bind(foundDish);
+
+        request.ApplyTo(updateDishDto, ModelState);
+
+        var dish = _dishAdapter.Bind(updateDishDto, foundDish.DishId);
+
+        await _dishRepo.UpdateAsync(dish);
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        return NoContent();
+    }
+
 }
+
+

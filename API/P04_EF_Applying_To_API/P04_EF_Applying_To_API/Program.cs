@@ -17,6 +17,7 @@ namespace P04_EF_Applying_To_API
 {
 
     // https://jwt.io/
+    // https://jsonpatch.com/
 
     public class Program
     {
@@ -36,7 +37,10 @@ namespace P04_EF_Applying_To_API
             builder.Services.AddScoped<IPasswordService, PasswordService>();
             builder.Services.AddScoped<IJwtService, JwtService>();
             builder.Services.AddTransient<IDishOrderAdapter, DishOrderAdapter>();
+            builder.Services.AddTransient<IDishAdapter, DishAdapter>();
             builder.Services.AddTransient<ICookingService, CookingService>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
             var key = builder.Configuration.GetValue<string>("ApiSettings:Secret");
 
@@ -59,6 +63,7 @@ namespace P04_EF_Applying_To_API
                 });
 
             builder.Services.AddControllers()
+                .AddNewtonsoftJson()
                 .AddJsonOptions(option => option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -100,6 +105,13 @@ namespace P04_EF_Applying_To_API
                 });
             });
 
+            builder.Services.AddCors(p => p.AddPolicy("corsfordish", builder =>
+            {
+                builder.WithOrigins("*")
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -108,6 +120,8 @@ namespace P04_EF_Applying_To_API
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("corsfordish");
 
             app.UseHttpsRedirection();
 

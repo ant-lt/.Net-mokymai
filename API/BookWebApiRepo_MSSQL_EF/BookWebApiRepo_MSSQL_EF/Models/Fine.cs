@@ -10,8 +10,8 @@
         public int LoanId { get; set; }
 
 
-        public virtual LocalUser LocalUser { get; set; } = null!;
-        public virtual Loan Loan { get; set; } = null!;
+        public virtual LocalUser LocalUser { get; set; }
+        public virtual Loan Loan { get; set; } 
 
     }
 }

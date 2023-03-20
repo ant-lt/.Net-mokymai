@@ -80,6 +80,7 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
             _passwordService.CreatePasswordHash(registrationRequest.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
             var userRole = await _db.Roles.FirstOrDefaultAsync(x => x.Name == registrationRequest.Role);
+            var userLevel = await _db.UserLevels.FirstOrDefaultAsync(x => x.Name == "Pradinukas");
             LocalUser user = new()
             {
                 Username = registrationRequest.Username,
@@ -87,7 +88,9 @@ namespace BookWebApiRepo_MSSQL_EF.Repositories
                 PasswordSalt = passwordSalt,
                 Name = registrationRequest.Name,
                 Role = userRole,
-                Active = true
+                Active = true,
+                Points = 0,
+                UserLevel = userLevel
             };
 
             _db.LocalUsers.Add(user);

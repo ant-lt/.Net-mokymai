@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using CarApiAiskinimas.Services;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 /*
 aplikacija automobiliu registas
 issukiai:
@@ -23,6 +24,7 @@ namespace CarApiAiskinimas.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class CarController : ControllerBase
     {
 
@@ -49,6 +51,7 @@ namespace CarApiAiskinimas.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(GetCarResult))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [Produces(MediaTypeNames.Application.Json)]
         public IActionResult Get(int id)
@@ -72,6 +75,7 @@ namespace CarApiAiskinimas.Controllers
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<GetCarResult>))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [Produces(MediaTypeNames.Application.Json)]
         public IActionResult Get([FromQuery] FilterCarRequest req)
         {
@@ -122,6 +126,7 @@ namespace CarApiAiskinimas.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [Produces(MediaTypeNames.Application.Json)]
         [Consumes(MediaTypeNames.Application.Json)]
         public IActionResult Post(PostCarRequest req)
@@ -159,6 +164,7 @@ namespace CarApiAiskinimas.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [Consumes(MediaTypeNames.Application.Json)]
         public IActionResult Put(PutCarRequest req)
         {
